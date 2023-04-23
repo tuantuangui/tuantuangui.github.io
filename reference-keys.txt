@@ -11,10 +11,11 @@ pathway-differential-abundance-score
 extended-pathway-differential-abundance-score
 metabolite-differential-abundance-score
 gene-differential-abundance-score
+msea-metabolite-set-enrichment-analysis
 subnetwork-analysis-of-metabolism-and-transcriptome-data-from-tnbc
 subnetwork-analysis-of-interested-metabolites-and-genes
 example-rountine-analyses
-metabolite-name-change
+metabolite-and-kegg-name-change
 metabolite-name-changed-to-refmet-name
 metabolite-name-changed-to-kegg-id
 metabolite-name-corresponding-to-kegg-pathway
@@ -40,7 +41,6 @@ pathview-only-metabolite
 pathview-metabolite-and-gene
 clinical-analysis
 time-series-of-clinical
-correlation-between-clinical-and-metabolites-using-mantel-test
 survival-analysis
 metabolites-survival-plot
 cox-analysis
