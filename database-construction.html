@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Database construction | MNet</title>
+  <meta name="description" content="Chapter 2 Database construction | MNet" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Database construction | MNet" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Database construction | MNet" />
+  
+  
+  
+
+<meta name="author" content="Tuantuan Gui, Xuan Liu and Hai Fang" />
+
+
+<meta name="date" content="2024-02-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="example-unique-analyses.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.30/datatables.js"></script>
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-buttons-1.13.4/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-buttons-1.13.4/js/dataTables.buttons.min.js"></script>
+<script src="libs/dt-ext-buttons-1.13.4/js/buttons.html5.min.js"></script>
+<script src="libs/dt-ext-buttons-1.13.4/js/buttons.colVis.min.js"></script>
+<script src="libs/dt-ext-buttons-1.13.4/js/buttons.print.min.js"></script>
+<link href="libs/dt-ext-fixedcolumns-1.13.4/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-fixedcolumns-1.13.4/js/dataTables.fixedColumns.min.js"></script>
+<link href="libs/dt-plugin-searchhighlight-1.13.4/source.css" rel="stylesheet" />
+<script src="libs/dt-plugin-searchhighlight-1.13.4/jquery.highlight.js"></script>
+<script src="libs/dt-plugin-searchhighlight-1.13.4/source.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction &amp; Installation</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview-of-workflow"><i class="fa fa-check"></i><b>1.1</b> Overview of Workflow</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installation"><i class="fa fa-check"></i><b>1.2</b> Installation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="database-construction.html"><a href="database-construction.html"><i class="fa fa-check"></i><b>2</b> Database construction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="database-construction.html"><a href="database-construction.html#kegg-pathways-metabolite-and-gene"><i class="fa fa-check"></i><b>2.1</b> KEGG pathway’s metabolite and gene</a></li>
+<li class="chapter" data-level="2.2" data-path="database-construction.html"><a href="database-construction.html#kegg-metabolite-metabolite-pairs-and-metabolite-gene-pairs"><i class="fa fa-check"></i><b>2.2</b> KEGG metabolite-metabolite pairs and metabolite-gene pairs</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="database-construction.html"><a href="database-construction.html#keggs-reaction-and-compounds-download"><i class="fa fa-check"></i><b>2.2.1</b> KEGG’s reaction and compound’s download</a></li>
+<li class="chapter" data-level="2.2.2" data-path="database-construction.html"><a href="database-construction.html#downloading-the-enzyme-and-its-corresponding-gene-information-from-the-htextand-extract-the-gene-and-the-enzymes-relationship"><i class="fa fa-check"></i><b>2.2.2</b> Downloading the enzyme and its corresponding gene information from the htext,and extract the gene and the enzyme’s relationship</a></li>
+<li class="chapter" data-level="2.2.3" data-path="database-construction.html"><a href="database-construction.html#extracting-the-metabolite-gene-pairs-and-metabolite-metabolite-pairs"><i class="fa fa-check"></i><b>2.2.3</b> Extracting the metabolite-gene pairs and metabolite-metabolite pairs</a></li>
+<li class="chapter" data-level="2.2.4" data-path="database-construction.html"><a href="database-construction.html#conclusion"><i class="fa fa-check"></i><b>2.2.4</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="database-construction.html"><a href="database-construction.html#graphite"><i class="fa fa-check"></i><b>2.3</b> Graphite</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="database-construction.html"><a href="database-construction.html#download-all-the-data-from-graphite"><i class="fa fa-check"></i><b>2.3.1</b> Download all the data from graphite</a></li>
+<li class="chapter" data-level="2.3.2" data-path="database-construction.html"><a href="database-construction.html#download-the-information-of-metabolism-pathways"><i class="fa fa-check"></i><b>2.3.2</b> Download the information of metabolism pathways</a></li>
+<li class="chapter" data-level="2.3.3" data-path="database-construction.html"><a href="database-construction.html#extract-the-data-of-metabolism"><i class="fa fa-check"></i><b>2.3.3</b> Extract the data of metabolism</a></li>
+<li class="chapter" data-level="2.3.4" data-path="database-construction.html"><a href="database-construction.html#combine-the-data-from-database-kegg-wikipathway-reactome-smpdb-and-then-uniq-the-data"><i class="fa fa-check"></i><b>2.3.4</b> Combine the data from database kegg, wikipathway, reactome, smpdb and then uniq the data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="database-construction.html"><a href="database-construction.html#bigg"><i class="fa fa-check"></i><b>2.4</b> BiGG</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="database-construction.html"><a href="database-construction.html#down-all-the-models-in-the-bigg"><i class="fa fa-check"></i><b>2.4.1</b> Down all the models in the BiGG</a></li>
+<li class="chapter" data-level="2.4.2" data-path="database-construction.html"><a href="database-construction.html#download-the-every-reaction"><i class="fa fa-check"></i><b>2.4.2</b> Download the every reaction</a></li>
+<li class="chapter" data-level="2.4.3" data-path="database-construction.html"><a href="database-construction.html#exact-all-the-metabolites-names-in-every-model-in-bigg"><i class="fa fa-check"></i><b>2.4.3</b> Exact all the metabolites names in every model in BiGG</a></li>
+<li class="chapter" data-level="2.4.4" data-path="database-construction.html"><a href="database-construction.html#the-r-script-that-change-the-metabolite-name-to-kegg-id-in-the-final-output"><i class="fa fa-check"></i><b>2.4.4</b> The R script that change the metabolite name to kegg id in the final output</a></li>
+<li class="chapter" data-level="2.4.5" data-path="database-construction.html"><a href="database-construction.html#combine-the-data-from-bigg-and-graphite"><i class="fa fa-check"></i><b>2.4.5</b> Combine the data from BiGG and graphite</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html"><i class="fa fa-check"></i><b>3</b> Example-unique analyses</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#loading-the-data"><i class="fa fa-check"></i><b>3.1</b> Loading the data</a></li>
+<li class="chapter" data-level="3.2" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#pathway-enrichment-analysis"><i class="fa fa-check"></i><b>3.2</b> Pathway enrichment analysis</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#gene-pathway-enrichment"><i class="fa fa-check"></i><b>3.2.1</b> gene pathway enrichment</a></li>
+<li class="chapter" data-level="3.2.2" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#metabolite-pathway-enrichment"><i class="fa fa-check"></i><b>3.2.2</b> metabolite pathway enrichment</a></li>
+<li class="chapter" data-level="3.2.3" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#extended-pathway-enrichment"><i class="fa fa-check"></i><b>3.2.3</b> Extended pathway enrichment</a></li>
+<li class="chapter" data-level="3.2.4" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#overview-of-pathway-enrichment-analysis"><i class="fa fa-check"></i><b>3.2.4</b> Overview of pathway enrichment analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#pathway-differential-abundance-score"><i class="fa fa-check"></i><b>3.3</b> Pathway differential abundance score</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#gene-differential-abundance-score"><i class="fa fa-check"></i><b>3.3.1</b> gene differential abundance score</a></li>
+<li class="chapter" data-level="3.3.2" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#metabolite-differential-abundance-score"><i class="fa fa-check"></i><b>3.3.2</b> metabolite differential abundance score</a></li>
+<li class="chapter" data-level="3.3.3" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#extended-pathway-differential-abundance-score"><i class="fa fa-check"></i><b>3.3.3</b> Extended pathway differential abundance score</a></li>
+<li class="chapter" data-level="3.3.4" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#overview-of-pathway-differential-abundance-score"><i class="fa fa-check"></i><b>3.3.4</b> Overview of pathway differential abundance score</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#esea-metabolite-set-enrichment-analysis"><i class="fa fa-check"></i><b>3.4</b> ESEA Metabolite Set Enrichment Analysis</a></li>
+<li class="chapter" data-level="3.5" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#subnetwork"><i class="fa fa-check"></i><b>3.5</b> Subnetwork</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html"><i class="fa fa-check"></i><b>4</b> Example-rountine analyses</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-and-kegg-name-change"><i class="fa fa-check"></i><b>4.1</b> Metabolite and kegg name change</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-name-changed-to-refmet-name"><i class="fa fa-check"></i><b>4.1.1</b> Metabolite name changed to refmet name</a></li>
+<li class="chapter" data-level="4.1.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-name-changed-to-kegg-id"><i class="fa fa-check"></i><b>4.1.2</b> Metabolite name changed to kegg id</a></li>
+<li class="chapter" data-level="4.1.3" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-name-corresponding-to-kegg-pathway"><i class="fa fa-check"></i><b>4.1.3</b> Metabolite name corresponding to kegg pathway</a></li>
+<li class="chapter" data-level="4.1.4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-keggid-to-kegg-pathway"><i class="fa fa-check"></i><b>4.1.4</b> Metabolite keggid to kegg pathway</a></li>
+<li class="chapter" data-level="4.1.5" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#the-pathway-information"><i class="fa fa-check"></i><b>4.1.5</b> The pathway information</a></li>
+<li class="chapter" data-level="4.1.6" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pathway-name-to-pathway-id"><i class="fa fa-check"></i><b>4.1.6</b> Pathway name to pathway id</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#group-wise-analyses"><i class="fa fa-check"></i><b>4.2</b> Group-wise analyses</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pca-plot"><i class="fa fa-check"></i><b>4.2.1</b> PCA plot</a></li>
+<li class="chapter" data-level="4.2.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#differnetial-metabolite-analysis"><i class="fa fa-check"></i><b>4.2.2</b> Differnetial metabolite analysis</a></li>
+<li class="chapter" data-level="4.2.3" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#differential-metabolites-volcano"><i class="fa fa-check"></i><b>4.2.3</b> Differential metabolites’ volcano</a></li>
+<li class="chapter" data-level="4.2.4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#differential-metabolites-heatmap"><i class="fa fa-check"></i><b>4.2.4</b> Differential metabolites’ heatmap</a></li>
+<li class="chapter" data-level="4.2.5" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#differential-metabolites-zscore"><i class="fa fa-check"></i><b>4.2.5</b> Differential metabolites’ zscore</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pathway-analysis"><i class="fa fa-check"></i><b>4.3</b> Pathway analysis</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pathview-only-metabolite"><i class="fa fa-check"></i><b>4.3.1</b> Pathview only metabolite</a></li>
+<li class="chapter" data-level="4.3.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pathview-metabolite-and-gene"><i class="fa fa-check"></i><b>4.3.2</b> Pathview metabolite and gene</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#clinical-analysis"><i class="fa fa-check"></i><b>4.4</b> Clinical analysis</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#time-series-of-clinical"><i class="fa fa-check"></i><b>4.4.1</b> Time series of clinical</a></li>
+<li class="chapter" data-level="4.4.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#survival-analysis"><i class="fa fa-check"></i><b>4.4.2</b> Survival analysis</a></li>
+<li class="chapter" data-level="4.4.3" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolites-survival-plot"><i class="fa fa-check"></i><b>4.4.3</b> Metabolites’ survival plot</a></li>
+<li class="chapter" data-level="4.4.4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#cox-analysis"><i class="fa fa-check"></i><b>4.4.4</b> Cox analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="shiny.html"><a href="shiny.html"><i class="fa fa-check"></i><b>5</b> Shiny</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="shiny.html"><a href="shiny.html#tencent-log"><i class="fa fa-check"></i><b>5.1</b> Tencent log</a></li>
+<li class="chapter" data-level="5.2" data-path="shiny.html"><a href="shiny.html#shiny-app-log"><i class="fa fa-check"></i><b>5.2</b> Shiny app log</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="figure1.html"><a href="figure1.html"><i class="fa fa-check"></i><b>6</b> Figure1</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="figure1.html"><a href="figure1.html#a"><i class="fa fa-check"></i><b>6.1</b> 1.1 (A)</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="figure1.html"><a href="figure1.html#batch-removal"><i class="fa fa-check"></i><b>6.1.1</b> Batch removal</a></li>
+<li class="chapter" data-level="6.1.2" data-path="figure1.html"><a href="figure1.html#metabolite-information"><i class="fa fa-check"></i><b>6.1.2</b> Metabolite information</a></li>
+<li class="chapter" data-level="6.1.3" data-path="figure1.html"><a href="figure1.html#metabolic-pathway-information"><i class="fa fa-check"></i><b>6.1.3</b> Metabolic pathway information</a></li>
+<li class="chapter" data-level="6.1.4" data-path="figure1.html"><a href="figure1.html#metabolite-and-metabolic-pathway-annotation"><i class="fa fa-check"></i><b>6.1.4</b> Metabolite and metabolic pathway annotation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="figure1.html"><a href="figure1.html#b"><i class="fa fa-check"></i><b>6.2</b> 1.2 (B)</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="figure1.html"><a href="figure1.html#clinical-and-metabolite-analysis"><i class="fa fa-check"></i><b>6.2.1</b> Clinical and metabolite analysis</a></li>
+<li class="chapter" data-level="6.2.2" data-path="figure1.html"><a href="figure1.html#time-series-analysis"><i class="fa fa-check"></i><b>6.2.2</b> Time series analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="figure1.html"><a href="figure1.html#c"><i class="fa fa-check"></i><b>6.3</b> 1.3 (C)</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="figure1.html"><a href="figure1.html#dimension-reduction-visualization"><i class="fa fa-check"></i><b>6.3.1</b> Dimension reduction &amp; Visualization</a></li>
+<li class="chapter" data-level="6.3.2" data-path="figure1.html"><a href="figure1.html#differential-metabolites-visualization"><i class="fa fa-check"></i><b>6.3.2</b> Differential metabolites visualization</a></li>
+<li class="chapter" data-level="6.3.3" data-path="figure1.html"><a href="figure1.html#pathway-enrichment-analyses"><i class="fa fa-check"></i><b>6.3.3</b> Pathway enrichment analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="figure1.html"><a href="figure1.html#d"><i class="fa fa-check"></i><b>6.4</b> 1.4 (D)</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="figure1.html"><a href="figure1.html#extended-pathway-enrichment-analysis-epea"><i class="fa fa-check"></i><b>6.4.1</b> Extended pathway enrichment analysis (EPEA)</a></li>
+<li class="chapter" data-level="6.4.2" data-path="figure1.html"><a href="figure1.html#extended-differential-abundance-eda-score"><i class="fa fa-check"></i><b>6.4.2</b> Extended differential abundance (EDA) score</a></li>
+<li class="chapter" data-level="6.4.3" data-path="figure1.html"><a href="figure1.html#extended-data-set-enrichment-analysis-esea"><i class="fa fa-check"></i><b>6.4.3</b> Extended data set enrichment analysis (ESEA)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="figure1.html"><a href="figure1.html#e"><i class="fa fa-check"></i><b>6.5</b> 1.5 (E)</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="figure1.html"><a href="figure1.html#dbmnet-database"><i class="fa fa-check"></i><b>6.5.1</b> dbMNet database</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="figure4.html"><a href="figure4.html"><i class="fa fa-check"></i><b>7</b> Figure4</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="figure4.html"><a href="figure4.html#load-data"><i class="fa fa-check"></i><b>7.1</b> Load data</a></li>
+<li class="chapter" data-level="7.2" data-path="figure4.html"><a href="figure4.html#mlimma-analysis"><i class="fa fa-check"></i><b>7.2</b> mlimma analysis</a></li>
+<li class="chapter" data-level="7.3" data-path="figure4.html"><a href="figure4.html#epe-analysis"><i class="fa fa-check"></i><b>7.3</b> EPE analysis</a></li>
+<li class="chapter" data-level="7.4" data-path="figure4.html"><a href="figure4.html#eda-analysis"><i class="fa fa-check"></i><b>7.4</b> EDA analysis</a></li>
+<li class="chapter" data-level="7.5" data-path="figure4.html"><a href="figure4.html#esea-analysis"><i class="fa fa-check"></i><b>7.5</b> ESEA analysis</a></li>
+<li class="chapter" data-level="7.6" data-path="figure4.html"><a href="figure4.html#aml-epe-analysis"><i class="fa fa-check"></i><b>7.6</b> AML EPE analysis</a></li>
+<li class="chapter" data-level="7.7" data-path="figure4.html"><a href="figure4.html#volcano-plot-1"><i class="fa fa-check"></i><b>7.7</b> Volcano plot</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="figure4.html"><a href="figure4.html#differential-metabolites-and-genes"><i class="fa fa-check"></i><b>7.7.1</b> Differential metabolites and genes</a></li>
+<li class="chapter" data-level="7.7.2" data-path="figure4.html"><a href="figure4.html#all"><i class="fa fa-check"></i><b>7.7.2</b> ALL</a></li>
+<li class="chapter" data-level="7.7.3" data-path="figure4.html"><a href="figure4.html#aml"><i class="fa fa-check"></i><b>7.7.3</b> AML</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="figure4.html"><a href="figure4.html#heatmap-1"><i class="fa fa-check"></i><b>7.8</b> Heatmap</a></li>
+<li class="chapter" data-level="7.9" data-path="figure4.html"><a href="figure4.html#subnetwork-1"><i class="fa fa-check"></i><b>7.9</b> Subnetwork</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>8</b> Session information</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MNet</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="database-construction" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Database construction<a href="database-construction.html#database-construction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="kegg-pathways-metabolite-and-gene" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> KEGG pathway’s metabolite and gene<a href="database-construction.html#kegg-pathways-metabolite-and-gene" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This is the metabolites and the genes in every metabolism KEGG pathway.6821个代谢物和基因.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="database-construction.html#cb4-1" tabindex="-1"></a><span class="fu">library</span>(KEGGREST)</span>
+<span id="cb4-2"><a href="database-construction.html#cb4-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-3"><a href="database-construction.html#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="database-construction.html#cb4-4" tabindex="-1"></a><span class="do">## 所有人代谢相关通路，这个是之前自己整理的</span></span>
+<span id="cb4-5"><a href="database-construction.html#cb4-5" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="database-construction.html#cb4-6" tabindex="-1"></a>pathway_meta <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">&quot;result/pathway_hsa.txt&quot;</span>,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">header=</span>F) <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="database-construction.html#cb4-7" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb4-8"><a href="database-construction.html#cb4-8" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="database-construction.html#cb4-9" tabindex="-1"></a><span class="do">## 对每个通路提取对应的基因和代谢物</span></span>
+<span id="cb4-10"><a href="database-construction.html#cb4-10" tabindex="-1"></a>result_gene <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb4-11"><a href="database-construction.html#cb4-11" tabindex="-1"></a>result_compound <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb4-12"><a href="database-construction.html#cb4-12" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(pathway_meta<span class="sc">$</span>V2)){</span>
+<span id="cb4-13"><a href="database-construction.html#cb4-13" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="database-construction.html#cb4-14" tabindex="-1"></a>  <span class="fu">print</span>(pathway_meta<span class="sc">$</span>V2[i])</span>
+<span id="cb4-15"><a href="database-construction.html#cb4-15" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="database-construction.html#cb4-16" tabindex="-1"></a>  path <span class="ot">&lt;-</span> <span class="fu">keggGet</span>(pathway_meta<span class="sc">$</span>V2[i])</span>
+<span id="cb4-17"><a href="database-construction.html#cb4-17" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="database-construction.html#cb4-18" tabindex="-1"></a>  <span class="co">#  print(pathway_meta$V2[i])  </span></span>
+<span id="cb4-19"><a href="database-construction.html#cb4-19" tabindex="-1"></a>  <span class="do">## 提取此通路的基因信息</span></span>
+<span id="cb4-20"><a href="database-construction.html#cb4-20" tabindex="-1"></a>  gene.info <span class="ot">&lt;-</span> path[[<span class="dv">1</span>]]<span class="sc">$</span>GENE <span class="sc">%&gt;%</span></span>
+<span id="cb4-21"><a href="database-construction.html#cb4-21" tabindex="-1"></a>    <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-22"><a href="database-construction.html#cb4-22" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;V1&quot;</span><span class="ot">=</span><span class="st">&quot;.&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-23"><a href="database-construction.html#cb4-23" tabindex="-1"></a>    tidyr<span class="sc">::</span><span class="fu">separate</span>(V1,<span class="at">sep=</span><span class="st">&quot;;&quot;</span>,<span class="st">&quot;V1&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-24"><a href="database-construction.html#cb4-24" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">pull</span>(V1)</span>
+<span id="cb4-25"><a href="database-construction.html#cb4-25" tabindex="-1"></a>  </span>
+<span id="cb4-26"><a href="database-construction.html#cb4-26" tabindex="-1"></a>  <span class="do">## 提取基因中的gene symbol</span></span>
+<span id="cb4-27"><a href="database-construction.html#cb4-27" tabindex="-1"></a>  gene.symbol <span class="ot">&lt;-</span> <span class="fu">unique</span>(gene.info[<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(gene.info)<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>])</span>
+<span id="cb4-28"><a href="database-construction.html#cb4-28" tabindex="-1"></a>  <span class="co">#gene.id &lt;- gene.info[1:length(gene.info)%%2 == 1]  </span></span>
+<span id="cb4-29"><a href="database-construction.html#cb4-29" tabindex="-1"></a>  </span>
+<span id="cb4-30"><a href="database-construction.html#cb4-30" tabindex="-1"></a>  <span class="co"># 生成gene symbol和Entrez ID匹配的数据框</span></span>
+<span id="cb4-31"><a href="database-construction.html#cb4-31" tabindex="-1"></a><span class="co">#  gene.df &lt;- data.frame(gene.symbol = gene.symbol,gene.id = gene.id,kegg=pathway_meta$V2[i],kegg_path=path[[1]]$PATHWAY_MAP)</span></span>
+<span id="cb4-32"><a href="database-construction.html#cb4-32" tabindex="-1"></a>  gene.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">type=</span><span class="st">&quot;gene&quot;</span>,<span class="at">name =</span> gene.symbol,<span class="at">kegg_pathwayid=</span>pathway_meta<span class="sc">$</span>V2[i],<span class="at">kegg_pathwayname=</span>path[[<span class="dv">1</span>]]<span class="sc">$</span>PATHWAY_MAP,<span class="at">kegg_category =</span>pathway_meta<span class="sc">$</span>V1[i])</span>
+<span id="cb4-33"><a href="database-construction.html#cb4-33" tabindex="-1"></a>  <span class="co">#head(gene.df)</span></span>
+<span id="cb4-34"><a href="database-construction.html#cb4-34" tabindex="-1"></a>  result_gene <span class="ot">&lt;-</span> <span class="fu">rbind</span>(result_gene,gene.df)</span>
+<span id="cb4-35"><a href="database-construction.html#cb4-35" tabindex="-1"></a>  </span>
+<span id="cb4-36"><a href="database-construction.html#cb4-36" tabindex="-1"></a>  <span class="do">## 提取此通路的代谢物信息 (这里会有一些药物，是否去掉？&quot;hsa00514&quot;,&quot;hsa00533&quot;, &quot;hsa00511&quot;通路没有compound？方老师帮忙check一下？)</span></span>
+<span id="cb4-37"><a href="database-construction.html#cb4-37" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(path[[<span class="dv">1</span>]]<span class="sc">$</span>COMPOUND)<span class="sc">&gt;</span><span class="dv">0</span>) {</span>
+<span id="cb4-38"><a href="database-construction.html#cb4-38" tabindex="-1"></a>    compound.info <span class="ot">&lt;-</span> path[[<span class="dv">1</span>]]<span class="sc">$</span>COMPOUND <span class="sc">%&gt;%</span></span>
+<span id="cb4-39"><a href="database-construction.html#cb4-39" tabindex="-1"></a>      <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-40"><a href="database-construction.html#cb4-40" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;V1&quot;</span><span class="ot">=</span><span class="st">&quot;.&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-41"><a href="database-construction.html#cb4-41" tabindex="-1"></a>      <span class="fu">rownames</span>()</span>
+<span id="cb4-42"><a href="database-construction.html#cb4-42" tabindex="-1"></a>  </span>
+<span id="cb4-43"><a href="database-construction.html#cb4-43" tabindex="-1"></a>  </span>
+<span id="cb4-44"><a href="database-construction.html#cb4-44" tabindex="-1"></a>  </span>
+<span id="cb4-45"><a href="database-construction.html#cb4-45" tabindex="-1"></a>  <span class="co"># 生成compound和对应的pathway信息</span></span>
+<span id="cb4-46"><a href="database-construction.html#cb4-46" tabindex="-1"></a>  compound.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">type=</span><span class="st">&quot;metabolite&quot;</span>,<span class="at">name =</span> compound.info,<span class="at">kegg_pathwayid=</span>pathway_meta<span class="sc">$</span>V2[i],<span class="at">kegg_pathwayname=</span>path[[<span class="dv">1</span>]]<span class="sc">$</span>PATHWAY_MAP,<span class="at">kegg_category =</span>pathway_meta<span class="sc">$</span>V1[i])</span>
+<span id="cb4-47"><a href="database-construction.html#cb4-47" tabindex="-1"></a>  result_compound <span class="ot">&lt;-</span> <span class="fu">rbind</span>(result_compound,compound.df)</span>
+<span id="cb4-48"><a href="database-construction.html#cb4-48" tabindex="-1"></a>}</span>
+<span id="cb4-49"><a href="database-construction.html#cb4-49" tabindex="-1"></a>  </span>
+<span id="cb4-50"><a href="database-construction.html#cb4-50" tabindex="-1"></a>}</span>
+<span id="cb4-51"><a href="database-construction.html#cb4-51" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">rbind</span>(result_gene,result_compound) <span class="sc">%&gt;%</span></span>
+<span id="cb4-52"><a href="database-construction.html#cb4-52" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb4-53"><a href="database-construction.html#cb4-53" tabindex="-1"></a><span class="fu">dim</span>(result)</span>
+<span id="cb4-54"><a href="database-construction.html#cb4-54" tabindex="-1"></a><span class="fu">write.table</span>(result,<span class="st">&quot;result/KEGGpathway_metabolite_gene-v0117.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">row.names =</span> F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+</div>
+<div id="kegg-metabolite-metabolite-pairs-and-metabolite-gene-pairs" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> KEGG metabolite-metabolite pairs and metabolite-gene pairs<a href="database-construction.html#kegg-metabolite-metabolite-pairs-and-metabolite-gene-pairs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="keggs-reaction-and-compounds-download" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> KEGG’s reaction and compound’s download<a href="database-construction.html#keggs-reaction-and-compounds-download" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="database-construction.html#cb5-1" tabindex="-1"></a><span class="do">## the code is runing in 2024.01.15</span></span>
+<span id="cb5-2"><a href="database-construction.html#cb5-2" tabindex="-1"></a><span class="fu">library</span>(KEGGREST)</span>
+<span id="cb5-3"><a href="database-construction.html#cb5-3" tabindex="-1"></a><span class="fu">library</span>(plyr)</span>
+<span id="cb5-4"><a href="database-construction.html#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="database-construction.html#cb5-5" tabindex="-1"></a><span class="co">#source(&quot;/Users/guituantuan/Downloads/R-packages/RbioRXN-master/R/get.kegg.all.R&quot;)</span></span>
+<span id="cb5-6"><a href="database-construction.html#cb5-6" tabindex="-1"></a><span class="co">#source(&quot;/Users/guituantuan/Downloads/R-packages/RbioRXN-master/R/get.kegg.byId.R&quot;)</span></span>
+<span id="cb5-7"><a href="database-construction.html#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="database-construction.html#cb5-8" tabindex="-1"></a><span class="do">##断掉的话就多试几次</span></span>
+<span id="cb5-9"><a href="database-construction.html#cb5-9" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;https://raw.githubusercontent.com/cran/RbioRXN/master/R/get.kegg.all.R&quot;</span>)</span>
+<span id="cb5-10"><a href="database-construction.html#cb5-10" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;https://raw.githubusercontent.com/cran/RbioRXN/master/R/get.kegg.byId.R&quot;</span>)</span>
+<span id="cb5-11"><a href="database-construction.html#cb5-11" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="database-construction.html#cb5-12" tabindex="-1"></a><span class="do">## KEGG数据库中的代谢反应和代谢物注释信息 -------------------------------------------------</span></span>
+<span id="cb5-13"><a href="database-construction.html#cb5-13" tabindex="-1"></a><span class="co">#8:33-</span></span>
+<span id="cb5-14"><a href="database-construction.html#cb5-14" tabindex="-1"></a>keggAll <span class="ot">=</span> <span class="fu">get.kegg.all</span>()</span>
+<span id="cb5-15"><a href="database-construction.html#cb5-15" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="database-construction.html#cb5-16" tabindex="-1"></a><span class="fu">saveRDS</span>(keggAll, <span class="at">file =</span> <span class="st">&quot;result/keggAll-v0115.RData&quot;</span>)</span>
+<span id="cb5-17"><a href="database-construction.html#cb5-17" tabindex="-1"></a><span class="co">#load(&quot;result/keggAll-v0115.RData&quot;)</span></span>
+<span id="cb5-18"><a href="database-construction.html#cb5-18" tabindex="-1"></a><span class="co">#keggAll &lt;- readRDS(&quot;result/keggAll-v0115.RData&quot;)</span></span>
+<span id="cb5-19"><a href="database-construction.html#cb5-19" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="database-construction.html#cb5-20" tabindex="-1"></a><span class="do">## 查看代谢反应和代谢物的数量</span></span>
+<span id="cb5-21"><a href="database-construction.html#cb5-21" tabindex="-1"></a><span class="fu">dim</span>(keggAll<span class="sc">$</span>reaction)</span>
+<span id="cb5-22"><a href="database-construction.html#cb5-22" tabindex="-1"></a><span class="co"># [1] 11990    14</span></span>
+<span id="cb5-23"><a href="database-construction.html#cb5-23" tabindex="-1"></a><span class="fu">dim</span>(keggAll<span class="sc">$</span>compound)</span>
+<span id="cb5-24"><a href="database-construction.html#cb5-24" tabindex="-1"></a><span class="co"># [1] 19270    25</span></span>
+<span id="cb5-25"><a href="database-construction.html#cb5-25" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="database-construction.html#cb5-26" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="database-construction.html#cb5-27" tabindex="-1"></a><span class="fu">write.csv</span>(keggAll<span class="sc">$</span>reaction,<span class="at">file =</span> <span class="st">&quot;result/keggAllreaction_v20240115.csv&quot;</span>,<span class="at">row.names =</span> F)</span>
+<span id="cb5-28"><a href="database-construction.html#cb5-28" tabindex="-1"></a><span class="fu">write.csv</span>(keggAll<span class="sc">$</span>compound,<span class="at">file =</span> <span class="st">&quot;result/keggAllcompound_v20240115.csv&quot;</span>,<span class="at">row.names =</span> F)</span></code></pre></div>
+</div>
+<div id="downloading-the-enzyme-and-its-corresponding-gene-information-from-the-htextand-extract-the-gene-and-the-enzymes-relationship" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Downloading the enzyme and its corresponding gene information from the htext,and extract the gene and the enzyme’s relationship<a href="database-construction.html#downloading-the-enzyme-and-its-corresponding-gene-information-from-the-htextand-extract-the-gene-and-the-enzymes-relationship" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Download the htext file.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="database-construction.html#cb6-1" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>www.genome.jp<span class="sc">/</span>kegg<span class="sc">-</span>bin<span class="sc">/</span>get_htext?hsa01000</span>
+<span id="cb6-2"><a href="database-construction.html#cb6-2" tabindex="-1"></a>grep <span class="st">&quot;^E&quot;</span> result<span class="sc">/</span>hsa01000.keg <span class="sc">|</span> sed <span class="st">&#39;s/E        //g&#39;</span><span class="sc">|</span>cut <span class="sc">-</span>d<span class="st">&quot; &quot;</span> <span class="sc">-</span>f2 <span class="sc">|</span>cut <span class="sc">-</span>d<span class="st">&quot;;&quot;</span> <span class="sc">-</span>f1 <span class="sc">&gt;</span>result<span class="sc">/</span>gene.txt</span>
+<span id="cb6-3"><a href="database-construction.html#cb6-3" tabindex="-1"></a>grep <span class="st">&quot;^E&quot;</span> result<span class="sc">/</span>hsa01000.keg <span class="sc">|</span> sed <span class="st">&#39;s/E        //g&#39;</span><span class="sc">|</span>sed <span class="st">&#39;s/\[EC\:/    /g&#39;</span> <span class="sc">|</span>sed <span class="st">&#39;s/\] //g&#39;</span> <span class="sc">|</span>cut <span class="sc">-</span>f3 <span class="sc">&gt;</span>result<span class="sc">/</span>enzyme.txt </span>
+<span id="cb6-4"><a href="database-construction.html#cb6-4" tabindex="-1"></a><span class="do">###sed &#39;s/\[EC\:/    /g&#39;后面为制表符</span></span>
+<span id="cb6-5"><a href="database-construction.html#cb6-5" tabindex="-1"></a>paste result<span class="sc">/</span>gene.txt result<span class="sc">/</span>enzyme.txt <span class="sc">|</span>grep <span class="sc">-</span>v <span class="st">&quot;D-dopachrome&quot;</span> <span class="sc">|</span>grep <span class="sc">-</span>v <span class="st">&quot;cytochrome&quot;</span><span class="sc">|</span>grep <span class="sc">-</span>v <span class="st">&quot;putative&quot;</span> <span class="sc">&gt;</span>result<span class="sc">/</span>gene_enzyme.txt</span></code></pre></div>
+<p>the gene_enzyme.txt is like this</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="database-construction.html#cb7-1" tabindex="-1"></a>ADH5<span class="sc">^</span>I1.<span class="dv">1</span>.<span class="fl">1.284</span> <span class="dv">1</span>.<span class="dv">1</span>.<span class="fl">1.1</span><span class="sc">$</span></span>
+<span id="cb7-2"><a href="database-construction.html#cb7-2" tabindex="-1"></a>ADH1A<span class="sc">^</span>I1.<span class="dv">1</span>.<span class="fl">1.1</span><span class="sc">$</span></span></code></pre></div>
+</div>
+<div id="extracting-the-metabolite-gene-pairs-and-metabolite-metabolite-pairs" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Extracting the metabolite-gene pairs and metabolite-metabolite pairs<a href="database-construction.html#extracting-the-metabolite-gene-pairs-and-metabolite-metabolite-pairs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="database-construction.html#cb8-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-2"><a href="database-construction.html#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="database-construction.html#cb8-3" tabindex="-1"></a><span class="do">## Transformed the enzyme and its corresponding gene to one-to-one relationship</span></span>
+<span id="cb8-4"><a href="database-construction.html#cb8-4" tabindex="-1"></a>gene_enzyme <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">&quot;result/gene_enzyme.txt&quot;</span>,<span class="at">header=</span>F) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="database-construction.html#cb8-5" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="database-construction.html#cb8-6" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(<span class="st">&quot;V2&quot;</span>,<span class="at">sep=</span><span class="st">&quot; &quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-7"><a href="database-construction.html#cb8-7" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-8"><a href="database-construction.html#cb8-8" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;gene_name&quot;</span><span class="ot">=</span><span class="st">&quot;V1&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-9"><a href="database-construction.html#cb8-9" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;enzyme&quot;</span><span class="ot">=</span><span class="st">&quot;V2&quot;</span>)</span>
+<span id="cb8-10"><a href="database-construction.html#cb8-10" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="database-construction.html#cb8-11" tabindex="-1"></a><span class="do">## all the reaction in kegg</span></span>
+<span id="cb8-12"><a href="database-construction.html#cb8-12" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;result/keggAllreaction_v20240115.csv&quot;</span>)</span>
+<span id="cb8-13"><a href="database-construction.html#cb8-13" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="database-construction.html#cb8-14" tabindex="-1"></a><span class="co"># get all the metabolite and its corresponding gene from all the reaction in kegg</span></span>
+<span id="cb8-15"><a href="database-construction.html#cb8-15" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="database-construction.html#cb8-16" tabindex="-1"></a><span class="do">## the metabolite-gene pairs are exacted from every compound in the equation and the gene with the enzyme</span></span>
+<span id="cb8-17"><a href="database-construction.html#cb8-17" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="database-construction.html#cb8-18" tabindex="-1"></a>metabolite_gene <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb8-19"><a href="database-construction.html#cb8-19" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;EQUATION&quot;</span>,<span class="st">&quot;ENZYME&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-20"><a href="database-construction.html#cb8-20" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(EQUATION,<span class="at">sep=</span><span class="st">&quot; &lt;=&gt; &quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-21"><a href="database-construction.html#cb8-21" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(EQUATION,<span class="at">sep=</span><span class="st">&quot; &quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-22"><a href="database-construction.html#cb8-22" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">&quot;^C&quot;</span>,EQUATION)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-23"><a href="database-construction.html#cb8-23" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(ENZYME,<span class="at">sep=</span><span class="st">&quot;///&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-24"><a href="database-construction.html#cb8-24" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;compound&quot;</span><span class="ot">=</span><span class="st">&quot;EQUATION&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-25"><a href="database-construction.html#cb8-25" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;enzyme&quot;</span><span class="ot">=</span><span class="st">&quot;ENZYME&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-26"><a href="database-construction.html#cb8-26" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">left_join</span>(gene_enzyme,<span class="at">by=</span><span class="st">&quot;enzyme&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-27"><a href="database-construction.html#cb8-27" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(gene_name)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-28"><a href="database-construction.html#cb8-28" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;enzyme&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-29"><a href="database-construction.html#cb8-29" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">compound=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]n[)]&quot;</span>,<span class="st">&quot;&quot;</span>,compound)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-30"><a href="database-construction.html#cb8-30" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">compound=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]m[)]&quot;</span>,<span class="st">&quot;&quot;</span>,compound)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-31"><a href="database-construction.html#cb8-31" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">compound=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]n[+]1[)]&quot;</span>,<span class="st">&quot;&quot;</span>,compound)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-32"><a href="database-construction.html#cb8-32" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">compound=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]n[+]m[)]&quot;</span>,<span class="st">&quot;&quot;</span>,compound)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-33"><a href="database-construction.html#cb8-33" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">compound=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]n[-]1[)]&quot;</span>,<span class="st">&quot;&quot;</span>,compound)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-34"><a href="database-construction.html#cb8-34" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-35"><a href="database-construction.html#cb8-35" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">src_type=</span><span class="st">&quot;metabolite&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-36"><a href="database-construction.html#cb8-36" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dest_type=</span><span class="st">&quot;gene&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-37"><a href="database-construction.html#cb8-37" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;src&quot;</span><span class="ot">=</span><span class="st">&quot;compound&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-38"><a href="database-construction.html#cb8-38" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;dest&quot;</span><span class="ot">=</span><span class="st">&quot;gene_name&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-39"><a href="database-construction.html#cb8-39" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;src_type&quot;</span>,<span class="st">&quot;src&quot;</span>,<span class="st">&quot;dest_type&quot;</span>,<span class="st">&quot;dest&quot;</span>))</span>
+<span id="cb8-40"><a href="database-construction.html#cb8-40" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="database-construction.html#cb8-41" tabindex="-1"></a><span class="co"># get all the metabolite-metabolite pairs in the reactions</span></span>
+<span id="cb8-42"><a href="database-construction.html#cb8-42" tabindex="-1"></a><span class="do">## get the metabolite from the EQUATION, the metabolite-metabolite pairs are exacted from every compound in left of equation and every compound in right of equation.</span></span>
+<span id="cb8-43"><a href="database-construction.html#cb8-43" tabindex="-1"></a></span>
+<span id="cb8-44"><a href="database-construction.html#cb8-44" tabindex="-1"></a>metabolite_metabolite <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
+<span id="cb8-45"><a href="database-construction.html#cb8-45" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;EQUATION&quot;</span>,<span class="st">&quot;ENZYME&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-46"><a href="database-construction.html#cb8-46" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate</span>(EQUATION,<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>),<span class="at">sep=</span><span class="st">&quot; &lt;=&gt; &quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb8-47"><a href="database-construction.html#cb8-47" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(a,<span class="at">sep=</span><span class="st">&quot; &quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-48"><a href="database-construction.html#cb8-48" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(b,<span class="at">sep=</span><span class="st">&quot; &quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-49"><a href="database-construction.html#cb8-49" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">&quot;^C&quot;</span>,a)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-50"><a href="database-construction.html#cb8-50" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">&quot;^C&quot;</span>,b)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-51"><a href="database-construction.html#cb8-51" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-52"><a href="database-construction.html#cb8-52" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb8-53"><a href="database-construction.html#cb8-53" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_1=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]n[)]&quot;</span>,<span class="st">&quot;&quot;</span>,a)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-54"><a href="database-construction.html#cb8-54" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_1=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]n[+]m[)]&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_1)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-55"><a href="database-construction.html#cb8-55" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_1=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]side&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_1)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-56"><a href="database-construction.html#cb8-56" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_1=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]m[+]n[)]&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_1)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-57"><a href="database-construction.html#cb8-57" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_1=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]n[+]1[)]&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_1)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-58"><a href="database-construction.html#cb8-58" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_1=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]m[)]&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_1)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-59"><a href="database-construction.html#cb8-59" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_2=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]n[)]&quot;</span>,<span class="st">&quot;&quot;</span>,b)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-60"><a href="database-construction.html#cb8-60" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_2=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]n[+]m[)]&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_2)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-61"><a href="database-construction.html#cb8-61" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_2=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]side&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_2)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-62"><a href="database-construction.html#cb8-62" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_2=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]m[+]n[)]&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_2)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-63"><a href="database-construction.html#cb8-63" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_2=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]n[+]1[)]&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_2)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-64"><a href="database-construction.html#cb8-64" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_2=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]m[)]&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_2)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-65"><a href="database-construction.html#cb8-65" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_2=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]n[-]1[)]&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_2)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-66"><a href="database-construction.html#cb8-66" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_2=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]x[)]&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_2)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-67"><a href="database-construction.html#cb8-67" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_2=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]n[-]x[)]&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_2)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-68"><a href="database-construction.html#cb8-68" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_2=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]n[+]2[)]&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_2)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-69"><a href="database-construction.html#cb8-69" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">metabolite_2=</span><span class="fu">gsub</span>(<span class="st">&quot;[(]m[-]1[)]&quot;</span>,<span class="st">&quot;&quot;</span>,metabolite_2)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-70"><a href="database-construction.html#cb8-70" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-71"><a href="database-construction.html#cb8-71" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(metabolite_1 <span class="sc">!=</span> metabolite_2) <span class="sc">%&gt;%</span></span>
+<span id="cb8-72"><a href="database-construction.html#cb8-72" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">src_type=</span><span class="st">&quot;metabolite&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-73"><a href="database-construction.html#cb8-73" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dest_type=</span><span class="st">&quot;metabolite&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-74"><a href="database-construction.html#cb8-74" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;src&quot;</span><span class="ot">=</span><span class="st">&quot;metabolite_1&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-75"><a href="database-construction.html#cb8-75" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;dest&quot;</span><span class="ot">=</span><span class="st">&quot;metabolite_2&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-76"><a href="database-construction.html#cb8-76" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;src_type&quot;</span>,<span class="st">&quot;src&quot;</span>,<span class="st">&quot;dest_type&quot;</span>,<span class="st">&quot;dest&quot;</span>))</span>
+<span id="cb8-77"><a href="database-construction.html#cb8-77" tabindex="-1"></a></span>
+<span id="cb8-78"><a href="database-construction.html#cb8-78" tabindex="-1"></a></span>
+<span id="cb8-79"><a href="database-construction.html#cb8-79" tabindex="-1"></a><span class="fu">write.table</span>(metabolite_gene,<span class="st">&quot;result/KEGG_metabolite_gene.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">row.names =</span> F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb8-80"><a href="database-construction.html#cb8-80" tabindex="-1"></a><span class="fu">write.table</span>(metabolite_metabolite,<span class="st">&quot;result/KEGG_metabolite_metabolite.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">row.names =</span> F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+</div>
+<div id="conclusion" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Conclusion<a href="database-construction.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The number of metabolite-gene pairs is 33537; The number of metabolite-metabolite pairs is 33537. The number of metabolite is 11788; The number of gene is 2607.</p>
+</div>
+</div>
+<div id="graphite" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Graphite<a href="database-construction.html#graphite" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="download-all-the-data-from-graphite" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Download all the data from graphite<a href="database-construction.html#download-all-the-data-from-graphite" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="database-construction.html#cb9-1" tabindex="-1"></a><span class="fu">library</span>(graphite)</span>
+<span id="cb9-2"><a href="database-construction.html#cb9-2" tabindex="-1"></a><span class="fu">library</span>(clipper)</span>
+<span id="cb9-3"><a href="database-construction.html#cb9-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-4"><a href="database-construction.html#cb9-4" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="database-construction.html#cb9-5" tabindex="-1"></a>kpaths <span class="ot">&lt;-</span> <span class="fu">pathways</span>(<span class="st">&quot;hsapiens&quot;</span>, <span class="st">&quot;kegg&quot;</span>)</span>
+<span id="cb9-6"><a href="database-construction.html#cb9-6" tabindex="-1"></a>kpaths_result <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb9-7"><a href="database-construction.html#cb9-7" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(kpaths)) {</span>
+<span id="cb9-8"><a href="database-construction.html#cb9-8" tabindex="-1"></a>  kid <span class="ot">&lt;-</span> <span class="fu">attributes</span>(kpaths[[i]])<span class="sc">$</span>id</span>
+<span id="cb9-9"><a href="database-construction.html#cb9-9" tabindex="-1"></a>  ktitle <span class="ot">&lt;-</span> <span class="fu">attributes</span>(kpaths[[i]])<span class="sc">$</span>title</span>
+<span id="cb9-10"><a href="database-construction.html#cb9-10" tabindex="-1"></a>  kpaths_1 <span class="ot">&lt;-</span> <span class="fu">convertIdentifiers</span>(<span class="fu">convertIdentifiers</span>(kpaths[[i]], <span class="st">&quot;symbol&quot;</span>),<span class="st">&quot;KEGGCOMP&quot;</span>)</span>
+<span id="cb9-11"><a href="database-construction.html#cb9-11" tabindex="-1"></a>  kpaths_result_temp <span class="ot">&lt;-</span> <span class="fu">edges</span>(kpaths_1,<span class="st">&quot;mixed&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-12"><a href="database-construction.html#cb9-12" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pathwayid=</span>kid) <span class="sc">%&gt;%</span></span>
+<span id="cb9-13"><a href="database-construction.html#cb9-13" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pathway=</span>ktitle)</span>
+<span id="cb9-14"><a href="database-construction.html#cb9-14" tabindex="-1"></a>  kpaths_result <span class="ot">&lt;-</span> <span class="fu">rbind</span>(kpaths_result,kpaths_result_temp)</span>
+<span id="cb9-15"><a href="database-construction.html#cb9-15" tabindex="-1"></a>}</span>
+<span id="cb9-16"><a href="database-construction.html#cb9-16" tabindex="-1"></a><span class="fu">write.table</span>(kpaths_result,<span class="st">&quot;result/Graphite/gene-metabolite-kegg.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span>
+<span id="cb9-17"><a href="database-construction.html#cb9-17" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="database-construction.html#cb9-18" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="database-construction.html#cb9-19" tabindex="-1"></a>spaths <span class="ot">&lt;-</span> <span class="fu">pathways</span>(<span class="st">&quot;hsapiens&quot;</span>, <span class="st">&quot;smpdb&quot;</span>)</span>
+<span id="cb9-20"><a href="database-construction.html#cb9-20" tabindex="-1"></a>smpdb_result <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb9-21"><a href="database-construction.html#cb9-21" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(spaths)) {</span>
+<span id="cb9-22"><a href="database-construction.html#cb9-22" tabindex="-1"></a>  kid <span class="ot">&lt;-</span> <span class="fu">attributes</span>(spaths[[i]])<span class="sc">$</span>id</span>
+<span id="cb9-23"><a href="database-construction.html#cb9-23" tabindex="-1"></a>  ktitle <span class="ot">&lt;-</span> <span class="fu">attributes</span>(spaths[[i]])<span class="sc">$</span>title</span>
+<span id="cb9-24"><a href="database-construction.html#cb9-24" tabindex="-1"></a>  smpdb_1 <span class="ot">&lt;-</span> <span class="fu">convertIdentifiers</span>(<span class="fu">convertIdentifiers</span>(spaths[[i]], <span class="st">&quot;symbol&quot;</span>),<span class="st">&quot;KEGGCOMP&quot;</span>)</span>
+<span id="cb9-25"><a href="database-construction.html#cb9-25" tabindex="-1"></a>  smpdb_result_temp <span class="ot">&lt;-</span> <span class="fu">edges</span>(smpdb_1, <span class="st">&quot;mixed&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-26"><a href="database-construction.html#cb9-26" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pathwayid=</span>kid) <span class="sc">%&gt;%</span></span>
+<span id="cb9-27"><a href="database-construction.html#cb9-27" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pathway=</span>ktitle)</span>
+<span id="cb9-28"><a href="database-construction.html#cb9-28" tabindex="-1"></a>  </span>
+<span id="cb9-29"><a href="database-construction.html#cb9-29" tabindex="-1"></a>  smpdb_result <span class="ot">&lt;-</span> <span class="fu">rbind</span>(smpdb_result,smpdb_result_temp)</span>
+<span id="cb9-30"><a href="database-construction.html#cb9-30" tabindex="-1"></a>}</span>
+<span id="cb9-31"><a href="database-construction.html#cb9-31" tabindex="-1"></a><span class="fu">write.table</span>(smpdb_result,<span class="st">&quot;result/Graphite/gene-metabolite-smpdb.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span>
+<span id="cb9-32"><a href="database-construction.html#cb9-32" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="database-construction.html#cb9-33" tabindex="-1"></a>wikipaths <span class="ot">&lt;-</span> <span class="fu">pathways</span>(<span class="st">&quot;hsapiens&quot;</span>, <span class="st">&quot;wikipathways&quot;</span>)</span>
+<span id="cb9-34"><a href="database-construction.html#cb9-34" tabindex="-1"></a>wikipaths_result <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb9-35"><a href="database-construction.html#cb9-35" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(wikipaths)) {</span>
+<span id="cb9-36"><a href="database-construction.html#cb9-36" tabindex="-1"></a>  kid <span class="ot">&lt;-</span> <span class="fu">attributes</span>(wikipaths[[i]])<span class="sc">$</span>id</span>
+<span id="cb9-37"><a href="database-construction.html#cb9-37" tabindex="-1"></a>  ktitle <span class="ot">&lt;-</span> <span class="fu">attributes</span>(wikipaths[[i]])<span class="sc">$</span>title</span>
+<span id="cb9-38"><a href="database-construction.html#cb9-38" tabindex="-1"></a>  wikipaths_1 <span class="ot">&lt;-</span> <span class="fu">convertIdentifiers</span>(<span class="fu">convertIdentifiers</span>(wikipaths[[i]], <span class="st">&quot;symbol&quot;</span>),<span class="st">&quot;KEGGCOMP&quot;</span>)</span>
+<span id="cb9-39"><a href="database-construction.html#cb9-39" tabindex="-1"></a>  wikipaths_result_temp <span class="ot">&lt;-</span> <span class="fu">edges</span>(wikipaths_1,<span class="st">&quot;mixed&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-40"><a href="database-construction.html#cb9-40" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pathwayid=</span>kid) <span class="sc">%&gt;%</span></span>
+<span id="cb9-41"><a href="database-construction.html#cb9-41" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pathway=</span>ktitle)</span>
+<span id="cb9-42"><a href="database-construction.html#cb9-42" tabindex="-1"></a>  wikipaths_result <span class="ot">&lt;-</span> <span class="fu">rbind</span>(wikipaths_result,wikipaths_result_temp)</span>
+<span id="cb9-43"><a href="database-construction.html#cb9-43" tabindex="-1"></a></span>
+<span id="cb9-44"><a href="database-construction.html#cb9-44" tabindex="-1"></a>}</span>
+<span id="cb9-45"><a href="database-construction.html#cb9-45" tabindex="-1"></a><span class="fu">write.table</span>(wikipaths_result,<span class="st">&quot;result/Graphite/gene-metabolite-wikipaths.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span>
+<span id="cb9-46"><a href="database-construction.html#cb9-46" tabindex="-1"></a></span>
+<span id="cb9-47"><a href="database-construction.html#cb9-47" tabindex="-1"></a></span>
+<span id="cb9-48"><a href="database-construction.html#cb9-48" tabindex="-1"></a>reactomepaths <span class="ot">&lt;-</span> <span class="fu">pathways</span>(<span class="st">&quot;hsapiens&quot;</span>, <span class="st">&quot;reactome&quot;</span>)</span>
+<span id="cb9-49"><a href="database-construction.html#cb9-49" tabindex="-1"></a>reactome_result <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb9-50"><a href="database-construction.html#cb9-50" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(reactomepaths)) {</span>
+<span id="cb9-51"><a href="database-construction.html#cb9-51" tabindex="-1"></a>  kid <span class="ot">&lt;-</span> <span class="fu">attributes</span>(reactomepaths[[i]])<span class="sc">$</span>id</span>
+<span id="cb9-52"><a href="database-construction.html#cb9-52" tabindex="-1"></a>  ktitle <span class="ot">&lt;-</span> <span class="fu">attributes</span>(reactomepaths[[i]])<span class="sc">$</span>title</span>
+<span id="cb9-53"><a href="database-construction.html#cb9-53" tabindex="-1"></a>  reactome_1 <span class="ot">&lt;-</span> <span class="fu">convertIdentifiers</span>(<span class="fu">convertIdentifiers</span>(reactomepaths[[i]], <span class="st">&quot;symbol&quot;</span>),<span class="st">&quot;KEGGCOMP&quot;</span>)</span>
+<span id="cb9-54"><a href="database-construction.html#cb9-54" tabindex="-1"></a>  reactome_result_temp <span class="ot">&lt;-</span> <span class="fu">edges</span>(reactome_1,<span class="st">&quot;mixed&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-55"><a href="database-construction.html#cb9-55" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pathwayid=</span>kid) <span class="sc">%&gt;%</span></span>
+<span id="cb9-56"><a href="database-construction.html#cb9-56" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pathway=</span>ktitle)</span>
+<span id="cb9-57"><a href="database-construction.html#cb9-57" tabindex="-1"></a>  reactome_result <span class="ot">&lt;-</span> <span class="fu">rbind</span>(reactome_result,reactome_result_temp)</span>
+<span id="cb9-58"><a href="database-construction.html#cb9-58" tabindex="-1"></a>}</span>
+<span id="cb9-59"><a href="database-construction.html#cb9-59" tabindex="-1"></a><span class="fu">write.table</span>(reactome_result,<span class="st">&quot;result/Graphite/gene-metabolite-reactome.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span></code></pre></div>
+</div>
+<div id="download-the-information-of-metabolism-pathways" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Download the information of metabolism pathways<a href="database-construction.html#download-the-information-of-metabolism-pathways" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="database-construction.html#cb10-1" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="database-construction.html#cb10-2" tabindex="-1"></a><span class="co">### wikipathway</span></span>
+<span id="cb10-3"><a href="database-construction.html#cb10-3" tabindex="-1"></a><span class="fu">rev</span> all.txt<span class="kw">|</span><span class="fu">cut</span> <span class="at">-d</span><span class="st">&quot;_&quot;</span> <span class="at">-f2</span><span class="kw">|</span><span class="fu">rev</span> <span class="op">&gt;</span>all.1.txt</span>
+<span id="cb10-4"><a href="database-construction.html#cb10-4" tabindex="-1"></a><span class="fu">cat</span> /dev/null <span class="op">&gt;</span> test.txt</span>
+<span id="cb10-5"><a href="database-construction.html#cb10-5" tabindex="-1"></a><span class="fu">cat</span> all.1.txt <span class="kw">|</span><span class="cf">while</span> <span class="bu">read</span> <span class="va">line</span></span>
+<span id="cb10-6"><a href="database-construction.html#cb10-6" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb10-7"><a href="database-construction.html#cb10-7" tabindex="-1"></a><span class="fu">grep</span> TERM homo/<span class="pp">*</span><span class="va">${line}</span>_<span class="pp">*</span>.gpml <span class="kw">|</span><span class="fu">cut</span> <span class="at">-d</span><span class="st">&quot;&gt;&quot;</span> <span class="at">-f2</span><span class="kw">|</span><span class="fu">cut</span> <span class="at">-d</span><span class="st">&quot;&lt;&quot;</span> <span class="at">-f1</span><span class="kw">|</span>  <span class="fu">tr</span> <span class="at">-s</span> <span class="st">&quot;\n&quot;</span> <span class="st">&quot;;&quot;</span><span class="kw">|</span><span class="fu">sed</span> <span class="at">-e</span> <span class="st">&#39;s/;$//g&#39;</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&quot;s/^/</span><span class="va">${line}</span></span>
+<span id="cb10-8"><a href="database-construction.html#cb10-8" tabindex="-1"></a><span class="st">        /&quot;</span> <span class="op">&gt;&gt;</span>test.txt</span>
+<span id="cb10-9"><a href="database-construction.html#cb10-9" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb10-10"><a href="database-construction.html#cb10-10" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="database-construction.html#cb10-11" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-i</span> metabolic test.txt <span class="op">&gt;</span>test_metabolic.txt</span>
+<span id="cb10-12"><a href="database-construction.html#cb10-12" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="database-construction.html#cb10-13" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="database-construction.html#cb10-14" tabindex="-1"></a><span class="co">### smpdb</span></span>
+<span id="cb10-15"><a href="database-construction.html#cb10-15" tabindex="-1"></a><span class="fu">wget</span> https://smpdb.ca/downloads/smpdb_pathways.csv.zip</span>
+<span id="cb10-16"><a href="database-construction.html#cb10-16" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="database-construction.html#cb10-17" tabindex="-1"></a><span class="co">### reactome</span></span>
+<span id="cb10-18"><a href="database-construction.html#cb10-18" tabindex="-1"></a><span class="co">#R-HSA-1430728 is the metabolism, then choose the hierarchical is lower than it</span></span>
+<span id="cb10-19"><a href="database-construction.html#cb10-19" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="database-construction.html#cb10-20" tabindex="-1"></a><span class="co">### kegg</span></span>
+<span id="cb10-21"><a href="database-construction.html#cb10-21" tabindex="-1"></a><span class="co">#choose the metabolism pathway</span></span></code></pre></div>
+</div>
+<div id="extract-the-data-of-metabolism" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Extract the data of metabolism<a href="database-construction.html#extract-the-data-of-metabolism" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="database-construction.html#cb11-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb11-2"><a href="database-construction.html#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="database-construction.html#cb11-3" tabindex="-1"></a>kegg_data_metabolism <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">&quot;result/Graphite/gene-metabolite-kegg.txt&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="database-construction.html#cb11-4" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="database-construction.html#cb11-5" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(pathway <span class="sc">%in%</span> <span class="fu">unique</span>(kegg_pathway<span class="sc">$</span>PATHWAY)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-6"><a href="database-construction.html#cb11-6" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">&quot;direction&quot;</span>,<span class="st">&quot;type&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="database-construction.html#cb11-7" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="database-construction.html#cb11-8" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(src_type <span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span> <span class="sc">|</span> dest_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="database-construction.html#cb11-9" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">src_new =</span> <span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,src,dest),</span>
+<span id="cb11-10"><a href="database-construction.html#cb11-10" tabindex="-1"></a>                <span class="at">dest_new =</span> <span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,dest,src),</span>
+<span id="cb11-11"><a href="database-construction.html#cb11-11" tabindex="-1"></a>                <span class="at">src_type_new=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,src_type,dest_type),</span>
+<span id="cb11-12"><a href="database-construction.html#cb11-12" tabindex="-1"></a>                <span class="at">dest_type_new=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,dest_type,src_type)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-13"><a href="database-construction.html#cb11-13" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">src_new1=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span> <span class="sc">&amp;</span> dest_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,</span>
+<span id="cb11-14"><a href="database-construction.html#cb11-14" tabindex="-1"></a>                                <span class="fu">ifelse</span>(src_new<span class="sc">&gt;</span>dest_new,src_new,dest_new),</span>
+<span id="cb11-15"><a href="database-construction.html#cb11-15" tabindex="-1"></a>                                src_new)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-16"><a href="database-construction.html#cb11-16" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dest_new1=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span> <span class="sc">&amp;</span> dest_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,</span>
+<span id="cb11-17"><a href="database-construction.html#cb11-17" tabindex="-1"></a>                                 <span class="fu">ifelse</span>(src_new<span class="sc">&gt;</span>dest_new,dest_new,src_new),</span>
+<span id="cb11-18"><a href="database-construction.html#cb11-18" tabindex="-1"></a>                                 dest_new)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-19"><a href="database-construction.html#cb11-19" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">&quot;src_type&quot;</span>,<span class="st">&quot;src&quot;</span>,<span class="st">&quot;dest_type&quot;</span>,<span class="st">&quot;dest&quot;</span>,<span class="st">&quot;src_new&quot;</span>,<span class="st">&quot;dest_new&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-20"><a href="database-construction.html#cb11-20" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;src_type&quot;</span><span class="ot">=</span><span class="st">&quot;src_type_new&quot;</span>,<span class="st">&quot;src&quot;</span><span class="ot">=</span><span class="st">&quot;src_new1&quot;</span>,<span class="st">&quot;dest_type&quot;</span><span class="ot">=</span><span class="st">&quot;dest_type_new&quot;</span>,<span class="st">&quot;dest&quot;</span><span class="ot">=</span><span class="st">&quot;dest_new1&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-21"><a href="database-construction.html#cb11-21" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;src_type&quot;</span>,<span class="st">&quot;src&quot;</span>,<span class="st">&quot;dest_type&quot;</span>,<span class="st">&quot;dest&quot;</span>,<span class="st">&quot;pathwayid&quot;</span>,<span class="st">&quot;pathway&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-22"><a href="database-construction.html#cb11-22" tabindex="-1"></a>  <span class="fu">unique</span>()</span>
+<span id="cb11-23"><a href="database-construction.html#cb11-23" tabindex="-1"></a><span class="fu">write.table</span>(kegg_data_metabolism,<span class="st">&quot;result/Graphite/gene-metabolite-kegg_metabolism.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span>
+<span id="cb11-24"><a href="database-construction.html#cb11-24" tabindex="-1"></a></span>
+<span id="cb11-25"><a href="database-construction.html#cb11-25" tabindex="-1"></a><span class="do">### smpdb</span></span>
+<span id="cb11-26"><a href="database-construction.html#cb11-26" tabindex="-1"></a>metabolism_pathway <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;result/Graphite/smpdb_pathways.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-27"><a href="database-construction.html#cb11-27" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(Subject<span class="sc">==</span><span class="st">&quot;Metabolic&quot;</span>)</span>
+<span id="cb11-28"><a href="database-construction.html#cb11-28" tabindex="-1"></a></span>
+<span id="cb11-29"><a href="database-construction.html#cb11-29" tabindex="-1"></a>smpdb_data <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">&quot;result/Graphite/gene-metabolite-smpdb.txt&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-30"><a href="database-construction.html#cb11-30" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb11-31"><a href="database-construction.html#cb11-31" tabindex="-1"></a>smpdb_metabolism <span class="ot">&lt;-</span>  smpdb_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-32"><a href="database-construction.html#cb11-32" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(pathway <span class="sc">%in%</span> metabolism_pathway<span class="sc">$</span>Name) <span class="sc">%&gt;%</span></span>
+<span id="cb11-33"><a href="database-construction.html#cb11-33" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span><span class="sc">|</span>dest_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-34"><a href="database-construction.html#cb11-34" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">&quot;De Novo&quot;</span>,pathway)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-35"><a href="database-construction.html#cb11-35" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pathway_new=</span><span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">&quot;Phosphatidylcholine Biosynthesis&quot;</span>,pathway),</span>
+<span id="cb11-36"><a href="database-construction.html#cb11-36" tabindex="-1"></a>                                   <span class="st">&quot;Phosphatidylcholine Biosynthesis&quot;</span>,pathway)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-37"><a href="database-construction.html#cb11-37" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pathway_new=</span><span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">&quot;Cardiolipin Biosynthesis&quot;</span>,pathway_new),</span>
+<span id="cb11-38"><a href="database-construction.html#cb11-38" tabindex="-1"></a>                                   <span class="st">&quot;Cardiolipin Biosynthesis&quot;</span>,pathway_new)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-39"><a href="database-construction.html#cb11-39" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pathway_new=</span><span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">&quot;Phosphatidylethanolamine Biosynthesis&quot;</span>,pathway_new),</span>
+<span id="cb11-40"><a href="database-construction.html#cb11-40" tabindex="-1"></a>                                   <span class="st">&quot;Phosphatidylethanolamine Biosynthesis&quot;</span>,pathway_new)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-41"><a href="database-construction.html#cb11-41" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pathway_new=</span><span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">&quot;Mitochondrial Beta-Oxidation&quot;</span>,pathway_new),</span>
+<span id="cb11-42"><a href="database-construction.html#cb11-42" tabindex="-1"></a>                                   <span class="st">&quot;Mitochondrial Beta-Oxidation&quot;</span>,pathway_new)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-43"><a href="database-construction.html#cb11-43" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;pathway&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-44"><a href="database-construction.html#cb11-44" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;pathway&quot;</span><span class="ot">=</span><span class="st">&quot;pathway_new&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-45"><a href="database-construction.html#cb11-45" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">src_new =</span> <span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,src,dest),</span>
+<span id="cb11-46"><a href="database-construction.html#cb11-46" tabindex="-1"></a>                       <span class="at">dest_new =</span> <span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,dest,src),</span>
+<span id="cb11-47"><a href="database-construction.html#cb11-47" tabindex="-1"></a>                       <span class="at">src_type_new=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,src_type,dest_type),</span>
+<span id="cb11-48"><a href="database-construction.html#cb11-48" tabindex="-1"></a>                       <span class="at">dest_type_new=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,dest_type,src_type)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-49"><a href="database-construction.html#cb11-49" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">src_new1=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span> <span class="sc">&amp;</span> dest_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,</span>
+<span id="cb11-50"><a href="database-construction.html#cb11-50" tabindex="-1"></a>                                <span class="fu">ifelse</span>(src_new<span class="sc">&gt;</span>dest_new,src_new,dest_new),</span>
+<span id="cb11-51"><a href="database-construction.html#cb11-51" tabindex="-1"></a>                                src_new)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-52"><a href="database-construction.html#cb11-52" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dest_new1=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span> <span class="sc">&amp;</span> dest_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,</span>
+<span id="cb11-53"><a href="database-construction.html#cb11-53" tabindex="-1"></a>                                 <span class="fu">ifelse</span>(src_new<span class="sc">&gt;</span>dest_new,dest_new,src_new),</span>
+<span id="cb11-54"><a href="database-construction.html#cb11-54" tabindex="-1"></a>                                 dest_new)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-55"><a href="database-construction.html#cb11-55" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">&quot;src_type&quot;</span>,<span class="st">&quot;src&quot;</span>,<span class="st">&quot;dest_type&quot;</span>,<span class="st">&quot;dest&quot;</span>,<span class="st">&quot;src_new&quot;</span>,<span class="st">&quot;dest_new&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-56"><a href="database-construction.html#cb11-56" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;src_type&quot;</span><span class="ot">=</span><span class="st">&quot;src_type_new&quot;</span>,<span class="st">&quot;src&quot;</span><span class="ot">=</span><span class="st">&quot;src_new1&quot;</span>,<span class="st">&quot;dest_type&quot;</span><span class="ot">=</span><span class="st">&quot;dest_type_new&quot;</span>,<span class="st">&quot;dest&quot;</span><span class="ot">=</span><span class="st">&quot;dest_new1&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-57"><a href="database-construction.html#cb11-57" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;src_type&quot;</span>,<span class="st">&quot;src&quot;</span>,<span class="st">&quot;dest_type&quot;</span>,<span class="st">&quot;dest&quot;</span>,<span class="st">&quot;pathwayid&quot;</span>,<span class="st">&quot;pathway&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-58"><a href="database-construction.html#cb11-58" tabindex="-1"></a>  <span class="fu">unique</span>()</span>
+<span id="cb11-59"><a href="database-construction.html#cb11-59" tabindex="-1"></a></span>
+<span id="cb11-60"><a href="database-construction.html#cb11-60" tabindex="-1"></a><span class="do">### reactome</span></span>
+<span id="cb11-61"><a href="database-construction.html#cb11-61" tabindex="-1"></a></span>
+<span id="cb11-62"><a href="database-construction.html#cb11-62" tabindex="-1"></a><span class="do">## metabolism pathway </span><span class="al">###</span></span>
+<span id="cb11-63"><a href="database-construction.html#cb11-63" tabindex="-1"></a>reactome_metabolism_pathwayid <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">&quot;result/Graphite/ReactomePathwaysRelation.txt&quot;</span>,<span class="at">header=</span>F) <span class="sc">%&gt;%</span></span>
+<span id="cb11-64"><a href="database-construction.html#cb11-64" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb11-65"><a href="database-construction.html#cb11-65" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(V1<span class="sc">==</span><span class="st">&quot;R-HSA-1430728&quot;</span>)</span>
+<span id="cb11-66"><a href="database-construction.html#cb11-66" tabindex="-1"></a></span>
+<span id="cb11-67"><a href="database-construction.html#cb11-67" tabindex="-1"></a>reactome_metabolism_data <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">&quot;result/Graphite/gene-metabolite-reactome.txt&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-68"><a href="database-construction.html#cb11-68" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb11-69"><a href="database-construction.html#cb11-69" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(pathwayid <span class="sc">%in%</span> reactome_metabolism_pathwayid<span class="sc">$</span>V2) <span class="sc">%&gt;%</span></span>
+<span id="cb11-70"><a href="database-construction.html#cb11-70" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span><span class="sc">|</span>dest_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-71"><a href="database-construction.html#cb11-71" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">src_new =</span> <span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,src,dest),</span>
+<span id="cb11-72"><a href="database-construction.html#cb11-72" tabindex="-1"></a>                <span class="at">dest_new =</span> <span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,dest,src),</span>
+<span id="cb11-73"><a href="database-construction.html#cb11-73" tabindex="-1"></a>                <span class="at">src_type_new=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,src_type,dest_type),</span>
+<span id="cb11-74"><a href="database-construction.html#cb11-74" tabindex="-1"></a>                <span class="at">dest_type_new=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,dest_type,src_type)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-75"><a href="database-construction.html#cb11-75" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">src_new1=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span> <span class="sc">&amp;</span> dest_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,</span>
+<span id="cb11-76"><a href="database-construction.html#cb11-76" tabindex="-1"></a>                               <span class="fu">ifelse</span>(src_new<span class="sc">&gt;</span>dest_new,src_new,dest_new),</span>
+<span id="cb11-77"><a href="database-construction.html#cb11-77" tabindex="-1"></a>                               src_new)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-78"><a href="database-construction.html#cb11-78" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dest_new1=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span> <span class="sc">&amp;</span> dest_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,</span>
+<span id="cb11-79"><a href="database-construction.html#cb11-79" tabindex="-1"></a>                                <span class="fu">ifelse</span>(src_new<span class="sc">&gt;</span>dest_new,dest_new,src_new),</span>
+<span id="cb11-80"><a href="database-construction.html#cb11-80" tabindex="-1"></a>                                dest_new)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-81"><a href="database-construction.html#cb11-81" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">&quot;src_type&quot;</span>,<span class="st">&quot;src&quot;</span>,<span class="st">&quot;dest_type&quot;</span>,<span class="st">&quot;dest&quot;</span>,<span class="st">&quot;src_new&quot;</span>,<span class="st">&quot;dest_new&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-82"><a href="database-construction.html#cb11-82" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;src_type&quot;</span><span class="ot">=</span><span class="st">&quot;src_type_new&quot;</span>,<span class="st">&quot;src&quot;</span><span class="ot">=</span><span class="st">&quot;src_new1&quot;</span>,<span class="st">&quot;dest_type&quot;</span><span class="ot">=</span><span class="st">&quot;dest_type_new&quot;</span>,<span class="st">&quot;dest&quot;</span><span class="ot">=</span><span class="st">&quot;dest_new1&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-83"><a href="database-construction.html#cb11-83" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;src_type&quot;</span>,<span class="st">&quot;src&quot;</span>,<span class="st">&quot;dest_type&quot;</span>,<span class="st">&quot;dest&quot;</span>,<span class="st">&quot;pathwayid&quot;</span>,<span class="st">&quot;pathway&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-84"><a href="database-construction.html#cb11-84" tabindex="-1"></a>  <span class="fu">unique</span>()</span>
+<span id="cb11-85"><a href="database-construction.html#cb11-85" tabindex="-1"></a><span class="fu">write.table</span>(reactome_metabolism_data,<span class="st">&quot;result/Graphite/gene-metabolite-reactome_metabolism.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span>
+<span id="cb11-86"><a href="database-construction.html#cb11-86" tabindex="-1"></a></span>
+<span id="cb11-87"><a href="database-construction.html#cb11-87" tabindex="-1"></a><span class="do">### wikipathways</span></span>
+<span id="cb11-88"><a href="database-construction.html#cb11-88" tabindex="-1"></a></span>
+<span id="cb11-89"><a href="database-construction.html#cb11-89" tabindex="-1"></a>wikipathway_metabolism_id <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">&quot;wikipath/test_metabolic.txt&quot;</span>,<span class="at">header=</span>F) <span class="sc">%&gt;%</span></span>
+<span id="cb11-90"><a href="database-construction.html#cb11-90" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb11-91"><a href="database-construction.html#cb11-91" tabindex="-1"></a></span>
+<span id="cb11-92"><a href="database-construction.html#cb11-92" tabindex="-1"></a>wikipathway_data <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">&quot;result/Graphite/gene-metabolite-wikipaths.txt&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-93"><a href="database-construction.html#cb11-93" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb11-94"><a href="database-construction.html#cb11-94" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(pathwayid <span class="sc">%in%</span> wikipathway_metabolism_id<span class="sc">$</span>V1) <span class="sc">%&gt;%</span></span>
+<span id="cb11-95"><a href="database-construction.html#cb11-95" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span><span class="sc">|</span>dest_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-96"><a href="database-construction.html#cb11-96" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">src_new =</span> <span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,src,dest),</span>
+<span id="cb11-97"><a href="database-construction.html#cb11-97" tabindex="-1"></a>                <span class="at">dest_new =</span> <span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,dest,src),</span>
+<span id="cb11-98"><a href="database-construction.html#cb11-98" tabindex="-1"></a>                <span class="at">src_type_new=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,src_type,dest_type),</span>
+<span id="cb11-99"><a href="database-construction.html#cb11-99" tabindex="-1"></a>                <span class="at">dest_type_new=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,dest_type,src_type)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-100"><a href="database-construction.html#cb11-100" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">src_new1=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span> <span class="sc">&amp;</span> dest_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,</span>
+<span id="cb11-101"><a href="database-construction.html#cb11-101" tabindex="-1"></a>                                <span class="fu">ifelse</span>(src_new<span class="sc">&gt;</span>dest_new,src_new,dest_new),</span>
+<span id="cb11-102"><a href="database-construction.html#cb11-102" tabindex="-1"></a>                                src_new)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-103"><a href="database-construction.html#cb11-103" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dest_new1=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span> <span class="sc">&amp;</span> dest_type<span class="sc">==</span><span class="st">&quot;KEGGCOMP&quot;</span>,</span>
+<span id="cb11-104"><a href="database-construction.html#cb11-104" tabindex="-1"></a>                                 <span class="fu">ifelse</span>(src_new<span class="sc">&gt;</span>dest_new,dest_new,src_new),</span>
+<span id="cb11-105"><a href="database-construction.html#cb11-105" tabindex="-1"></a>                                 dest_new)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-106"><a href="database-construction.html#cb11-106" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">&quot;src_type&quot;</span>,<span class="st">&quot;src&quot;</span>,<span class="st">&quot;dest_type&quot;</span>,<span class="st">&quot;dest&quot;</span>,<span class="st">&quot;src_new&quot;</span>,<span class="st">&quot;dest_new&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-107"><a href="database-construction.html#cb11-107" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;src_type&quot;</span><span class="ot">=</span><span class="st">&quot;src_type_new&quot;</span>,<span class="st">&quot;src&quot;</span><span class="ot">=</span><span class="st">&quot;src_new1&quot;</span>,<span class="st">&quot;dest_type&quot;</span><span class="ot">=</span><span class="st">&quot;dest_type_new&quot;</span>,<span class="st">&quot;dest&quot;</span><span class="ot">=</span><span class="st">&quot;dest_new1&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-108"><a href="database-construction.html#cb11-108" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;src_type&quot;</span>,<span class="st">&quot;src&quot;</span>,<span class="st">&quot;dest_type&quot;</span>,<span class="st">&quot;dest&quot;</span>,<span class="st">&quot;pathwayid&quot;</span>,<span class="st">&quot;pathway&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-109"><a href="database-construction.html#cb11-109" tabindex="-1"></a>  <span class="fu">unique</span>()</span>
+<span id="cb11-110"><a href="database-construction.html#cb11-110" tabindex="-1"></a><span class="fu">write.table</span>(wikipathway_data,<span class="st">&quot;result/Graphite/gene-metabolite-wikipathway_metabolism.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span></code></pre></div>
+</div>
+<div id="combine-the-data-from-database-kegg-wikipathway-reactome-smpdb-and-then-uniq-the-data" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Combine the data from database kegg, wikipathway, reactome, smpdb and then uniq the data<a href="database-construction.html#combine-the-data-from-database-kegg-wikipathway-reactome-smpdb-and-then-uniq-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="database-construction.html#cb12-1" tabindex="-1"></a><span class="fu">cat</span> gene-metabolite-<span class="pp">*</span>metabolism.txt <span class="kw">|</span><span class="fu">cut</span> <span class="at">-f1-4,6</span><span class="kw">|</span><span class="fu">sort</span><span class="kw">|</span><span class="fu">uniq</span> <span class="op">&gt;</span>result.graphite.txt</span></code></pre></div>
+</div>
+</div>
+<div id="bigg" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> BiGG<a href="database-construction.html#bigg" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="down-all-the-models-in-the-bigg" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Down all the models in the BiGG<a href="database-construction.html#down-all-the-models-in-the-bigg" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="database-construction.html#cb13-1" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models&#39;</span></span></code></pre></div>
+<p>Then, choice the model from Homo sapiens,then in reserve model is iAT_PLT_636, iAB_RBC_283, RECON1, Recon3D.</p>
+<p>Get all the reactions names in the 4 human models.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="database-construction.html#cb14-1" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/iAT_PLT_636/reactions&#39;</span> <span class="op">&gt;</span>result/BiGG/iAT_PLT_636.reactions</span>
+<span id="cb14-2"><a href="database-construction.html#cb14-2" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/iAB_RBC_283/reactions&#39;</span> <span class="op">&gt;</span>result/BiGG/iAB_RBC_283.reactions</span>
+<span id="cb14-3"><a href="database-construction.html#cb14-3" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/RECON1/reactions&#39;</span> <span class="op">&gt;</span>result/BiGG/RECON1.reactions</span>
+<span id="cb14-4"><a href="database-construction.html#cb14-4" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/Recon3D/reactions&#39;</span> <span class="op">&gt;</span>result/BiGG/Recon3D.reactions</span></code></pre></div>
+<p>Change the json reaction names to txt file.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="database-construction.html#cb15-1" tabindex="-1"></a>tt<span class="ot">&lt;-</span>jsonlite<span class="sc">::</span><span class="fu">stream_in</span>(<span class="fu">file</span>(<span class="st">&quot;result/BiGG/iAB_RBC_283.reactions&quot;</span>),<span class="at">pagesize =</span> <span class="dv">100</span>)</span>
+<span id="cb15-2"><a href="database-construction.html#cb15-2" tabindex="-1"></a><span class="fu">write.table</span>(tt<span class="sc">$</span>results[[<span class="dv">1</span>]],<span class="st">&quot;result/BiGG/iAB_RBC_283.reactions.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">row.names=</span>F,<span class="at">col.names=</span>F)</span></code></pre></div>
+</div>
+<div id="download-the-every-reaction" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Download the every reaction<a href="database-construction.html#download-the-every-reaction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="database-construction.html#cb16-1" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/iAT_PLT_636/reactions/10FTHF6GLUtm&#39;</span>    <span class="op">&gt;</span>result/BiGG/iAT_PLT_636/reaction/json/10FTHF6GLUtm.txt</span>
+<span id="cb16-2"><a href="database-construction.html#cb16-2" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/iAT_PLT_636/reactions/10FTHF7GLUtl&#39;</span>    <span class="op">&gt;</span>result/BiGG/iAT_PLT_636/reaction/json/10FTHF7GLUtl.txt</span></code></pre></div>
+<p>Get the information in every reaction.</p>
+<p>The R script that change the reaction information in json to txt.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="database-construction.html#cb17-1" tabindex="-1"></a>args <span class="ot">&lt;-</span> <span class="fu">commandArgs</span>(T)</span>
+<span id="cb17-2"><a href="database-construction.html#cb17-2" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="database-construction.html#cb17-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb17-4"><a href="database-construction.html#cb17-4" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="database-construction.html#cb17-5" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;result/BiGG/&quot;</span>,args[<span class="dv">1</span>],<span class="st">&quot;/reaction/json/&quot;</span>,args[<span class="dv">2</span>],<span class="st">&quot;.txt&quot;</span>)</span>
+<span id="cb17-6"><a href="database-construction.html#cb17-6" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="database-construction.html#cb17-7" tabindex="-1"></a>recon1<span class="ot">&lt;-</span>jsonlite<span class="sc">::</span><span class="fu">stream_in</span>(<span class="fu">file</span>(mydata),<span class="at">pagesize =</span> <span class="dv">100</span>)</span>
+<span id="cb17-8"><a href="database-construction.html#cb17-8" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="database-construction.html#cb17-9" tabindex="-1"></a>metabolite_biggid <span class="ot">&lt;-</span> recon1<span class="sc">$</span>metabolites[[<span class="dv">1</span>]]<span class="sc">$</span>bigg_id</span>
+<span id="cb17-10"><a href="database-construction.html#cb17-10" tabindex="-1"></a>metabolites <span class="ot">&lt;-</span> recon1<span class="sc">$</span>metabolites[[<span class="dv">1</span>]]<span class="sc">$</span>name</span>
+<span id="cb17-11"><a href="database-construction.html#cb17-11" tabindex="-1"></a>compartment_bigg_id <span class="ot">&lt;-</span> recon1<span class="sc">$</span>metabolites[[<span class="dv">1</span>]]<span class="sc">$</span>compartment_bigg_id</span>
+<span id="cb17-12"><a href="database-construction.html#cb17-12" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="database-construction.html#cb17-13" tabindex="-1"></a>gene <span class="ot">&lt;-</span> recon1<span class="sc">$</span>results[[<span class="dv">1</span>]]<span class="sc">$</span>genes[[<span class="dv">1</span>]]<span class="sc">$</span>name</span>
+<span id="cb17-14"><a href="database-construction.html#cb17-14" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="database-construction.html#cb17-15" tabindex="-1"></a>subsystem <span class="ot">&lt;-</span> recon1<span class="sc">$</span>results[[<span class="dv">1</span>]]<span class="sc">$</span>subsystem</span>
+<span id="cb17-16"><a href="database-construction.html#cb17-16" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="database-construction.html#cb17-17" tabindex="-1"></a>model<span class="ot">=</span>args[<span class="dv">1</span>]</span>
+<span id="cb17-18"><a href="database-construction.html#cb17-18" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="database-construction.html#cb17-19" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(gene)<span class="sc">&gt;</span><span class="dv">0</span>) {</span>
+<span id="cb17-20"><a href="database-construction.html#cb17-20" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="database-construction.html#cb17-21" tabindex="-1"></a>  dd <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">metabolite_biggid1=</span><span class="fu">paste</span>(metabolite_biggid,compartment_bigg_id,<span class="at">sep=</span><span class="st">&quot;_&quot;</span>),<span class="at">src_type=</span><span class="st">&quot;metabolite&quot;</span>,<span class="at">src=</span>metabolites,<span class="at">metabolite_biggid2=</span><span class="cn">NA</span>,<span class="at">dest_type=</span><span class="st">&quot;gene&quot;</span>,<span class="at">dest=</span><span class="fu">paste</span>(gene,<span class="at">collapse=</span><span class="st">&quot;;&quot;</span>),<span class="at">subsystems=</span>subsystem,<span class="at">models=</span>model)</span>
+<span id="cb17-22"><a href="database-construction.html#cb17-22" tabindex="-1"></a></span>
+<span id="cb17-23"><a href="database-construction.html#cb17-23" tabindex="-1"></a><span class="co">#  write.table(dd,paste0(args[1],&quot;_txt/&quot;,args[2],&quot;.txt&quot;),quote=F,sep=&quot;\t&quot;,row.names=F)</span></span>
+<span id="cb17-24"><a href="database-construction.html#cb17-24" tabindex="-1"></a>}<span class="cf">else</span> {</span>
+<span id="cb17-25"><a href="database-construction.html#cb17-25" tabindex="-1"></a>  dd <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb17-26"><a href="database-construction.html#cb17-26" tabindex="-1"></a>}</span>
+<span id="cb17-27"><a href="database-construction.html#cb17-27" tabindex="-1"></a></span>
+<span id="cb17-28"><a href="database-construction.html#cb17-28" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">length</span>(<span class="fu">unique</span>(recon1<span class="sc">$</span>metabolites[[<span class="dv">1</span>]]<span class="sc">$</span>stoichiometry))<span class="sc">&gt;</span><span class="dv">1</span>) {</span>
+<span id="cb17-29"><a href="database-construction.html#cb17-29" tabindex="-1"></a></span>
+<span id="cb17-30"><a href="database-construction.html#cb17-30" tabindex="-1"></a>metabolites_stoichiometry1 <span class="ot">&lt;-</span> recon1<span class="sc">$</span>metabolites[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb17-31"><a href="database-construction.html#cb17-31" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(stoichiometry<span class="sc">&gt;</span><span class="dv">0</span>)</span>
+<span id="cb17-32"><a href="database-construction.html#cb17-32" tabindex="-1"></a></span>
+<span id="cb17-33"><a href="database-construction.html#cb17-33" tabindex="-1"></a>metabolites_stoichiometry2 <span class="ot">&lt;-</span> recon1<span class="sc">$</span>metabolites[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb17-34"><a href="database-construction.html#cb17-34" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(stoichiometry<span class="sc">&lt;</span><span class="dv">0</span>)</span>
+<span id="cb17-35"><a href="database-construction.html#cb17-35" tabindex="-1"></a></span>
+<span id="cb17-36"><a href="database-construction.html#cb17-36" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb17-37"><a href="database-construction.html#cb17-37" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(metabolites_stoichiometry1)) {</span>
+<span id="cb17-38"><a href="database-construction.html#cb17-38" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(metabolites_stoichiometry2)) {</span>
+<span id="cb17-39"><a href="database-construction.html#cb17-39" tabindex="-1"></a>    temp <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">metabolite_biggid1=</span><span class="fu">paste</span>(metabolites_stoichiometry1<span class="sc">$</span>bigg_id[i],metabolites_stoichiometry1<span class="sc">$</span>compartment_bigg_id[i],<span class="at">sep=</span><span class="st">&quot;_&quot;</span>),<span class="at">src_type=</span><span class="st">&quot;metabolite&quot;</span>,<span class="at">src=</span>metabolites_stoichiometry1<span class="sc">$</span>name[i],</span>
+<span id="cb17-40"><a href="database-construction.html#cb17-40" tabindex="-1"></a>                       <span class="at">metabolite_biggid2=</span><span class="fu">paste</span>(metabolites_stoichiometry2<span class="sc">$</span>bigg_id[j],metabolites_stoichiometry2<span class="sc">$</span>compartment_bigg_id[j],<span class="at">sep=</span><span class="st">&quot;_&quot;</span>),<span class="at">dest_type=</span><span class="st">&quot;metabolite&quot;</span>,<span class="at">dest=</span>metabolites_stoichiometry2<span class="sc">$</span>name[j],<span class="at">subsystems=</span>subsystem,<span class="at">models=</span>model)</span>
+<span id="cb17-41"><a href="database-construction.html#cb17-41" tabindex="-1"></a>    result <span class="ot">&lt;-</span> <span class="fu">rbind</span>(result,temp)</span>
+<span id="cb17-42"><a href="database-construction.html#cb17-42" tabindex="-1"></a>  }</span>
+<span id="cb17-43"><a href="database-construction.html#cb17-43" tabindex="-1"></a>}</span>
+<span id="cb17-44"><a href="database-construction.html#cb17-44" tabindex="-1"></a></span>
+<span id="cb17-45"><a href="database-construction.html#cb17-45" tabindex="-1"></a>result_final <span class="ot">&lt;-</span> <span class="fu">rbind</span>(dd,result)</span>
+<span id="cb17-46"><a href="database-construction.html#cb17-46" tabindex="-1"></a></span>
+<span id="cb17-47"><a href="database-construction.html#cb17-47" tabindex="-1"></a><span class="fu">write.table</span>(result_final,<span class="fu">paste0</span>(<span class="st">&quot;result/BiGG/&quot;</span>,args[<span class="dv">1</span>],<span class="st">&quot;/reaction/txt/&quot;</span>,args[<span class="dv">2</span>],<span class="st">&quot;.txt&quot;</span>),<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span>
+<span id="cb17-48"><a href="database-construction.html#cb17-48" tabindex="-1"></a>}<span class="cf">else</span> {</span>
+<span id="cb17-49"><a href="database-construction.html#cb17-49" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">0</span>)</span>
+<span id="cb17-50"><a href="database-construction.html#cb17-50" tabindex="-1"></a>}</span></code></pre></div>
+<p>Run the R script that change the reaction information in json to txt in batch.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="database-construction.html#cb18-1" tabindex="-1"></a><span class="fu">cat</span> iAB_RBC_283.reaction.txt <span class="kw">|</span><span class="cf">while</span> <span class="bu">read</span> <span class="va">line</span></span>
+<span id="cb18-2"><a href="database-construction.html#cb18-2" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb18-3"><a href="database-construction.html#cb18-3" tabindex="-1"></a>  <span class="ex">Rscript</span> reaction_json2txt.R iAB_RBC_283 <span class="va">$line</span></span>
+<span id="cb18-4"><a href="database-construction.html#cb18-4" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb18-5"><a href="database-construction.html#cb18-5" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="database-construction.html#cb18-6" tabindex="-1"></a><span class="fu">cat</span> iAT_PLT_636.reaction.txt <span class="kw">|</span><span class="cf">while</span> <span class="bu">read</span> <span class="va">line</span></span>
+<span id="cb18-7"><a href="database-construction.html#cb18-7" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb18-8"><a href="database-construction.html#cb18-8" tabindex="-1"></a>  <span class="ex">Rscript</span> reaction_json2txt.R iAT_PLT_636 <span class="va">$line</span></span>
+<span id="cb18-9"><a href="database-construction.html#cb18-9" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb18-10"><a href="database-construction.html#cb18-10" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="database-construction.html#cb18-11" tabindex="-1"></a><span class="fu">cat</span> RECON1.reaction.txt <span class="kw">|</span><span class="cf">while</span> <span class="bu">read</span> <span class="va">line</span></span>
+<span id="cb18-12"><a href="database-construction.html#cb18-12" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb18-13"><a href="database-construction.html#cb18-13" tabindex="-1"></a>  <span class="ex">Rscript</span> reaction_json2txt.R RECON1 <span class="va">$line</span></span>
+<span id="cb18-14"><a href="database-construction.html#cb18-14" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb18-15"><a href="database-construction.html#cb18-15" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="database-construction.html#cb18-16" tabindex="-1"></a><span class="fu">cat</span> Recon3D.reaction.txt <span class="kw">|</span><span class="cf">while</span> <span class="bu">read</span> <span class="va">line</span></span>
+<span id="cb18-17"><a href="database-construction.html#cb18-17" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb18-18"><a href="database-construction.html#cb18-18" tabindex="-1"></a>  <span class="ex">Rscript</span> reaction_json2txt.R Recon3D <span class="va">$line</span></span>
+<span id="cb18-19"><a href="database-construction.html#cb18-19" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<p>Combine all the reactions info include the gene-metabolite pair,the metabolite-metabolite pair,subsystem,model.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="database-construction.html#cb19-1" tabindex="-1"></a><span class="fu">cat</span> result/BiGG/iAB_RBC_283/reaction/txt/<span class="pp">*</span><span class="kw">|</span><span class="fu">grep</span> <span class="at">-v</span> metabolite_biggid1 <span class="op">&gt;</span>result/BiGG/cat_reaction_info_iAB_RBC_283.txt</span>
+<span id="cb19-2"><a href="database-construction.html#cb19-2" tabindex="-1"></a><span class="fu">cat</span> result/BiGG/iAT_PLT_636/reaction/txt/<span class="pp">*</span><span class="kw">|</span><span class="fu">grep</span> <span class="at">-v</span> metabolite_biggid1 <span class="op">&gt;</span>result/BiGG/cat_reaction_info_iAT_PLT_636.txt</span>
+<span id="cb19-3"><a href="database-construction.html#cb19-3" tabindex="-1"></a><span class="fu">cat</span> result/BiGG/Recon3D/reaction/txt/<span class="pp">*</span><span class="kw">|</span><span class="fu">grep</span> <span class="at">-v</span> metabolite_biggid1 <span class="op">&gt;</span>result/BiGG/cat_reaction_info_Recon3D.txt</span>
+<span id="cb19-4"><a href="database-construction.html#cb19-4" tabindex="-1"></a><span class="fu">cat</span> result/BiGG/RECON1/reaction/txt/<span class="pp">*</span><span class="kw">|</span><span class="fu">grep</span> <span class="at">-v</span> metabolite_biggid1 <span class="op">&gt;</span>result/BiGG/cat_reaction_info_RECON1.txt</span></code></pre></div>
+</div>
+<div id="exact-all-the-metabolites-names-in-every-model-in-bigg" class="section level3 hasAnchor" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Exact all the metabolites names in every model in BiGG<a href="database-construction.html#exact-all-the-metabolites-names-in-every-model-in-bigg" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb20-1"><a href="database-construction.html#cb20-1" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/iAB_RBC_283/metabolites&#39;</span> <span class="op">&gt;</span>result/BiGG/iAB_RBC_283_metabolite.json</span>
+<span id="cb20-2"><a href="database-construction.html#cb20-2" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/iAT_PLT_636/metabolites&#39;</span> <span class="op">&gt;</span>result/BiGG/iAT_PLT_636_metabolite.json</span>
+<span id="cb20-3"><a href="database-construction.html#cb20-3" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/Recon3D/metabolites&#39;</span> <span class="op">&gt;</span>result/BiGG/Recon3D_metabolite.json</span>
+<span id="cb20-4"><a href="database-construction.html#cb20-4" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/RECON1/metabolites&#39;</span> <span class="op">&gt;</span>result/BiGG/RECON1_metabolite.json</span></code></pre></div>
+<p>Change the json to txt.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="database-construction.html#cb21-1" tabindex="-1"></a>args<span class="ot">=</span><span class="fu">commandArgs</span>(T)</span>
+<span id="cb21-2"><a href="database-construction.html#cb21-2" tabindex="-1"></a>recon1<span class="ot">&lt;-</span>jsonlite<span class="sc">::</span><span class="fu">stream_in</span>(<span class="fu">file</span>(<span class="fu">paste0</span>(<span class="st">&quot;result/BiGG/&quot;</span>,args[<span class="dv">1</span>],<span class="st">&quot;_metabolite.json&quot;</span>)),<span class="at">pagesize =</span> <span class="dv">100</span>)</span>
+<span id="cb21-3"><a href="database-construction.html#cb21-3" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="database-construction.html#cb21-4" tabindex="-1"></a>aa <span class="ot">&lt;-</span> recon1<span class="sc">$</span>results[[<span class="dv">1</span>]]</span>
+<span id="cb21-5"><a href="database-construction.html#cb21-5" tabindex="-1"></a><span class="fu">write.table</span>(aa<span class="sc">$</span>bigg_id,<span class="fu">paste0</span>(<span class="st">&quot;result/BiGG/&quot;</span>,args[<span class="dv">1</span>],<span class="st">&quot;_metabolite.txt&quot;</span>),<span class="at">row.names =</span> F,<span class="at">col.names=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">quote=</span>F)</span></code></pre></div>
+<p>Use the script.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb22-1"><a href="database-construction.html#cb22-1" tabindex="-1"></a><span class="ex">Rscript</span> metabolitename_json2txt.R iAB_RBC_283</span>
+<span id="cb22-2"><a href="database-construction.html#cb22-2" tabindex="-1"></a><span class="ex">Rscript</span> metabolitename_json2txt.R iAT_PLT_636</span>
+<span id="cb22-3"><a href="database-construction.html#cb22-3" tabindex="-1"></a><span class="ex">Rscript</span> metabolitename_json2txt.R RECON1</span>
+<span id="cb22-4"><a href="database-construction.html#cb22-4" tabindex="-1"></a><span class="ex">Rscript</span> metabolitename_json2txt.R Recon3D</span></code></pre></div>
+<p>Download every metabolite information.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="database-construction.html#cb23-1" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/iAB_RBC_283/metabolites/13dpg_c&#39;</span>       <span class="op">&gt;</span>result/BiGG/iAB_RBC_283_metabolites/13dpg_c.json</span>
+<span id="cb23-2"><a href="database-construction.html#cb23-2" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/iAB_RBC_283/metabolites/23dpg_c&#39;</span>       <span class="op">&gt;</span>result/BiGG/iAB_RBC_283_metabolites/23dpg_c.json</span>
+<span id="cb23-3"><a href="database-construction.html#cb23-3" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/iAB_RBC_283/metabolites/2kmb_c&#39;</span>        <span class="op">&gt;</span>result/BiGG/iAB_RBC_283_metabolites/2kmb_c.json</span>
+<span id="cb23-4"><a href="database-construction.html#cb23-4" tabindex="-1"></a><span class="ex">curl</span> <span class="st">&#39;http://bigg.ucsd.edu/api/v2/models/iAB_RBC_283/metabolites/2pg_c&#39;</span> <span class="op">&gt;</span>result/BiGG/iAB_RBC_283_metabolites/2pg_c.json</span></code></pre></div>
+<p>The R script that exact the KEGG ID in metabolite file.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="database-construction.html#cb24-1" tabindex="-1"></a>args <span class="ot">&lt;-</span> <span class="fu">commandArgs</span>(T)</span>
+<span id="cb24-2"><a href="database-construction.html#cb24-2" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;result/BiGG/&quot;</span>,args[<span class="dv">1</span>],<span class="st">&quot;/metabolite/json/&quot;</span>,args[<span class="dv">2</span>],<span class="st">&quot;.json&quot;</span>)</span>
+<span id="cb24-3"><a href="database-construction.html#cb24-3" tabindex="-1"></a><span class="co"># &quot;iAB_RBC_283_metabolites/glu__L_c.json&quot;</span></span>
+<span id="cb24-4"><a href="database-construction.html#cb24-4" tabindex="-1"></a>recon1<span class="ot">&lt;-</span>jsonlite<span class="sc">::</span><span class="fu">stream_in</span>(<span class="fu">file</span>(mydata),<span class="at">pagesize =</span> <span class="dv">100</span>)</span>
+<span id="cb24-5"><a href="database-construction.html#cb24-5" tabindex="-1"></a>kegg_id <span class="ot">&lt;-</span> <span class="fu">paste</span>(recon1<span class="sc">$</span>database_links<span class="sc">$</span><span class="st">`</span><span class="at">KEGG Compound</span><span class="st">`</span>[[<span class="dv">1</span>]]<span class="sc">$</span>id,<span class="at">collapse =</span> <span class="st">&quot;;&quot;</span>)</span>
+<span id="cb24-6"><a href="database-construction.html#cb24-6" tabindex="-1"></a>name <span class="ot">&lt;-</span> recon1<span class="sc">$</span>name</span>
+<span id="cb24-7"><a href="database-construction.html#cb24-7" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="database-construction.html#cb24-8" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name=</span>name,<span class="at">kegg_id=</span>kegg_id,<span class="at">source=</span>args[<span class="dv">1</span>])</span>
+<span id="cb24-9"><a href="database-construction.html#cb24-9" tabindex="-1"></a><span class="fu">write.table</span>(result,<span class="fu">paste0</span>(<span class="st">&quot;result/BiGG/&quot;</span>,args[<span class="dv">1</span>],<span class="st">&quot;/metabolite/txt/&quot;</span>,args[<span class="dv">2</span>],<span class="st">&quot;.txt&quot;</span>),<span class="at">quote=</span>F,<span class="at">row.names =</span> F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<p>Run the R script that exact the KEGG ID in the metabolite file.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="database-construction.html#cb25-1" tabindex="-1"></a><span class="fu">cat</span> result/BiGG/iAB_RBC_283_metabolite.txt<span class="kw">|</span><span class="cf">while</span> <span class="bu">read</span> <span class="va">line</span></span>
+<span id="cb25-2"><a href="database-construction.html#cb25-2" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb25-3"><a href="database-construction.html#cb25-3" tabindex="-1"></a>  <span class="ex">Rscript</span> metabolite_json2txt.R iAB_RBC_283 <span class="va">${line}</span></span>
+<span id="cb25-4"><a href="database-construction.html#cb25-4" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb25-5"><a href="database-construction.html#cb25-5" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="database-construction.html#cb25-6" tabindex="-1"></a><span class="fu">cat</span> result/BiGG/iAT_PLT_636_metabolite.txt <span class="kw">|</span><span class="cf">while</span> <span class="bu">read</span> <span class="va">line</span></span>
+<span id="cb25-7"><a href="database-construction.html#cb25-7" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb25-8"><a href="database-construction.html#cb25-8" tabindex="-1"></a>  <span class="ex">Rscript</span> metabolite_json2txt.R iAT_PLT_636 <span class="va">${line}</span></span>
+<span id="cb25-9"><a href="database-construction.html#cb25-9" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb25-10"><a href="database-construction.html#cb25-10" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="database-construction.html#cb25-11" tabindex="-1"></a><span class="fu">cat</span> result/BiGG/RECON1_metabolite.txt<span class="kw">|</span><span class="cf">while</span> <span class="bu">read</span> <span class="va">line</span></span>
+<span id="cb25-12"><a href="database-construction.html#cb25-12" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb25-13"><a href="database-construction.html#cb25-13" tabindex="-1"></a>  <span class="ex">Rscript</span> metabolite_json2txt.R RECON1 <span class="va">${line}</span></span>
+<span id="cb25-14"><a href="database-construction.html#cb25-14" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb25-15"><a href="database-construction.html#cb25-15" tabindex="-1"></a></span>
+<span id="cb25-16"><a href="database-construction.html#cb25-16" tabindex="-1"></a><span class="fu">cat</span> result/BiGG/Recon3D_metabolite.txt<span class="kw">|</span><span class="cf">while</span> <span class="bu">read</span> <span class="va">line</span></span>
+<span id="cb25-17"><a href="database-construction.html#cb25-17" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb25-18"><a href="database-construction.html#cb25-18" tabindex="-1"></a>  <span class="ex">Rscript</span> metabolite_json2txt.R Recon3D <span class="va">${line}</span></span>
+<span id="cb25-19"><a href="database-construction.html#cb25-19" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<p>Combine all the metabolite in 1 file for every model.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="database-construction.html#cb26-1" tabindex="-1"></a><span class="fu">cat</span> result/BiGG/iAB_RBC_283/metabolite/txt/<span class="pp">*</span>_metabolite.txt<span class="kw">|</span><span class="fu">grep</span> <span class="at">-v</span> kegg_id <span class="op">&gt;</span>result/BiGG/iAB_RBC_283_metabolite_all.txt</span>
+<span id="cb26-2"><a href="database-construction.html#cb26-2" tabindex="-1"></a><span class="fu">cat</span> result/BiGG/iAT_PLT_636/metabolite/txt/<span class="pp">*</span>_metabolite.txt <span class="kw">|</span><span class="fu">grep</span> <span class="at">-v</span> kegg_id <span class="op">&gt;</span>result/BiGG/iAT_PLT_636_metabolite_all.txt</span>
+<span id="cb26-3"><a href="database-construction.html#cb26-3" tabindex="-1"></a><span class="fu">cat</span> result/BiGG/RECON1/metabolite/txt/<span class="pp">*</span>_metabolite.txt<span class="kw">|</span><span class="fu">grep</span> <span class="at">-v</span> kegg_id <span class="op">&gt;</span>result/BiGG/RECON1_metabolite_all.txt</span>
+<span id="cb26-4"><a href="database-construction.html#cb26-4" tabindex="-1"></a><span class="fu">cat</span> result/BiGG/Recon3D/metabolite/txt/<span class="pp">*</span>_metabolite.txt<span class="kw">|</span><span class="fu">grep</span> <span class="at">-v</span> kegg_id <span class="op">&gt;</span>result/BiGG/Recon3D_metabolite_all.txt</span></code></pre></div>
+</div>
+<div id="the-r-script-that-change-the-metabolite-name-to-kegg-id-in-the-final-output" class="section level3 hasAnchor" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> The R script that change the metabolite name to kegg id in the final output<a href="database-construction.html#the-r-script-that-change-the-metabolite-name-to-kegg-id-in-the-final-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="database-construction.html#cb27-1" tabindex="-1"></a>args <span class="ot">&lt;-</span> <span class="fu">commandArgs</span>(T)</span>
+<span id="cb27-2"><a href="database-construction.html#cb27-2" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="database-construction.html#cb27-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb27-4"><a href="database-construction.html#cb27-4" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="database-construction.html#cb27-5" tabindex="-1"></a>metabolite_info <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="fu">paste0</span>(<span class="st">&quot;result/BiGG/&quot;</span>,args[<span class="dv">1</span>],<span class="st">&quot;_metabolite_all.txt&quot;</span>),<span class="at">header=</span>F) <span class="sc">%&gt;%</span></span>
+<span id="cb27-6"><a href="database-construction.html#cb27-6" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb27-7"><a href="database-construction.html#cb27-7" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="database-construction.html#cb27-8" tabindex="-1"></a>gene_metabolite_pairs <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="fu">paste0</span>(<span class="st">&quot;result/BiGG/cat_reaction_info_&quot;</span>,args[<span class="dv">1</span>],<span class="st">&quot;.txt&quot;</span>),<span class="at">header=</span>F) <span class="sc">%&gt;%</span></span>
+<span id="cb27-9"><a href="database-construction.html#cb27-9" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb27-10"><a href="database-construction.html#cb27-10" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">left_join</span>(metabolite_info,<span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;V3&quot;</span><span class="ot">=</span><span class="st">&quot;V1&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb27-11"><a href="database-construction.html#cb27-11" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">left_join</span>(metabolite_info,<span class="at">by=</span><span class="fu">c</span>(<span class="st">&quot;V6&quot;</span><span class="ot">=</span><span class="st">&quot;V1&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb27-12"><a href="database-construction.html#cb27-12" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">src=</span><span class="fu">ifelse</span>(V2.y<span class="sc">==</span><span class="st">&quot;&quot;</span> <span class="sc">|</span> <span class="fu">is.na</span>(V2.y),</span>
+<span id="cb27-13"><a href="database-construction.html#cb27-13" tabindex="-1"></a>                           V3.x,V2.y)) <span class="sc">%&gt;%</span></span>
+<span id="cb27-14"><a href="database-construction.html#cb27-14" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">dest=</span><span class="fu">ifelse</span>(V2<span class="sc">==</span><span class="st">&quot;&quot;</span> <span class="sc">|</span> <span class="fu">is.na</span>(V2),</span>
+<span id="cb27-15"><a href="database-construction.html#cb27-15" tabindex="-1"></a>                            V6,V2)) <span class="sc">%&gt;%</span></span>
+<span id="cb27-16"><a href="database-construction.html#cb27-16" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;V2.x&quot;</span>,<span class="st">&quot;src&quot;</span>,<span class="st">&quot;V5&quot;</span>,<span class="st">&quot;dest&quot;</span>,<span class="st">&quot;V7&quot;</span>,<span class="st">&quot;V8&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb27-17"><a href="database-construction.html#cb27-17" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;src_type&quot;</span><span class="ot">=</span><span class="st">&quot;V2.x&quot;</span>,<span class="st">&quot;dest_type&quot;</span><span class="ot">=</span><span class="st">&quot;V5&quot;</span>,<span class="st">&quot;subsystems&quot;</span><span class="ot">=</span><span class="st">&quot;V7&quot;</span>,<span class="st">&quot;model&quot;</span><span class="ot">=</span><span class="st">&quot;V8&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-18"><a href="database-construction.html#cb27-18" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(src,<span class="at">sep=</span><span class="st">&quot;;&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-19"><a href="database-construction.html#cb27-19" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(dest,<span class="at">sep=</span><span class="st">&quot;;&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb27-20"><a href="database-construction.html#cb27-20" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(src <span class="sc">!=</span> dest) <span class="sc">%&gt;%</span></span>
+<span id="cb27-21"><a href="database-construction.html#cb27-21" tabindex="-1"></a>  <span class="fu">unique</span>()</span>
+<span id="cb27-22"><a href="database-construction.html#cb27-22" tabindex="-1"></a><span class="fu">write.table</span>(gene_metabolite_pairs,<span class="fu">paste0</span>(<span class="st">&quot;result/BiGG/result_&quot;</span>,args[<span class="dv">1</span>],<span class="st">&quot;.txt&quot;</span>),<span class="at">quote=</span>F,<span class="at">row.names =</span> F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<p>Use the R script that change the metabolite name to KEGG ID.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="database-construction.html#cb28-1" tabindex="-1"></a><span class="ex">Rscript</span> result.R iAB_RBC_283</span>
+<span id="cb28-2"><a href="database-construction.html#cb28-2" tabindex="-1"></a><span class="ex">Rscript</span> result.R iAT_PLT_636</span>
+<span id="cb28-3"><a href="database-construction.html#cb28-3" tabindex="-1"></a><span class="ex">Rscript</span> result.R RECON1</span>
+<span id="cb28-4"><a href="database-construction.html#cb28-4" tabindex="-1"></a><span class="ex">Rscript</span> result.R Recon3D</span>
+<span id="cb28-5"><a href="database-construction.html#cb28-5" tabindex="-1"></a><span class="fu">cat</span> result_<span class="pp">*</span>.txt <span class="kw">|</span><span class="fu">cut</span> <span class="at">-f1-5</span> <span class="kw">|</span><span class="fu">sort</span><span class="kw">|</span><span class="fu">uniq</span> <span class="op">&gt;</span>result/BiGG/result.BiGG.txt</span></code></pre></div>
+</div>
+<div id="combine-the-data-from-bigg-and-graphite" class="section level3 hasAnchor" number="2.4.5">
+<h3><span class="header-section-number">2.4.5</span> Combine the data from BiGG and graphite<a href="database-construction.html#combine-the-data-from-bigg-and-graphite" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb29-1"><a href="database-construction.html#cb29-1" tabindex="-1"></a> <span class="fu">cat</span> result/BiGG/result.BiGG.txt ../graphite/result.graphite.txt <span class="kw">|</span><span class="fu">sed</span> s/KEGGCOMP/metabolite/g <span class="kw">|</span><span class="fu">sed</span> s/SYMBOL/gene/g <span class="kw">|</span><span class="fu">sort</span><span class="kw">|</span><span class="fu">uniq</span> <span class="op">&gt;</span>gene-metabolite_BiGG_graphite.txt</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="database-construction.html#cb30-1" tabindex="-1"></a>dat <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">&quot;/Users/guituantuan/Desktop/projects/database/gene-metabolite/gene-metabolite_BiGG_graphite.txt&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="database-construction.html#cb30-2" tabindex="-1"></a>  <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="database-construction.html#cb30-3" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(keggId<span class="sc">!=</span>gene) <span class="sc">%&gt;%</span></span>
+<span id="cb30-4"><a href="database-construction.html#cb30-4" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">keggId_new=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;metabolite&quot;</span> <span class="sc">&amp;</span> dest_type<span class="sc">==</span><span class="st">&quot;metabolite&quot;</span>,</span>
+<span id="cb30-5"><a href="database-construction.html#cb30-5" tabindex="-1"></a>                                <span class="fu">ifelse</span>(keggId<span class="sc">&gt;</span>gene,keggId,gene),</span>
+<span id="cb30-6"><a href="database-construction.html#cb30-6" tabindex="-1"></a>                                keggId)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-7"><a href="database-construction.html#cb30-7" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">gene_new=</span><span class="fu">ifelse</span>(src_type<span class="sc">==</span><span class="st">&quot;metabolite&quot;</span> <span class="sc">&amp;</span> dest_type<span class="sc">==</span><span class="st">&quot;metabolite&quot;</span>,</span>
+<span id="cb30-8"><a href="database-construction.html#cb30-8" tabindex="-1"></a>                                 <span class="fu">ifelse</span>(keggId<span class="sc">&gt;</span>gene,gene,keggId),</span>
+<span id="cb30-9"><a href="database-construction.html#cb30-9" tabindex="-1"></a>                                 gene)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-10"><a href="database-construction.html#cb30-10" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">&quot;keggId&quot;</span>,<span class="st">&quot;gene&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-11"><a href="database-construction.html#cb30-11" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;keggId&quot;</span><span class="ot">=</span><span class="st">&quot;keggId_new&quot;</span>,<span class="st">&quot;gene&quot;</span><span class="ot">=</span><span class="st">&quot;gene_new&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-12"><a href="database-construction.html#cb30-12" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;src_type&quot;</span>,<span class="st">&quot;keggId&quot;</span>,<span class="st">&quot;dest_type&quot;</span>,<span class="st">&quot;gene&quot;</span>,<span class="st">&quot;subsystems&quot;</span>))</span>
+<span id="cb30-13"><a href="database-construction.html#cb30-13" tabindex="-1"></a></span>
+<span id="cb30-14"><a href="database-construction.html#cb30-14" tabindex="-1"></a>dat<span class="sc">$</span>subsystems <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(dat<span class="sc">$</span>subsystems)</span>
+<span id="cb30-15"><a href="database-construction.html#cb30-15" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="database-construction.html#cb30-16" tabindex="-1"></a>kegg_pathway1 <span class="ot">&lt;-</span> kegg_pathway <span class="sc">%&gt;%</span></span>
+<span id="cb30-17"><a href="database-construction.html#cb30-17" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">pathway1=</span>stringr<span class="sc">::</span><span class="fu">str_to_title</span>(PATHWAY)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-18"><a href="database-construction.html#cb30-18" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">c</span>(<span class="st">&quot;pathway1&quot;</span>,<span class="st">&quot;pathway_type&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-19"><a href="database-construction.html#cb30-19" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="st">&quot;subsystems&quot;</span><span class="ot">=</span><span class="st">&quot;pathway1&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-20"><a href="database-construction.html#cb30-20" tabindex="-1"></a>  <span class="fu">unique</span>()</span>
+<span id="cb30-21"><a href="database-construction.html#cb30-21" tabindex="-1"></a></span>
+<span id="cb30-22"><a href="database-construction.html#cb30-22" tabindex="-1"></a>pathway_type_1 <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">fread</span>(<span class="st">&quot;pathway_type.txt&quot;</span>,<span class="at">header=</span>F) <span class="sc">%&gt;%</span></span>
+<span id="cb30-23"><a href="database-construction.html#cb30-23" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb30-24"><a href="database-construction.html#cb30-24" tabindex="-1"></a></span>
+<span id="cb30-25"><a href="database-construction.html#cb30-25" tabindex="-1"></a><span class="fu">names</span>(pathway_type_1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;subsystems&quot;</span>,<span class="st">&quot;pathway_type&quot;</span>)</span>
+<span id="cb30-26"><a href="database-construction.html#cb30-26" tabindex="-1"></a>aa <span class="ot">&lt;-</span> <span class="fu">rbind</span>(kegg_pathway1,pathway_type_1)</span>
+<span id="cb30-27"><a href="database-construction.html#cb30-27" tabindex="-1"></a></span>
+<span id="cb30-28"><a href="database-construction.html#cb30-28" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb30-29"><a href="database-construction.html#cb30-29" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">subsystems=</span><span class="fu">ifelse</span>(subsystems<span class="sc">==</span><span class="st">&quot;Urea Cycle/Amino Group Metabolism&quot;</span>,<span class="st">&quot;Urea Cycle&quot;</span>,subsystems)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-30"><a href="database-construction.html#cb30-30" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">subsystems=</span><span class="fu">ifelse</span>(subsystems<span class="sc">==</span><span class="st">&quot;Nucleotides&quot;</span>,<span class="st">&quot;Nucleotide Interconversion&quot;</span>,subsystems)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-31"><a href="database-construction.html#cb30-31" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">subsystems=</span><span class="fu">ifelse</span>(subsystems<span class="sc">==</span><span class="st">&quot;Citric Acid Cycle&quot;</span>,<span class="st">&quot;TCA Cycle&quot;</span>,subsystems)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-32"><a href="database-construction.html#cb30-32" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">subsystems=</span><span class="fu">ifelse</span>(subsystems<span class="sc">==</span><span class="st">&quot;Citrate Cycle (Tca Cycle)&quot;</span>,<span class="st">&quot;TCA Cycle&quot;</span>,subsystems)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-33"><a href="database-construction.html#cb30-33" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">subsystems=</span><span class="fu">ifelse</span>(subsystems<span class="sc">==</span><span class="st">&quot;The Citric Acid (Tca) Cycle And Respiratory Electron Transport&quot;</span>,<span class="st">&quot;TCA Cycle&quot;</span>,subsystems)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-34"><a href="database-construction.html#cb30-34" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">subsystems=</span><span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">&quot;Vitamin&quot;</span>,subsystems),<span class="st">&quot;Vitamin Metabolism&quot;</span>,subsystems)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-35"><a href="database-construction.html#cb30-35" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">subsystems=</span><span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">&quot;Tca Cycle&quot;</span>,subsystems),<span class="st">&quot;TCA Cycle&quot;</span>,subsystems)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-36"><a href="database-construction.html#cb30-36" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">subsystems=</span><span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">&quot;Amino Acid&quot;</span>,subsystems),<span class="st">&quot;Amino Acid Metabolism&quot;</span>,subsystems)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-37"><a href="database-construction.html#cb30-37" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">subsystems=</span><span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">&quot;Coa &quot;</span>,subsystems),<span class="st">&quot;CoA Metabolism&quot;</span>,subsystems)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-38"><a href="database-construction.html#cb30-38" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">subsystems=</span><span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">&quot;Fatty Acid&quot;</span>,subsystems),<span class="st">&quot;Fatty Acid Metabolism&quot;</span>,subsystems)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-39"><a href="database-construction.html#cb30-39" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">subsystems=</span><span class="fu">ifelse</span>(subsystems<span class="sc">==</span><span class="st">&quot;Fatty Acid Oxidation&quot;</span>,<span class="st">&quot;Fatty Acid Metabolism&quot;</span>,subsystems)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-40"><a href="database-construction.html#cb30-40" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">subsystems=</span><span class="fu">ifelse</span>(subsystems<span class="sc">==</span><span class="st">&quot;Aminosugar Metabolism&quot;</span>,<span class="st">&quot;Amino Sugar Metabolism&quot;</span>,subsystems)) <span class="sc">%&gt;%</span></span>
+<span id="cb30-41"><a href="database-construction.html#cb30-41" tabindex="-1"></a>  <span class="fu">unique</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb30-42"><a href="database-construction.html#cb30-42" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">left_join</span>(aa,<span class="at">by=</span><span class="st">&quot;subsystems&quot;</span>)</span>
+<span id="cb30-43"><a href="database-construction.html#cb30-43" tabindex="-1"></a></span>
+<span id="cb30-44"><a href="database-construction.html#cb30-44" tabindex="-1"></a></span>
+<span id="cb30-45"><a href="database-construction.html#cb30-45" tabindex="-1"></a><span class="fu">write.table</span>(dat2,<span class="st">&quot;/Users/guituantuan/Desktop/projects/database/gene-metabolite/gene-metabolite_BiGG_graphite_uniq.txt&quot;</span>,</span>
+<span id="cb30-46"><a href="database-construction.html#cb30-46" tabindex="-1"></a>            <span class="at">quote=</span>F,<span class="at">row.names=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="example-unique-analyses.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-database_construction.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

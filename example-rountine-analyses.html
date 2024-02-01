@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Example-rountine analyses | MNet</title>
-  <meta name="description" content="Chapter 3 Example-rountine analyses | MNet" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <title>Chapter 4 Example-rountine analyses | MNet</title>
+  <meta name="description" content="Chapter 4 Example-rountine analyses | MNet" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Example-rountine analyses | MNet" />
+  <meta property="og:title" content="Chapter 4 Example-rountine analyses | MNet" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Example-rountine analyses | MNet" />
+  <meta name="twitter:title" content="Chapter 4 Example-rountine analyses | MNet" />
   
   
   
 
-<meta name="author" content="Tuantuan Gui and Hai Fang" />
+<meta name="author" content="Tuantuan Gui, Xuan Liu and Hai Fang" />
 
 
-<meta name="date" content="2024-01-10" />
+<meta name="date" content="2024-02-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="example-unique-analyses.html"/>
-<link rel="next" href="session-information.html"/>
+<link rel="next" href="shiny.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,24 +52,24 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.27/datatables.js"></script>
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
-<link href="libs/dt-ext-buttons-1.12.1/css/buttons.dataTables.min.css" rel="stylesheet" />
-<script src="libs/dt-ext-buttons-1.12.1/js/dataTables.buttons.min.js"></script>
-<script src="libs/dt-ext-buttons-1.12.1/js/buttons.html5.min.js"></script>
-<script src="libs/dt-ext-buttons-1.12.1/js/buttons.colVis.min.js"></script>
-<script src="libs/dt-ext-buttons-1.12.1/js/buttons.print.min.js"></script>
-<link href="libs/dt-ext-fixedcolumns-1.12.1/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
-<script src="libs/dt-ext-fixedcolumns-1.12.1/js/dataTables.fixedColumns.min.js"></script>
-<link href="libs/dt-plugin-searchhighlight-1.12.1/source.css" rel="stylesheet" />
-<script src="libs/dt-plugin-searchhighlight-1.12.1/jquery.highlight.js"></script>
-<script src="libs/dt-plugin-searchhighlight-1.12.1/source.min.js"></script>
-<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<script src="libs/datatables-binding-0.30/datatables.js"></script>
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.4/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.4/js/jquery.dataTables.min.js"></script>
+<link href="libs/dt-ext-buttons-1.13.4/css/buttons.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-buttons-1.13.4/js/dataTables.buttons.min.js"></script>
+<script src="libs/dt-ext-buttons-1.13.4/js/buttons.html5.min.js"></script>
+<script src="libs/dt-ext-buttons-1.13.4/js/buttons.colVis.min.js"></script>
+<script src="libs/dt-ext-buttons-1.13.4/js/buttons.print.min.js"></script>
+<link href="libs/dt-ext-fixedcolumns-1.13.4/css/fixedColumns.dataTables.min.css" rel="stylesheet" />
+<script src="libs/dt-ext-fixedcolumns-1.13.4/js/dataTables.fixedColumns.min.js"></script>
+<link href="libs/dt-plugin-searchhighlight-1.13.4/source.css" rel="stylesheet" />
+<script src="libs/dt-plugin-searchhighlight-1.13.4/jquery.highlight.js"></script>
+<script src="libs/dt-plugin-searchhighlight-1.13.4/source.min.js"></script>
+<link href="libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -137,6 +137,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -159,58 +163,138 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview-of-workflow"><i class="fa fa-check"></i><b>1.1</b> Overview of Workflow</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#installation"><i class="fa fa-check"></i><b>1.2</b> Installation</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html"><i class="fa fa-check"></i><b>2</b> Example-unique analyses</a>
+<li class="chapter" data-level="2" data-path="database-construction.html"><a href="database-construction.html"><i class="fa fa-check"></i><b>2</b> Database construction</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#loading-the-data"><i class="fa fa-check"></i><b>2.1</b> Loading the data</a></li>
-<li class="chapter" data-level="2.2" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#pathway-enrichment-analysis"><i class="fa fa-check"></i><b>2.2</b> Pathway enrichment analysis</a>
+<li class="chapter" data-level="2.1" data-path="database-construction.html"><a href="database-construction.html#kegg-pathways-metabolite-and-gene"><i class="fa fa-check"></i><b>2.1</b> KEGG pathway’s metabolite and gene</a></li>
+<li class="chapter" data-level="2.2" data-path="database-construction.html"><a href="database-construction.html#kegg-metabolite-metabolite-pairs-and-metabolite-gene-pairs"><i class="fa fa-check"></i><b>2.2</b> KEGG metabolite-metabolite pairs and metabolite-gene pairs</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#gene-pathway-enrichment"><i class="fa fa-check"></i><b>2.2.1</b> gene pathway enrichment</a></li>
-<li class="chapter" data-level="2.2.2" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#metabolite-pathway-enrichment"><i class="fa fa-check"></i><b>2.2.2</b> metabolite pathway enrichment</a></li>
-<li class="chapter" data-level="2.2.3" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#extended-pathway-enrichment"><i class="fa fa-check"></i><b>2.2.3</b> Extended pathway enrichment</a></li>
-<li class="chapter" data-level="2.2.4" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#overview-of-pathway-enrichment-analysis"><i class="fa fa-check"></i><b>2.2.4</b> Overview of pathway enrichment analysis</a></li>
+<li class="chapter" data-level="2.2.1" data-path="database-construction.html"><a href="database-construction.html#keggs-reaction-and-compounds-download"><i class="fa fa-check"></i><b>2.2.1</b> KEGG’s reaction and compound’s download</a></li>
+<li class="chapter" data-level="2.2.2" data-path="database-construction.html"><a href="database-construction.html#downloading-the-enzyme-and-its-corresponding-gene-information-from-the-htextand-extract-the-gene-and-the-enzymes-relationship"><i class="fa fa-check"></i><b>2.2.2</b> Downloading the enzyme and its corresponding gene information from the htext,and extract the gene and the enzyme’s relationship</a></li>
+<li class="chapter" data-level="2.2.3" data-path="database-construction.html"><a href="database-construction.html#extracting-the-metabolite-gene-pairs-and-metabolite-metabolite-pairs"><i class="fa fa-check"></i><b>2.2.3</b> Extracting the metabolite-gene pairs and metabolite-metabolite pairs</a></li>
+<li class="chapter" data-level="2.2.4" data-path="database-construction.html"><a href="database-construction.html#conclusion"><i class="fa fa-check"></i><b>2.2.4</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#pathway-differential-abundance-score"><i class="fa fa-check"></i><b>2.3</b> Pathway differential abundance score</a>
+<li class="chapter" data-level="2.3" data-path="database-construction.html"><a href="database-construction.html#graphite"><i class="fa fa-check"></i><b>2.3</b> Graphite</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#gene-differential-abundance-score"><i class="fa fa-check"></i><b>2.3.1</b> gene differential abundance score</a></li>
-<li class="chapter" data-level="2.3.2" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#metabolite-differential-abundance-score"><i class="fa fa-check"></i><b>2.3.2</b> metabolite differential abundance score</a></li>
-<li class="chapter" data-level="2.3.3" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#extended-pathway-differential-abundance-score"><i class="fa fa-check"></i><b>2.3.3</b> Extended pathway differential abundance score</a></li>
-<li class="chapter" data-level="2.3.4" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#overview-of-pathway-differential-abundance-score"><i class="fa fa-check"></i><b>2.3.4</b> Overview of pathway differential abundance score</a></li>
+<li class="chapter" data-level="2.3.1" data-path="database-construction.html"><a href="database-construction.html#download-all-the-data-from-graphite"><i class="fa fa-check"></i><b>2.3.1</b> Download all the data from graphite</a></li>
+<li class="chapter" data-level="2.3.2" data-path="database-construction.html"><a href="database-construction.html#download-the-information-of-metabolism-pathways"><i class="fa fa-check"></i><b>2.3.2</b> Download the information of metabolism pathways</a></li>
+<li class="chapter" data-level="2.3.3" data-path="database-construction.html"><a href="database-construction.html#extract-the-data-of-metabolism"><i class="fa fa-check"></i><b>2.3.3</b> Extract the data of metabolism</a></li>
+<li class="chapter" data-level="2.3.4" data-path="database-construction.html"><a href="database-construction.html#combine-the-data-from-database-kegg-wikipathway-reactome-smpdb-and-then-uniq-the-data"><i class="fa fa-check"></i><b>2.3.4</b> Combine the data from database kegg, wikipathway, reactome, smpdb and then uniq the data</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#esea-metabolite-set-enrichment-analysis"><i class="fa fa-check"></i><b>2.4</b> ESEA Metabolite Set Enrichment Analysis</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html"><i class="fa fa-check"></i><b>3</b> Example-rountine analyses</a>
+<li class="chapter" data-level="2.4" data-path="database-construction.html"><a href="database-construction.html#bigg"><i class="fa fa-check"></i><b>2.4</b> BiGG</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-and-kegg-name-change"><i class="fa fa-check"></i><b>3.1</b> Metabolite and kegg name change</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-name-changed-to-refmet-name"><i class="fa fa-check"></i><b>3.1.1</b> Metabolite name changed to refmet name</a></li>
-<li class="chapter" data-level="3.1.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-name-changed-to-kegg-id"><i class="fa fa-check"></i><b>3.1.2</b> Metabolite name changed to kegg id</a></li>
-<li class="chapter" data-level="3.1.3" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-name-corresponding-to-kegg-pathway"><i class="fa fa-check"></i><b>3.1.3</b> Metabolite name corresponding to kegg pathway</a></li>
-<li class="chapter" data-level="3.1.4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-keggid-to-kegg-pathway"><i class="fa fa-check"></i><b>3.1.4</b> Metabolite keggid to kegg pathway</a></li>
-<li class="chapter" data-level="3.1.5" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#the-pathway-information"><i class="fa fa-check"></i><b>3.1.5</b> the pathway information</a></li>
-<li class="chapter" data-level="3.1.6" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pathway-name-to-pathway-id"><i class="fa fa-check"></i><b>3.1.6</b> pathway name to pathway id</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#group-wise-analyses"><i class="fa fa-check"></i><b>3.2</b> Group-wise analyses</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pca-plot"><i class="fa fa-check"></i><b>3.2.1</b> PCA plot</a></li>
-<li class="chapter" data-level="3.2.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#differnetial-metabolite-analysis"><i class="fa fa-check"></i><b>3.2.2</b> Differnetial metabolite analysis</a></li>
-<li class="chapter" data-level="3.2.3" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#differential-metabolites-volcano"><i class="fa fa-check"></i><b>3.2.3</b> Differential metabolites’ volcano</a></li>
-<li class="chapter" data-level="3.2.4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#differential-metabolites-heatmap"><i class="fa fa-check"></i><b>3.2.4</b> Differential metabolites’ heatmap</a></li>
-<li class="chapter" data-level="3.2.5" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#differential-metabolites-zscore"><i class="fa fa-check"></i><b>3.2.5</b> Differential metabolites’ zscore</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pathway-analysis"><i class="fa fa-check"></i><b>3.3</b> Pathway analysis</a>
-<ul>
-<li class="chapter" data-level="3.3.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pathview-only-metabolite"><i class="fa fa-check"></i><b>3.3.1</b> pathview only metabolite</a></li>
-<li class="chapter" data-level="3.3.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pathview-metabolite-and-gene"><i class="fa fa-check"></i><b>3.3.2</b> pathview metabolite and gene</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#clinical-analysis"><i class="fa fa-check"></i><b>3.4</b> Clinical analysis</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#time-series-of-clinical"><i class="fa fa-check"></i><b>3.4.1</b> Time series of clinical</a></li>
-<li class="chapter" data-level="3.4.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#survival-analysis"><i class="fa fa-check"></i><b>3.4.2</b> Survival analysis</a></li>
-<li class="chapter" data-level="3.4.3" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolites-survival-plot"><i class="fa fa-check"></i><b>3.4.3</b> Metabolites’ survival plot</a></li>
-<li class="chapter" data-level="3.4.4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#cox-analysis"><i class="fa fa-check"></i><b>3.4.4</b> Cox analysis</a></li>
+<li class="chapter" data-level="2.4.1" data-path="database-construction.html"><a href="database-construction.html#down-all-the-models-in-the-bigg"><i class="fa fa-check"></i><b>2.4.1</b> Down all the models in the BiGG</a></li>
+<li class="chapter" data-level="2.4.2" data-path="database-construction.html"><a href="database-construction.html#download-the-every-reaction"><i class="fa fa-check"></i><b>2.4.2</b> Download the every reaction</a></li>
+<li class="chapter" data-level="2.4.3" data-path="database-construction.html"><a href="database-construction.html#exact-all-the-metabolites-names-in-every-model-in-bigg"><i class="fa fa-check"></i><b>2.4.3</b> Exact all the metabolites names in every model in BiGG</a></li>
+<li class="chapter" data-level="2.4.4" data-path="database-construction.html"><a href="database-construction.html#the-r-script-that-change-the-metabolite-name-to-kegg-id-in-the-final-output"><i class="fa fa-check"></i><b>2.4.4</b> The R script that change the metabolite name to kegg id in the final output</a></li>
+<li class="chapter" data-level="2.4.5" data-path="database-construction.html"><a href="database-construction.html#combine-the-data-from-bigg-and-graphite"><i class="fa fa-check"></i><b>2.4.5</b> Combine the data from BiGG and graphite</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>4</b> Session information</a></li>
+<li class="chapter" data-level="3" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html"><i class="fa fa-check"></i><b>3</b> Example-unique analyses</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#loading-the-data"><i class="fa fa-check"></i><b>3.1</b> Loading the data</a></li>
+<li class="chapter" data-level="3.2" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#pathway-enrichment-analysis"><i class="fa fa-check"></i><b>3.2</b> Pathway enrichment analysis</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#gene-pathway-enrichment"><i class="fa fa-check"></i><b>3.2.1</b> gene pathway enrichment</a></li>
+<li class="chapter" data-level="3.2.2" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#metabolite-pathway-enrichment"><i class="fa fa-check"></i><b>3.2.2</b> metabolite pathway enrichment</a></li>
+<li class="chapter" data-level="3.2.3" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#extended-pathway-enrichment"><i class="fa fa-check"></i><b>3.2.3</b> Extended pathway enrichment</a></li>
+<li class="chapter" data-level="3.2.4" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#overview-of-pathway-enrichment-analysis"><i class="fa fa-check"></i><b>3.2.4</b> Overview of pathway enrichment analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#pathway-differential-abundance-score"><i class="fa fa-check"></i><b>3.3</b> Pathway differential abundance score</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#gene-differential-abundance-score"><i class="fa fa-check"></i><b>3.3.1</b> gene differential abundance score</a></li>
+<li class="chapter" data-level="3.3.2" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#metabolite-differential-abundance-score"><i class="fa fa-check"></i><b>3.3.2</b> metabolite differential abundance score</a></li>
+<li class="chapter" data-level="3.3.3" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#extended-pathway-differential-abundance-score"><i class="fa fa-check"></i><b>3.3.3</b> Extended pathway differential abundance score</a></li>
+<li class="chapter" data-level="3.3.4" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#overview-of-pathway-differential-abundance-score"><i class="fa fa-check"></i><b>3.3.4</b> Overview of pathway differential abundance score</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#esea-metabolite-set-enrichment-analysis"><i class="fa fa-check"></i><b>3.4</b> ESEA Metabolite Set Enrichment Analysis</a></li>
+<li class="chapter" data-level="3.5" data-path="example-unique-analyses.html"><a href="example-unique-analyses.html#subnetwork"><i class="fa fa-check"></i><b>3.5</b> Subnetwork</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html"><i class="fa fa-check"></i><b>4</b> Example-rountine analyses</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-and-kegg-name-change"><i class="fa fa-check"></i><b>4.1</b> Metabolite and kegg name change</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-name-changed-to-refmet-name"><i class="fa fa-check"></i><b>4.1.1</b> Metabolite name changed to refmet name</a></li>
+<li class="chapter" data-level="4.1.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-name-changed-to-kegg-id"><i class="fa fa-check"></i><b>4.1.2</b> Metabolite name changed to kegg id</a></li>
+<li class="chapter" data-level="4.1.3" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-name-corresponding-to-kegg-pathway"><i class="fa fa-check"></i><b>4.1.3</b> Metabolite name corresponding to kegg pathway</a></li>
+<li class="chapter" data-level="4.1.4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolite-keggid-to-kegg-pathway"><i class="fa fa-check"></i><b>4.1.4</b> Metabolite keggid to kegg pathway</a></li>
+<li class="chapter" data-level="4.1.5" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#the-pathway-information"><i class="fa fa-check"></i><b>4.1.5</b> The pathway information</a></li>
+<li class="chapter" data-level="4.1.6" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pathway-name-to-pathway-id"><i class="fa fa-check"></i><b>4.1.6</b> Pathway name to pathway id</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#group-wise-analyses"><i class="fa fa-check"></i><b>4.2</b> Group-wise analyses</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pca-plot"><i class="fa fa-check"></i><b>4.2.1</b> PCA plot</a></li>
+<li class="chapter" data-level="4.2.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#differnetial-metabolite-analysis"><i class="fa fa-check"></i><b>4.2.2</b> Differnetial metabolite analysis</a></li>
+<li class="chapter" data-level="4.2.3" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#differential-metabolites-volcano"><i class="fa fa-check"></i><b>4.2.3</b> Differential metabolites’ volcano</a></li>
+<li class="chapter" data-level="4.2.4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#differential-metabolites-heatmap"><i class="fa fa-check"></i><b>4.2.4</b> Differential metabolites’ heatmap</a></li>
+<li class="chapter" data-level="4.2.5" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#differential-metabolites-zscore"><i class="fa fa-check"></i><b>4.2.5</b> Differential metabolites’ zscore</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pathway-analysis"><i class="fa fa-check"></i><b>4.3</b> Pathway analysis</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pathview-only-metabolite"><i class="fa fa-check"></i><b>4.3.1</b> Pathview only metabolite</a></li>
+<li class="chapter" data-level="4.3.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#pathview-metabolite-and-gene"><i class="fa fa-check"></i><b>4.3.2</b> Pathview metabolite and gene</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#clinical-analysis"><i class="fa fa-check"></i><b>4.4</b> Clinical analysis</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#time-series-of-clinical"><i class="fa fa-check"></i><b>4.4.1</b> Time series of clinical</a></li>
+<li class="chapter" data-level="4.4.2" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#survival-analysis"><i class="fa fa-check"></i><b>4.4.2</b> Survival analysis</a></li>
+<li class="chapter" data-level="4.4.3" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#metabolites-survival-plot"><i class="fa fa-check"></i><b>4.4.3</b> Metabolites’ survival plot</a></li>
+<li class="chapter" data-level="4.4.4" data-path="example-rountine-analyses.html"><a href="example-rountine-analyses.html#cox-analysis"><i class="fa fa-check"></i><b>4.4.4</b> Cox analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="shiny.html"><a href="shiny.html"><i class="fa fa-check"></i><b>5</b> Shiny</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="shiny.html"><a href="shiny.html#tencent-log"><i class="fa fa-check"></i><b>5.1</b> Tencent log</a></li>
+<li class="chapter" data-level="5.2" data-path="shiny.html"><a href="shiny.html#shiny-app-log"><i class="fa fa-check"></i><b>5.2</b> Shiny app log</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="figure1.html"><a href="figure1.html"><i class="fa fa-check"></i><b>6</b> Figure1</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="figure1.html"><a href="figure1.html#a"><i class="fa fa-check"></i><b>6.1</b> 1.1 (A)</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="figure1.html"><a href="figure1.html#batch-removal"><i class="fa fa-check"></i><b>6.1.1</b> Batch removal</a></li>
+<li class="chapter" data-level="6.1.2" data-path="figure1.html"><a href="figure1.html#metabolite-information"><i class="fa fa-check"></i><b>6.1.2</b> Metabolite information</a></li>
+<li class="chapter" data-level="6.1.3" data-path="figure1.html"><a href="figure1.html#metabolic-pathway-information"><i class="fa fa-check"></i><b>6.1.3</b> Metabolic pathway information</a></li>
+<li class="chapter" data-level="6.1.4" data-path="figure1.html"><a href="figure1.html#metabolite-and-metabolic-pathway-annotation"><i class="fa fa-check"></i><b>6.1.4</b> Metabolite and metabolic pathway annotation</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="figure1.html"><a href="figure1.html#b"><i class="fa fa-check"></i><b>6.2</b> 1.2 (B)</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="figure1.html"><a href="figure1.html#clinical-and-metabolite-analysis"><i class="fa fa-check"></i><b>6.2.1</b> Clinical and metabolite analysis</a></li>
+<li class="chapter" data-level="6.2.2" data-path="figure1.html"><a href="figure1.html#time-series-analysis"><i class="fa fa-check"></i><b>6.2.2</b> Time series analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="figure1.html"><a href="figure1.html#c"><i class="fa fa-check"></i><b>6.3</b> 1.3 (C)</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="figure1.html"><a href="figure1.html#dimension-reduction-visualization"><i class="fa fa-check"></i><b>6.3.1</b> Dimension reduction &amp; Visualization</a></li>
+<li class="chapter" data-level="6.3.2" data-path="figure1.html"><a href="figure1.html#differential-metabolites-visualization"><i class="fa fa-check"></i><b>6.3.2</b> Differential metabolites visualization</a></li>
+<li class="chapter" data-level="6.3.3" data-path="figure1.html"><a href="figure1.html#pathway-enrichment-analyses"><i class="fa fa-check"></i><b>6.3.3</b> Pathway enrichment analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="figure1.html"><a href="figure1.html#d"><i class="fa fa-check"></i><b>6.4</b> 1.4 (D)</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="figure1.html"><a href="figure1.html#extended-pathway-enrichment-analysis-epea"><i class="fa fa-check"></i><b>6.4.1</b> Extended pathway enrichment analysis (EPEA)</a></li>
+<li class="chapter" data-level="6.4.2" data-path="figure1.html"><a href="figure1.html#extended-differential-abundance-eda-score"><i class="fa fa-check"></i><b>6.4.2</b> Extended differential abundance (EDA) score</a></li>
+<li class="chapter" data-level="6.4.3" data-path="figure1.html"><a href="figure1.html#extended-data-set-enrichment-analysis-esea"><i class="fa fa-check"></i><b>6.4.3</b> Extended data set enrichment analysis (ESEA)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="figure1.html"><a href="figure1.html#e"><i class="fa fa-check"></i><b>6.5</b> 1.5 (E)</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="figure1.html"><a href="figure1.html#dbmnet-database"><i class="fa fa-check"></i><b>6.5.1</b> dbMNet database</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="figure4.html"><a href="figure4.html"><i class="fa fa-check"></i><b>7</b> Figure4</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="figure4.html"><a href="figure4.html#load-data"><i class="fa fa-check"></i><b>7.1</b> Load data</a></li>
+<li class="chapter" data-level="7.2" data-path="figure4.html"><a href="figure4.html#mlimma-analysis"><i class="fa fa-check"></i><b>7.2</b> mlimma analysis</a></li>
+<li class="chapter" data-level="7.3" data-path="figure4.html"><a href="figure4.html#epe-analysis"><i class="fa fa-check"></i><b>7.3</b> EPE analysis</a></li>
+<li class="chapter" data-level="7.4" data-path="figure4.html"><a href="figure4.html#eda-analysis"><i class="fa fa-check"></i><b>7.4</b> EDA analysis</a></li>
+<li class="chapter" data-level="7.5" data-path="figure4.html"><a href="figure4.html#esea-analysis"><i class="fa fa-check"></i><b>7.5</b> ESEA analysis</a></li>
+<li class="chapter" data-level="7.6" data-path="figure4.html"><a href="figure4.html#aml-epe-analysis"><i class="fa fa-check"></i><b>7.6</b> AML EPE analysis</a></li>
+<li class="chapter" data-level="7.7" data-path="figure4.html"><a href="figure4.html#volcano-plot-1"><i class="fa fa-check"></i><b>7.7</b> Volcano plot</a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="figure4.html"><a href="figure4.html#differential-metabolites-and-genes"><i class="fa fa-check"></i><b>7.7.1</b> Differential metabolites and genes</a></li>
+<li class="chapter" data-level="7.7.2" data-path="figure4.html"><a href="figure4.html#all"><i class="fa fa-check"></i><b>7.7.2</b> ALL</a></li>
+<li class="chapter" data-level="7.7.3" data-path="figure4.html"><a href="figure4.html#aml"><i class="fa fa-check"></i><b>7.7.3</b> AML</a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="figure4.html"><a href="figure4.html#heatmap-1"><i class="fa fa-check"></i><b>7.8</b> Heatmap</a></li>
+<li class="chapter" data-level="7.9" data-path="figure4.html"><a href="figure4.html#subnetwork-1"><i class="fa fa-check"></i><b>7.9</b> Subnetwork</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="session-information.html"><a href="session-information.html"><i class="fa fa-check"></i><b>8</b> Session information</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -231,70 +315,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="example-rountine-analyses" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Example-rountine analyses<a href="example-rountine-analyses.html#example-rountine-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="metabolite-and-kegg-name-change" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Metabolite and kegg name change<a href="example-rountine-analyses.html#metabolite-and-kegg-name-change" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="metabolite-name-changed-to-refmet-name" class="section level3 hasAnchor" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> Metabolite name changed to refmet name<a href="example-rountine-analyses.html#metabolite-name-changed-to-refmet-name" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This step requires networking</p>
-<p>RefMet: A Reference list of Metabolite names<br />
+<div id="example-rountine-analyses" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Example-rountine analyses<a href="example-rountine-analyses.html#example-rountine-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="metabolite-and-kegg-name-change" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Metabolite and kegg name change<a href="example-rountine-analyses.html#metabolite-and-kegg-name-change" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="metabolite-name-changed-to-refmet-name" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Metabolite name changed to refmet name<a href="example-rountine-analyses.html#metabolite-name-changed-to-refmet-name" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This step requires networking.</p>
+<p>RefMet: A Reference list of Metabolite names.<br />
 The main objective of RefMet is to provide a standardized reference nomenclature for both discrete metabolite structures and metabolite species identified by spectroscopic techniques in metabolomics experiments.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="example-rountine-analyses.html#cb18-1" aria-hidden="true" tabindex="-1"></a>compound_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;2-Hydroxybutyric acid&quot;</span>,<span class="st">&quot;1-Methyladenosine&quot;</span>,<span class="st">&quot;tt&quot;</span>,<span class="st">&quot;2-Aminooctanoic acid&quot;</span>)</span>
-<span id="cb18-2"><a href="example-rountine-analyses.html#cb18-2" aria-hidden="true" tabindex="-1"></a>refmetid_result <span class="ot">&lt;-</span> <span class="fu">name2refmet</span>(compound_name)</span>
-<span id="cb18-3"><a href="example-rountine-analyses.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(refmetid_result,<span class="st">&quot;result/refmetid_result.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span></code></pre></div>
-<pre><code>##              Input_name           Refmet_name    Formula   Super_class  Main_class
-## 1 2-Hydroxybutyric acid 2-Hydroxybutyric acid     C4H8O3   Fatty Acyls Fatty acids
-## 2     1-Methyladenosine     1-Methyladenosine C11H15N5O4 Nucleic acids     Purines
-## 3                    tt                    tt       &lt;NA&gt;          &lt;NA&gt;        &lt;NA&gt;
-## 4  2-Aminooctanoic acid  2-Aminocaprylic acid   C8H17NO2   Fatty Acyls Fatty acids
-##                Sub_class
-## 1             Hydroxy FA
-## 2 Purine ribonucleosides
-## 3                   &lt;NA&gt;
-## 4               Amino FA</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="example-rountine-analyses.html#cb46-1" tabindex="-1"></a>compound_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;2-Hydroxybutyric acid&quot;</span>,<span class="st">&quot;1-Methyladenosine&quot;</span>,<span class="st">&quot;tt&quot;</span>,<span class="st">&quot;2-Aminooctanoic acid&quot;</span>)</span>
+<span id="cb46-2"><a href="example-rountine-analyses.html#cb46-2" tabindex="-1"></a>refmetid_result <span class="ot">&lt;-</span> <span class="fu">name2refmet</span>(compound_name)</span>
+<span id="cb46-3"><a href="example-rountine-analyses.html#cb46-3" tabindex="-1"></a><span class="fu">write.table</span>(refmetid_result,<span class="st">&quot;result/routine/01.refmetid_result.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span></code></pre></div>
+<pre><code>##              Input_name           Refmet_name    Formula   Super_class
+## 1 2-Hydroxybutyric acid 2-Hydroxybutyric acid     C4H8O3   Fatty Acyls
+## 2     1-Methyladenosine     1-Methyladenosine C11H15N5O4 Nucleic acids
+## 3                    tt                    tt       &lt;NA&gt;          &lt;NA&gt;
+## 4  2-Aminooctanoic acid  2-Aminocaprylic acid   C8H17NO2   Fatty Acyls
+##    Main_class              Sub_class
+## 1 Fatty acids             Hydroxy FA
+## 2     Purines Purine ribonucleosides
+## 3        &lt;NA&gt;                   &lt;NA&gt;
+## 4 Fatty acids               Amino FA</code></pre>
 </div>
-<div id="metabolite-name-changed-to-kegg-id" class="section level3 hasAnchor" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> Metabolite name changed to kegg id<a href="example-rountine-analyses.html#metabolite-name-changed-to-kegg-id" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This step requires networking</p>
-<p>search the kegg id corresponding to the metabolites name</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="example-rountine-analyses.html#cb20-1" aria-hidden="true" tabindex="-1"></a>compound_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;2-Hydroxybutyric acid&quot;</span>,<span class="st">&quot;1-Methyladenosine&quot;</span>,<span class="st">&quot;tt&quot;</span>,<span class="st">&quot;2-Aminooctanoic acid&quot;</span>)</span>
-<span id="cb20-2"><a href="example-rountine-analyses.html#cb20-2" aria-hidden="true" tabindex="-1"></a>keggid_result <span class="ot">&lt;-</span> <span class="fu">name2keggid</span>(compound_name) <span class="sc">%&gt;%</span></span>
-<span id="cb20-3"><a href="example-rountine-analyses.html#cb20-3" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(KEGG_id,<span class="at">sep=</span><span class="st">&quot;;&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb20-4"><a href="example-rountine-analyses.html#cb20-4" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">as_tibble</span>()</span>
-<span id="cb20-5"><a href="example-rountine-analyses.html#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-6"><a href="example-rountine-analyses.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(keggid_result,<span class="st">&quot;result/keggid_result.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span></code></pre></div>
+<div id="metabolite-name-changed-to-kegg-id" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Metabolite name changed to kegg id<a href="example-rountine-analyses.html#metabolite-name-changed-to-kegg-id" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This step requires networking.</p>
+<p>Search the KEGG ID corresponding to the metabolites name.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="example-rountine-analyses.html#cb48-1" tabindex="-1"></a>compound_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;2-Hydroxybutyric acid&quot;</span>,<span class="st">&quot;1-Methyladenosine&quot;</span>,<span class="st">&quot;tt&quot;</span>,<span class="st">&quot;2-Aminooctanoic acid&quot;</span>)</span>
+<span id="cb48-2"><a href="example-rountine-analyses.html#cb48-2" tabindex="-1"></a>keggid_result <span class="ot">&lt;-</span> <span class="fu">name2keggid</span>(compound_name) <span class="sc">%&gt;%</span></span>
+<span id="cb48-3"><a href="example-rountine-analyses.html#cb48-3" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(KEGG_id,<span class="at">sep=</span><span class="st">&quot;;&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb48-4"><a href="example-rountine-analyses.html#cb48-4" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">as_tibble</span>()</span>
+<span id="cb48-5"><a href="example-rountine-analyses.html#cb48-5" tabindex="-1"></a></span>
+<span id="cb48-6"><a href="example-rountine-analyses.html#cb48-6" tabindex="-1"></a><span class="fu">write.table</span>(keggid_result,<span class="st">&quot;result/routine/02.keggid_result.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span></code></pre></div>
 <pre><code>##                    Name KEGG_id
 ## 1 2-Hydroxybutyric acid  C05984
 ## 2     1-Methyladenosine  C02494
 ## 3                    tt    &lt;NA&gt;
 ## 4  2-Aminooctanoic acid    &lt;NA&gt;</code></pre>
 </div>
-<div id="metabolite-name-corresponding-to-kegg-pathway" class="section level3 hasAnchor" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> Metabolite name corresponding to kegg pathway<a href="example-rountine-analyses.html#metabolite-name-corresponding-to-kegg-pathway" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>This step requires networking</p>
-<p>search the kegg pathway corresponding to the metabolite name</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="example-rountine-analyses.html#cb22-1" aria-hidden="true" tabindex="-1"></a>compound_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;2-Hydroxybutyric acid&quot;</span>,<span class="st">&quot;1-Methyladenosine&quot;</span>,<span class="st">&quot;tt&quot;</span>,<span class="st">&quot;2-Aminooctanoic acid&quot;</span>)</span>
-<span id="cb22-2"><a href="example-rountine-analyses.html#cb22-2" aria-hidden="true" tabindex="-1"></a>result_all <span class="ot">&lt;-</span> <span class="fu">name2pathway</span>(compound_name)</span>
-<span id="cb22-3"><a href="example-rountine-analyses.html#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="example-rountine-analyses.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="do">##### the output is the each metabolite related pathway</span></span>
-<span id="cb22-5"><a href="example-rountine-analyses.html#cb22-5" aria-hidden="true" tabindex="-1"></a>result_name2pathway <span class="ot">&lt;-</span> result_all<span class="sc">$</span>name2pathway</span>
-<span id="cb22-6"><a href="example-rountine-analyses.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(result_name2pathway,<span class="st">&quot;result/name2pathway_keggpathway.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span>
-<span id="cb22-7"><a href="example-rountine-analyses.html#cb22-7" aria-hidden="true" tabindex="-1"></a>result_name2keggid <span class="ot">&lt;-</span> result_all<span class="sc">$</span>kegg_id</span>
-<span id="cb22-8"><a href="example-rountine-analyses.html#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(result_name2keggid,<span class="st">&quot;result/name2pathway_keggid.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span>
-<span id="cb22-9"><a href="example-rountine-analyses.html#cb22-9" aria-hidden="true" tabindex="-1"></a>result_name2enrichpathway <span class="ot">&lt;-</span> result_all<span class="sc">$</span>pathway</span>
-<span id="cb22-10"><a href="example-rountine-analyses.html#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(result_name2enrichpathway,<span class="st">&quot;result/name2pathway_pathwayenrich.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span></code></pre></div>
-<pre><code>##                    Name KEGG_id               Pathway        Pathway_category Pathway_id
-## 1 2-Hydroxybutyric acid  C05984 Propanoate metabolism Carbohydrate metabolism   hsa00640</code></pre>
+<div id="metabolite-name-corresponding-to-kegg-pathway" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Metabolite name corresponding to kegg pathway<a href="example-rountine-analyses.html#metabolite-name-corresponding-to-kegg-pathway" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This step requires networking.</p>
+<p>Search the KEGG pathway corresponding to the metabolite name.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="example-rountine-analyses.html#cb50-1" tabindex="-1"></a>compound_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;2-Hydroxybutyric acid&quot;</span>,<span class="st">&quot;1-Methyladenosine&quot;</span>,<span class="st">&quot;tt&quot;</span>,<span class="st">&quot;2-Aminooctanoic acid&quot;</span>)</span>
+<span id="cb50-2"><a href="example-rountine-analyses.html#cb50-2" tabindex="-1"></a>result_all <span class="ot">&lt;-</span> <span class="fu">name2pathway</span>(compound_name)</span>
+<span id="cb50-3"><a href="example-rountine-analyses.html#cb50-3" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="example-rountine-analyses.html#cb50-4" tabindex="-1"></a><span class="do">##### the output is the each metabolite related pathway</span></span>
+<span id="cb50-5"><a href="example-rountine-analyses.html#cb50-5" tabindex="-1"></a>result_name2pathway <span class="ot">&lt;-</span> result_all<span class="sc">$</span>name2pathway</span>
+<span id="cb50-6"><a href="example-rountine-analyses.html#cb50-6" tabindex="-1"></a><span class="fu">write.table</span>(result_name2pathway,<span class="st">&quot;result/routine/03.name2pathway_keggpathway.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span>
+<span id="cb50-7"><a href="example-rountine-analyses.html#cb50-7" tabindex="-1"></a>result_name2keggid <span class="ot">&lt;-</span> result_all<span class="sc">$</span>kegg_id</span>
+<span id="cb50-8"><a href="example-rountine-analyses.html#cb50-8" tabindex="-1"></a><span class="fu">write.table</span>(result_name2keggid,<span class="st">&quot;result/routine/03.name2pathway_keggid.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span>
+<span id="cb50-9"><a href="example-rountine-analyses.html#cb50-9" tabindex="-1"></a>result_name2enrichpathway <span class="ot">&lt;-</span> result_all<span class="sc">$</span>pathway</span>
+<span id="cb50-10"><a href="example-rountine-analyses.html#cb50-10" tabindex="-1"></a><span class="fu">write.table</span>(result_name2enrichpathway,<span class="st">&quot;result/routine/03.name2pathway_pathwayenrich.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names=</span>F)</span></code></pre></div>
+<pre><code>##                    Name KEGG_id               Pathway        Pathway_category
+## 1 2-Hydroxybutyric acid  C05984 Propanoate metabolism Carbohydrate metabolism
+##   Pathway_id
+## 1   hsa00640</code></pre>
 <pre><code>##                    Name KEGG_id
 ## 1 2-Hydroxybutyric acid  C05984
 ## 2     1-Methyladenosine  C02494
 ## 3                    tt    &lt;NA&gt;
 ## 4  2-Aminooctanoic acid    &lt;NA&gt;</code></pre>
-<pre><code>##                    name nAnno nOverlap   fc zscore pvalue adjp  or  CIl CIu distance  namespace
-## 1 Propanoate metabolism    40        1 76.1   8.66      0    0 Inf 1.93 Inf        1 Customised
-##   members_Overlap
-## 1          C05984
+<pre><code>##                    name nAnno nOverlap   fc zscore pvalue adjp  or  CIl CIu
+## 1 Propanoate metabolism    40        1 76.1   8.66      0    0 Inf 1.93 Inf
+##   distance  namespace members_Overlap
+## 1        1 Customised          C05984
 ##                                                                                                                                                                                                                                                                                                                     members_Anno
 ## 1 C00024, C00042, C00068, C00083, C00091, C00099, C00100, C00109, C00111, C00163, C00186, C00222, C00424, C00479, C00546, C00583, C00683, C00804, C00827, C00894, C01013, C01213, C02170, C02225, C02335, C02876, C04225, C04593, C05235, C05668, C05979, C05983, C05984, C05989, C06002, C15972, C15973, C21017, C21018, C21250
 ##     members_Overlap_name
@@ -302,167 +388,174 @@ The main objective of RefMet is to provide a standardized reference nomenclature
 ##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               members_Anno_name
 ## 1 Acetyl-CoA;Succinate;Thiamin diphosphate;Malonyl-CoA;Succinyl-CoA;beta-Alanine;Propanoyl-CoA;2-Oxobutanoate;Glycerone phosphate;Propanoate;(S)-Lactate;3-Oxopropanoate;(S)-Lactaldehyde;Propanal;Methylglyoxal;Propane-1,2-diol;(S)-Methylmalonyl-CoA;Propynoate;Lactoyl-CoA;Propenoyl-CoA;3-Hydroxypropanoate;(R)-Methylmalonyl-CoA;Methylmalonate;2-Methylcitrate;beta-Alanyl-CoA;Propanoyl phosphate;(Z)-But-2-ene-1,2,3-tricarboxylate;(2S,3R)-3-Hydroxybutane-1,2,3-tricarboxylate;Hydroxyacetone;3-Hydroxypropionyl-CoA;Propane-1-ol;Propionyladenylate;2-Hydroxybutanoic acid;3-Oxopropionyl-CoA;(S)-Methylmalonate semialdehyde;Enzyme N6-(lipoyl)lysine;Enzyme N6-(dihydrolipoyl)lysine;2-(alpha-Hydroxypropyl)thiamine diphosphate;Enzyme N6-(S-propyldihydrolipoyl)lysine;2-Methyl-trans-aconitate</code></pre>
 </div>
-<div id="metabolite-keggid-to-kegg-pathway" class="section level3 hasAnchor" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> Metabolite keggid to kegg pathway<a href="example-rountine-analyses.html#metabolite-keggid-to-kegg-pathway" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="example-rountine-analyses.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MNet)</span>
-<span id="cb26-2"><a href="example-rountine-analyses.html#cb26-2" aria-hidden="true" tabindex="-1"></a>keggid <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;C05984&quot;</span>,<span class="st">&quot;C02494&quot;</span>)</span>
-<span id="cb26-3"><a href="example-rountine-analyses.html#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="do">##### the output is the each metabolite related pathway</span></span>
-<span id="cb26-4"><a href="example-rountine-analyses.html#cb26-4" aria-hidden="true" tabindex="-1"></a>keggpathway_result <span class="ot">&lt;-</span> <span class="fu">keggid2pathway</span>(keggid)</span>
-<span id="cb26-5"><a href="example-rountine-analyses.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(keggpathway_result)</span></code></pre></div>
+<div id="metabolite-keggid-to-kegg-pathway" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Metabolite keggid to kegg pathway<a href="example-rountine-analyses.html#metabolite-keggid-to-kegg-pathway" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="example-rountine-analyses.html#cb54-1" tabindex="-1"></a><span class="fu">library</span>(MNet)</span>
+<span id="cb54-2"><a href="example-rountine-analyses.html#cb54-2" tabindex="-1"></a>keggid <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;C05984&quot;</span>,<span class="st">&quot;C02494&quot;</span>)</span>
+<span id="cb54-3"><a href="example-rountine-analyses.html#cb54-3" tabindex="-1"></a><span class="do">##### the output is the each metabolite related pathway</span></span>
+<span id="cb54-4"><a href="example-rountine-analyses.html#cb54-4" tabindex="-1"></a>keggpathway_result <span class="ot">&lt;-</span> <span class="fu">keggid2pathway</span>(keggid)</span>
+<span id="cb54-5"><a href="example-rountine-analyses.html#cb54-5" tabindex="-1"></a><span class="fu">head</span>(keggpathway_result)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 5
-##   ENTRY  NAME                                                                PATHWAY pathway_type V2   
-##   &lt;chr&gt;  &lt;chr&gt;                                                               &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;
-## 1 C05984 2-Hydroxybutanoic acid;///2-Hydroxybutyrate;///2-Hydroxybutyric ac… Propan… Carbohydrat… hsa0…</code></pre>
+##   ENTRY  NAME                                         PATHWAY pathway_type V2   
+##   &lt;chr&gt;  &lt;chr&gt;                                        &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;
+## 1 C05984 2-Hydroxybutanoic acid;///2-Hydroxybutyrate… Propan… Carbohydrat… hsa0…</code></pre>
 </div>
-<div id="the-pathway-information" class="section level3 hasAnchor" number="3.1.5">
-<h3><span class="header-section-number">3.1.5</span> the pathway information<a href="example-rountine-analyses.html#the-pathway-information" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="example-rountine-analyses.html#cb28-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">pathwayinfo</span>(<span class="st">&quot;hsa00630&quot;</span>)</span>
-<span id="cb28-2"><a href="example-rountine-analyses.html#cb28-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">pathwayinfo</span>(<span class="st">&quot;Glyoxylate and dicarboxylate metabolism&quot;</span>)</span>
-<span id="cb28-3"><a href="example-rountine-analyses.html#cb28-3" aria-hidden="true" tabindex="-1"></a>result<span class="sc">$</span>gene_info[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span></code></pre></div>
-<pre><code>##   type  name kegg_pathwayid                        kegg_pathwayname           kegg_category
-## 1 gene ACSS1       hsa00630 Glyoxylate and dicarboxylate metabolism Carbohydrate metabolism
-## 2 gene ACSS2       hsa00630 Glyoxylate and dicarboxylate metabolism Carbohydrate metabolism</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="example-rountine-analyses.html#cb30-1" aria-hidden="true" tabindex="-1"></a>result<span class="sc">$</span>compound_info[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span></code></pre></div>
-<pre><code>##         type   name kegg_pathwayid                        kegg_pathwayname           kegg_category
-## 1 metabolite C00007       hsa00630 Glyoxylate and dicarboxylate metabolism Carbohydrate metabolism
-## 2 metabolite C00011       hsa00630 Glyoxylate and dicarboxylate metabolism Carbohydrate metabolism</code></pre>
+<div id="the-pathway-information" class="section level3 hasAnchor" number="4.1.5">
+<h3><span class="header-section-number">4.1.5</span> The pathway information<a href="example-rountine-analyses.html#the-pathway-information" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="example-rountine-analyses.html#cb56-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">pathwayinfo</span>(<span class="st">&quot;hsa00630&quot;</span>)</span>
+<span id="cb56-2"><a href="example-rountine-analyses.html#cb56-2" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">pathwayinfo</span>(<span class="st">&quot;Glyoxylate and dicarboxylate metabolism&quot;</span>)</span>
+<span id="cb56-3"><a href="example-rountine-analyses.html#cb56-3" tabindex="-1"></a>result<span class="sc">$</span>gene_info[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span></code></pre></div>
+<pre><code>##   type  name kegg_pathwayid                        kegg_pathwayname
+## 1 gene ACSS1       hsa00630 Glyoxylate and dicarboxylate metabolism
+## 2 gene ACSS2       hsa00630 Glyoxylate and dicarboxylate metabolism
+##             kegg_category
+## 1 Carbohydrate metabolism
+## 2 Carbohydrate metabolism</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="example-rountine-analyses.html#cb58-1" tabindex="-1"></a>result<span class="sc">$</span>compound_info[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,]</span></code></pre></div>
+<pre><code>##         type   name kegg_pathwayid                        kegg_pathwayname
+## 1 metabolite C00007       hsa00630 Glyoxylate and dicarboxylate metabolism
+## 2 metabolite C00011       hsa00630 Glyoxylate and dicarboxylate metabolism
+##             kegg_category
+## 1 Carbohydrate metabolism
+## 2 Carbohydrate metabolism</code></pre>
 </div>
-<div id="pathway-name-to-pathway-id" class="section level3 hasAnchor" number="3.1.6">
-<h3><span class="header-section-number">3.1.6</span> pathway name to pathway id<a href="example-rountine-analyses.html#pathway-name-to-pathway-id" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="example-rountine-analyses.html#cb32-1" aria-hidden="true" tabindex="-1"></a>pathwayid <span class="ot">&lt;-</span> <span class="fu">pathway2pathwayid</span>(<span class="st">&quot;Glycolysis / Gluconeogenesis&quot;</span>)</span>
-<span id="cb32-2"><a href="example-rountine-analyses.html#cb32-2" aria-hidden="true" tabindex="-1"></a>pathwayid</span></code></pre></div>
+<div id="pathway-name-to-pathway-id" class="section level3 hasAnchor" number="4.1.6">
+<h3><span class="header-section-number">4.1.6</span> Pathway name to pathway id<a href="example-rountine-analyses.html#pathway-name-to-pathway-id" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="example-rountine-analyses.html#cb60-1" tabindex="-1"></a>pathwayid <span class="ot">&lt;-</span> <span class="fu">pathway2pathwayid</span>(<span class="st">&quot;Glycolysis / Gluconeogenesis&quot;</span>)</span>
+<span id="cb60-2"><a href="example-rountine-analyses.html#cb60-2" tabindex="-1"></a>pathwayid</span></code></pre></div>
 <pre><code>##                        PATHWAY pathwayid
 ## 1 Glycolysis / Gluconeogenesis  hsa00010</code></pre>
 </div>
 </div>
-<div id="group-wise-analyses" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Group-wise analyses<a href="example-rountine-analyses.html#group-wise-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="pca-plot" class="section level3 hasAnchor" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> PCA plot<a href="example-rountine-analyses.html#pca-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>PCA of the data</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="example-rountine-analyses.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="do">### the pca plot</span></span>
-<span id="cb34-2"><a href="example-rountine-analyses.html#cb34-2" aria-hidden="true" tabindex="-1"></a>p_PCA <span class="ot">&lt;-</span> <span class="fu">pPCA</span>(meta_dat,group)</span>
-<span id="cb34-3"><a href="example-rountine-analyses.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/1.PCA_1.pdf&quot;</span>,p_PCA<span class="sc">$</span>p1,<span class="at">height =</span> <span class="dv">6</span>,<span class="at">width =</span> <span class="dv">6</span>)</span>
-<span id="cb34-4"><a href="example-rountine-analyses.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/1.PCA_2.pdf&quot;</span>,p_PCA<span class="sc">$</span>p2,<span class="at">height =</span> <span class="dv">6</span>,<span class="at">width =</span> <span class="dv">6</span>)</span>
-<span id="cb34-5"><a href="example-rountine-analyses.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/1.PCA_3.pdf&quot;</span>,p_PCA<span class="sc">$</span>p3,<span class="at">height =</span> <span class="dv">10</span>,<span class="at">width =</span> <span class="dv">10</span>)</span>
-<span id="cb34-6"><a href="example-rountine-analyses.html#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-7"><a href="example-rountine-analyses.html#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/1.PCA_1.png&quot;</span>,p_PCA<span class="sc">$</span>p1,<span class="at">height =</span> <span class="dv">6</span>,<span class="at">width =</span> <span class="dv">6</span>)</span>
-<span id="cb34-8"><a href="example-rountine-analyses.html#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/1.PCA_2.png&quot;</span>,p_PCA<span class="sc">$</span>p2,<span class="at">height =</span> <span class="dv">6</span>,<span class="at">width =</span> <span class="dv">6</span>)</span>
-<span id="cb34-9"><a href="example-rountine-analyses.html#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/1.PCA_3.png&quot;</span>,p_PCA<span class="sc">$</span>p3,<span class="at">height =</span> <span class="dv">10</span>,<span class="at">width =</span> <span class="dv">10</span>)</span></code></pre></div>
-<p><img src="result/1.PCA_1.png" width="30%" /><img src="result/1.PCA_2.png" width="30%" /><img src="result/1.PCA_3.png" width="30%" /></p>
+<div id="group-wise-analyses" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Group-wise analyses<a href="example-rountine-analyses.html#group-wise-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pca-plot" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> PCA plot<a href="example-rountine-analyses.html#pca-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>PCA of the data.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="example-rountine-analyses.html#cb62-1" tabindex="-1"></a><span class="do">### the pca plot</span></span>
+<span id="cb62-2"><a href="example-rountine-analyses.html#cb62-2" tabindex="-1"></a>p_PCA <span class="ot">&lt;-</span> <span class="fu">pPCA</span>(meta_dat,group)</span>
+<span id="cb62-3"><a href="example-rountine-analyses.html#cb62-3" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/04.PCA_1.pdf&quot;</span>,p_PCA<span class="sc">$</span>p1,<span class="at">height =</span> <span class="dv">6</span>,<span class="at">width =</span> <span class="dv">6</span>)</span>
+<span id="cb62-4"><a href="example-rountine-analyses.html#cb62-4" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/04.PCA_2.pdf&quot;</span>,p_PCA<span class="sc">$</span>p2,<span class="at">height =</span> <span class="dv">6</span>,<span class="at">width =</span> <span class="dv">6</span>)</span>
+<span id="cb62-5"><a href="example-rountine-analyses.html#cb62-5" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/04.PCA_3.pdf&quot;</span>,p_PCA<span class="sc">$</span>p3,<span class="at">height =</span> <span class="dv">10</span>,<span class="at">width =</span> <span class="dv">10</span>)</span>
+<span id="cb62-6"><a href="example-rountine-analyses.html#cb62-6" tabindex="-1"></a></span>
+<span id="cb62-7"><a href="example-rountine-analyses.html#cb62-7" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/04.PCA_1.png&quot;</span>,p_PCA<span class="sc">$</span>p1,<span class="at">height =</span> <span class="dv">6</span>,<span class="at">width =</span> <span class="dv">6</span>)</span>
+<span id="cb62-8"><a href="example-rountine-analyses.html#cb62-8" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/04.PCA_2.png&quot;</span>,p_PCA<span class="sc">$</span>p2,<span class="at">height =</span> <span class="dv">6</span>,<span class="at">width =</span> <span class="dv">6</span>)</span>
+<span id="cb62-9"><a href="example-rountine-analyses.html#cb62-9" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/04.PCA_3.png&quot;</span>,p_PCA<span class="sc">$</span>p3,<span class="at">height =</span> <span class="dv">10</span>,<span class="at">width =</span> <span class="dv">10</span>)</span></code></pre></div>
+<p><img src="result/routine/04.PCA_1.png" width="30%" /><img src="result/routine/04.PCA_2.png" width="30%" /><img src="result/routine/04.PCA_3.png" width="30%" /></p>
 </div>
-<div id="differnetial-metabolite-analysis" class="section level3 hasAnchor" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Differnetial metabolite analysis<a href="example-rountine-analyses.html#differnetial-metabolite-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="using-the-function-mlimma-in-r-packages-mnet" class="section level4 hasAnchor" number="3.2.2.1">
-<h4><span class="header-section-number">3.2.2.1</span> using the function mlimma in R packages “MNet”<a href="example-rountine-analyses.html#using-the-function-mlimma-in-r-packages-mnet" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="example-rountine-analyses.html#cb35-1" aria-hidden="true" tabindex="-1"></a>diff_result <span class="ot">&lt;-</span> <span class="fu">mlimma</span>(meta_dat,group)</span></code></pre></div>
+<div id="differnetial-metabolite-analysis" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Differnetial metabolite analysis<a href="example-rountine-analyses.html#differnetial-metabolite-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="using-the-function-mlimma-in-r-packages-mnet" class="section level4 hasAnchor" number="4.2.2.1">
+<h4><span class="header-section-number">4.2.2.1</span> Using the function mlimma in R packages “MNet”<a href="example-rountine-analyses.html#using-the-function-mlimma-in-r-packages-mnet" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="example-rountine-analyses.html#cb63-1" tabindex="-1"></a>diff_result <span class="ot">&lt;-</span> <span class="fu">mlimma</span>(meta_dat,group)</span></code></pre></div>
 </div>
-<div id="using-the-function-dm-in-r-packages-mnet" class="section level4 hasAnchor" number="3.2.2.2">
-<h4><span class="header-section-number">3.2.2.2</span> using the function DM in R packages “MNet”<a href="example-rountine-analyses.html#using-the-function-dm-in-r-packages-mnet" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="example-rountine-analyses.html#cb36-1" aria-hidden="true" tabindex="-1"></a>diff_result <span class="ot">&lt;-</span> <span class="fu">DM</span>(<span class="dv">2</span><span class="sc">**</span>meta_dat,group)</span>
-<span id="cb36-2"><a href="example-rountine-analyses.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
-<span id="cb36-3"><a href="example-rountine-analyses.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(diff_result,<span class="st">&quot;result/DM_result.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">row.names=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb36-4"><a href="example-rountine-analyses.html#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-5"><a href="example-rountine-analyses.html#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="do">## filter the differential metabolites by default fold change &gt;1.5 or &lt; 1/1.5 ,Padj_wilcox &lt; 0.05 and VIP&gt;1</span></span>
-<span id="cb36-6"><a href="example-rountine-analyses.html#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-7"><a href="example-rountine-analyses.html#cb36-7" aria-hidden="true" tabindex="-1"></a>diff_result_filter <span class="ot">&lt;-</span> diff_result <span class="sc">%&gt;%</span></span>
-<span id="cb36-8"><a href="example-rountine-analyses.html#cb36-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(Fold_change <span class="sc">&gt;</span><span class="fl">1.3</span> <span class="sc">|</span> Fold_change <span class="sc">&lt;</span> <span class="dv">1</span><span class="sc">/</span><span class="fl">1.3</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb36-9"><a href="example-rountine-analyses.html#cb36-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(Padj_wilcox<span class="sc">&lt;</span><span class="fl">0.1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb36-10"><a href="example-rountine-analyses.html#cb36-10" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(VIP<span class="sc">&gt;</span><span class="fl">0.8</span>)</span>
-<span id="cb36-11"><a href="example-rountine-analyses.html#cb36-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-12"><a href="example-rountine-analyses.html#cb36-12" aria-hidden="true" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">write.table</span>(diff_result,<span class="st">&quot;result/2.all_TumorvsNormal.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">row.names=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
-<span id="cb36-13"><a href="example-rountine-analyses.html#cb36-13" aria-hidden="true" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">write.table</span>(diff_result_filter,<span class="st">&quot;result/2.diff_TumorvsNormal.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">row.names=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9686357b92c0bb0aaa11" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-9686357b92c0bb0aaa11">{"x":{"filter":"none","vertical":false,"extensions":["Buttons","FixedColumns"],"caption":"<caption><\/caption>","data":[["C05581","C03264","C15025","C00408","C06178 ","C02220","C00673","C05100","C00906","C00429","C05660","C00170","C03242","C14825","C18170","C06104","C00008","C06192","C00788","C00267","C00020","C00219 ","C00062","C00180","C05378","C00120","C02862","C00112","C00307","C00570","C00114","C00588","C00158","C16513","C00055","C05673","C05674","C00010","C05851","C00300","C00791","C00380","C05512","C00352","C05385","C00197","C00111","C00013","C06429","C01346","C00365","C00122","C00092","C00035","C00096","C00051","C00093","C00719","C00144 ","C00242","C00800","C00519","C00262","C05938 ","C00186","C00041","C00152","C02679","C02291","C00097","C01419","C02045","C02985","C00025","C00064","C00407","C00073","C00079","C00148","C00065","C00188","C00078","C00082","C00047","C00149","C00137","C03406","C03413","C04376","C03793","C01042","C00624","C06241","C00004","C00438","C00153","C01210","C00077","C00295","C11924","C00601","C13482","C03017","C00022","C00255","C00117","C00021","C00019","C00447","C05382","C00670","C00042","C00245","C00178","C00015","C00190","C00029","C00167","C00043","C00105","C00106","C02642","C00299","C00183","C00385","C01762"],[2.48631839238226,2.304005774566,1.46467579802537,0.614964162405949,2.51686705086809,2.21123706452096,0.63021751124954,0.661558300535094,0.350367115879834,4.99088106052689,2.58937189725933,3.23281027975576,4.14049825912593,0.598793974292574,2.47900066142451,0.738024431786298,1.86349763989882,3.06918013346292,11.013848951213,0.196514382866163,3.57442701952156,2.53782822734473,2.15590620962759,1.76959903874836,5.19258144608434,2.77343924488442,1.66035640664083,6.69016736824088,6.51790546523683,2.90719308889869,1.45246879322704,2.68927265542644,1.6417545635424,2.6106658965414,3.033920499666,5.21255468695384,16.1959722947998,14.4663714280916,1.77102001229042,2.2870974304643,0.642552482883401,3.0279366403746,5.86287011136585,2.35213561816567,2.87960703724555,1.32555102027233,1.92167199083947,3.54253870414146,2.74364769038994,1.85233597525178,22.9114479393641,2.06590711077325,2.39181127272667,3.10788520630675,2.35315804698226,4.83830794114509,2.06645760399887,1.8883045403011,5.26542883656305,4.8162351715171,4.79811048113751,11.9799368823249,2.4567230456229,2.40676193668448,2.10636739819134,1.90884297280777,1.5431829385731,0.62053734492728,7.87184941101503,18.7259124700588,5.27859920663285,0.163168483809991,5.98451798659028,2.40452819567402,0.661599624592659,2.05285136374555,3.24635921400744,2.06641713790879,2.46247746887988,1.50976997571402,1.5614795303557,1.82853289754569,1.76544041120288,2.50401404729674,2.12613277523535,1.68930625805861,6.29858529428899,7.85081999348771,295.42956607714,2.85258234948113,2.27206023532534,3.46822778551513,5.67266386002302,3.17182674395102,17.0900753829989,3.35285344088387,2.9525363626916,2.4207114609965,2.64785797873375,0.506034540155959,1.77809055464533,6.4052810726507,3.41509931344346,0.322463666078452,4.35597037222657,1.94413616794046,1.74233963349298,1.76022664492965,12.1477813284062,2.06767439489243,2.68446404534272,2.46083655896334,1.89863382742818,3.76703693477704,4.93379688739334,2.40349567146701,5.68684446943776,6.54110595703429,2.6321779152628,4.38598063998838,5.76346835793142,1.54259384147231,1.52437026850032,1.47247479171021,6.05261032354597,10.4427280802585],[0.000793027695660582,6.17130342673678e-05,0.0026618466272456,0.00688287495384006,1.54994930508414e-05,0.0403364600043636,0.0211107901972162,0.0144782189693546,0.00216325124349086,0.000165893145843097,0.00262482143201088,0.000107048334062285,0.000109863241584976,0.0264692649514825,7.38009258951853e-07,0.0362186432413932,0.019173560806264,5.95528084070885e-05,0.00522629569850689,1.28149424196614e-08,0.000352307518390316,0.000800857080821871,0.000783495251921138,8.71895050969412e-05,1.09976953541998e-05,0.029374452910671,0.00519484635717062,0.00783001236688419,2.71644075350722e-05,1.4633353399465e-05,0.00191324263856852,0.000198527082473095,0.000334648259904482,0.00311975591353192,0.00029930602026622,1.48635119729787e-05,3.19264281736537e-07,4.42736943777415e-06,8.71818009463848e-05,0.00030332842532284,0.0141193746305679,0.00780945424285449,0.000317254736228277,0.000153424426010742,0.00286853247669358,0.0263309507498654,0.00192765265503946,1.35339571044387e-05,0.00311036484731768,0.0141846285720993,5.10050025409777e-06,9.33791149174844e-05,0.00677360672085872,0.000908306664111348,0.00111030548359548,0.000115164400979759,0.00234664323837017,9.87467637831305e-06,9.57860234810442e-06,4.64296133453316e-07,0.000123281624843076,0.000227814158172724,0.0139954192170764,3.01063356567288e-05,8.69235536470814e-05,4.80488076340138e-06,0.00160976850298089,0.0220753228629764,7.69440724282719e-06,0.000188658967740982,0.000492457354756208,7.95955384374988e-10,1.25380087371912e-06,3.12385442249738e-05,0.0144934221928115,1.04708061717966e-05,1.19039442981391e-07,1.50319215993141e-05,8.68746927686071e-07,0.000232665760219165,0.000371138530714177,0.00123691436281123,8.75598165250248e-05,1.42842047763724e-05,3.1679763778601e-05,0.00214301907061918,0.000113405049230022,2.04179705285457e-06,0.000103414726440603,2.2602224848422e-06,0.0236594385726423,7.016601359385e-06,0.00273447686494139,0.000612821322829306,0.00577886182664946,5.32555742973105e-05,0.000179858992934133,0.00847377091752919,0.00194449004860896,0.02347177439246,6.63806944028935e-05,0.000260321957819904,0.000523321110725034,2.68521011610475e-06,2.64642333571574e-07,0.00947071661219192,0.0154950129548002,0.00303683735723265,3.31878059794374e-05,0.00349821566231505,2.54622269605165e-05,6.80263343100465e-05,0.000804997609139118,0.000475201326188478,0.00227550784633457,0.000733342277448941,0.000124091725514796,5.72147031245598e-05,0.000381086385382385,3.55541570854728e-05,2.15154393692504e-06,0.00161702344420644,0.0302325773538962,0.000689305681975731,7.1105486477972e-05,2.62977405127804e-05],[0.00220368095501834,0.000337878862613839,0.00613625696175564,0.0142202793857639,0.00012122817779051,0.0630977481496831,0.0369861044255228,0.0268988089849638,0.00520606617939009,0.000637378928765583,0.00611527546394024,0.000468871703192808,0.000471765684453132,0.0445905309567283,2.30891468157794e-05,0.057063905538598,0.0343070916048578,0.000334411924132112,0.0111122209511943,1.40323619495292e-06,0.00113463744893352,0.00220368095501834,0.00220368095501834,0.000407991485510222,0.000109477058298625,0.049106909827763,0.0111122209511943,0.0158775250772929,0.000191903395167123,0.00012122817779051,0.00478475641174563,0.000724623851026798,0.00109385028237435,0.00683226545063491,0.00102198346378003,0.00012122817779051,1.39837755400603e-05,6.92567076337527e-05,0.000407991485510222,0.00102198346378003,0.0267796004938771,0.0158775250772929,0.00105270889748474,0.000599999094577723,0.00647637744738035,0.0445905309567283,0.00478475641174563,0.00012122817779051,0.00683226545063491,0.0267796004938771,6.98130972279633e-05,0.000426042211811023,0.0141278083035053,0.00245579209185661,0.00292960121575194,0.000475867996501269,0.00552596633551685,0.000108127706342528,0.000108127706342528,1.6946808871046e-05,0.000494110688868008,0.000817890174423385,0.0267796004938771,0.000204054949044518,0.000407991485510222,6.98130972279633e-05,0.00411776900326988,0.0383690135475542,9.36152881210642e-05,0.000700276507377544,0.0014978911207168,1.74314229178122e-07,3.05091545938319e-05,0.000204054949044518,0.0268988089849638,0.000109195550077308,8.68987933764152e-06,0.00012122817779051,2.37819471454062e-05,0.000821835507870921,0.00117796142357108,0.00322481244590071,0.000407991485510222,0.00012122817779051,0.000204054949044518,0.00520606617939009,0.000475867996501269,4.12490603483701e-05,0.000462200512050857,4.12490603483701e-05,0.0404798206828802,9.03903351591362e-05,0.00623802534814755,0.00181361986080565,0.0121689494234253,0.000315215426246243,0.000679122749182331,0.0168705075539899,0.00478475641174563,0.0404749495429034,0.000354570050591065,0.000904928710516809,0.0015699633321751,4.52354627251493e-05,1.39837755400603e-05,0.0186854679105408,0.0285160322445483,0.00678640184932603,0.00020766084312848,0.00758523990145541,0.000191903395167123,0.0003547087431881,0.00220368095501834,0.00146576183711657,0.00541669802551381,0.00211318366791208,0.000494110688868008,0.000329737368007332,0.00119225597712489,0.000216287788936626,4.12490603483701e-05,0.00411776900326988,0.0501585942462368,0.00201277259136913,0.000362141896248276,0.000191903395167123],[0.00191579380035116,0.000187386893811375,0.0076265254940325,0.0186755858242513,8.38633196856547e-05,0.0552213126128628,0.00322779371143604,0.0312165231019544,0.0107850794779948,0.00040347840095978,0.0076265254940325,0.000116191296749769,0.000298204155622213,0.0255253061622988,2.55617057863478e-05,0.00962230002926217,0.0282476241238437,6.01708521777704e-05,0.0167809419329088,7.24090251012461e-06,0.000837314083783782,0.00284135485596982,0.00249515802804364,0.000468287392929783,8.38633196856547e-05,0.0255253061622988,0.020754794855197,0.020754794855197,1.79609441729582e-05,3.61620658607001e-05,0.00532383534154151,0.000219098846008933,0.000219098846008933,0.00677511845280052,0.000837314083783782,2.14429419220809e-05,7.24090251012461e-06,3.26366006183336e-05,0.000468287392929783,0.00146240662345643,0.0604355825589932,0.0107850794779948,0.000628026091322752,0.000298204155622213,0.00532383534154151,0.0186755858242513,0.00218796024346095,4.29152895589756e-05,0.00470912480640639,0.0255253061622988,1.04607051751404e-05,9.87860492292106e-05,0.0255253061622988,0.00127490152059701,0.00146240662345643,0.000136460358355753,0.00110981348409559,7.10889983860618e-05,6.01708521777704e-05,7.24090251012461e-06,0.00025579853886141,0.000297784496539852,0.020754794855197,2.14429419220809e-05,7.10889983860618e-05,6.01708521777704e-05,0.00415938379698703,0.0312165231019544,2.50851393325366e-05,0.000145536661886552,0.000160027590768665,6.01077649189496e-06,2.55617057863478e-05,2.14429419220809e-05,0.0312165231019544,3.61620658607001e-05,4.9821404953275e-06,0.000160027590768665,2.55617057863478e-05,0.000628026091322752,0.00054270611939744,0.00054270611939744,0.00040347840095978,0.000116191296749769,2.55617057863478e-05,0.00366851308785382,6.01708521777704e-05,5.08537366761251e-05,0.000518505893837266,7.10889983860618e-05,0.0417788570110625,8.38633196856547e-05,0.000674373232427955,0.000964689358428327,0.00110467454376716,0.000136460358355753,0.00110981348409559,0.00962230002926217,0.00415938379698703,0.0379638604193718,0.000347126340193783,0.00025579853886141,0.00110981348409559,1.79609441729582e-05,1.04607051751404e-05,0.020754794855197,0.0312165231019544,0.00962230002926217,0.000155196916882112,0.00677511845280052,4.29152895589756e-05,3.61620658607001e-05,0.00323089264268701,0.00110981348409559,0.0085726227240265,0.00040347840095978,0.000468287392929783,0.000136460358355753,0.000298204155622213,0.000298204155622213,3.61620658607001e-05,0.00415938379698703,0.0417788570110625,0.000837314083783782,0.000468287392929783,0.000187386893811375],[0.00493598637972828,0.000854952703014396,0.0165367235959715,0.0358767832939565,0.000510168528087733,0.087633822189978,0.00786183876387172,0.052995492707969,0.0218697444970451,0.00142518983564825,0.0165367235959715,0.000652458820210239,0.00112597776002181,0.0454474963377516,0.000329294915718245,0.0198800349661171,0.0498889490574336,0.000439247220897724,0.0328127346723842,0.000317151529943458,0.00244495712464864,0.00707109901656125,0.00628091503610986,0.00155386271290337,0.000510168528087733,0.0454474963377516,0.0385194921465097,0.0385194921465097,0.000329294915718245,0.000359976928340606,0.0120197931937896,0.000959652945519126,0.000959652945519126,0.0149873832440739,0.00244495712464864,0.000329294915718245,0.000317151529943458,0.000359976928340606,0.00155386271290337,0.00381270298258285,0.0919124484751355,0.0218697444970451,0.00193715090140398,0.00112597776002181,0.0120197931937896,0.0358767832939565,0.00557166620137148,0.000391602017225652,0.0108557719221368,0.0454474963377516,0.000327270633336534,0.00058470661570803,0.0454474963377516,0.00340491991476519,0.00381270298258285,0.000711543297140713,0.00300060682736957,0.000471772443834773,0.000439247220897724,0.000317151529943458,0.00105697886812545,0.00112597776002181,0.0385194921465097,0.000329294915718245,0.000471772443834773,0.000439247220897724,0.00969047927170383,0.052995492707969,0.000329294915718245,0.000741221603561741,0.000761870486485599,0.000317151529943458,0.000329294915718245,0.000329294915718245,0.052995492707969,0.000359976928340606,0.000317151529943458,0.000761870486485599,0.000329294915718245,0.00193715090140398,0.001722502031131,0.001722502031131,0.00142518983564825,0.000652458820210239,0.000329294915718245,0.00882861940923062,0.000439247220897724,0.000439247220897724,0.00169481777239345,0.000471772443834773,0.0687937570332532,0.000510168528087733,0.00205121858196836,0.00277982854599742,0.00300060682736957,0.000711543297140713,0.00300060682736957,0.0198800349661171,0.00969047927170383,0.0639545033218648,0.00128848590682099,0.00105697886812545,0.00300060682736957,0.000329294915718245,0.000327270633336534,0.0385194921465097,0.052995492707969,0.0198800349661171,0.000761870486485599,0.0149873832440739,0.000391602017225652,0.000359976928340606,0.00786183876387172,0.00300060682736957,0.0182272269569107,0.00142518983564825,0.00155386271290337,0.000711543297140713,0.00112597776002181,0.00112597776002181,0.000359976928340606,0.00969047927170383,0.0687937570332532,0.00244495712464864,0.00155386271290337,0.000854952703014396],[1.1231315094598,1.33025802580907,0.994829643534255,1.02882416805253,1.41376120114816,0.982719837581328,0.932189185578399,0.950706833807294,1.11857533009947,1.45962823995552,1.03837377772535,1.28778715380509,1.44773920497805,0.854613386531956,1.47663675272669,0.85923941178372,0.829566213465973,1.35928993318101,1.0290044927045,1.53927760875473,1.26370170365662,1.28839152444035,1.06046132492944,1.34278848343364,1.34244325702234,0.801227972147307,0.926307990921398,0.979960853509735,1.42678590514055,1.43564401748072,1.18241556413397,1.31198701557938,1.22398842574093,1.22521444804637,1.23325790198576,1.43690513596409,1.64395001955149,1.39761145212752,1.34098126497323,1.32616183598183,1.0450422778615,0.916715420167159,1.16777860885697,1.3006630033324,1.02165483039871,0.82765222555427,1.02199291064539,1.46240454025374,1.31710109211463,0.940181993716932,1.53197307752509,1.30113557528414,0.884415592573622,1.18904352153664,1.16916977475374,1.25198065166854,1.06329769836996,1.5642861097962,1.48026299672606,1.59307110312828,1.3071163910576,1.17883014934422,0.843882218399523,1.3818863137149,1.31234027390642,1.44172321456847,0.912122393097128,0.875170352777885,1.28065155880883,1.11843368059731,1.18331138330747,1.63278413219381,1.4868333767693,1.37997670693486,0.950506115954043,1.39397004989528,1.57733537037309,1.43648156092605,1.47118043620987,1.04134606982881,1.22469250099372,1.20936143434556,1.3402024580548,1.40787451129233,1.34776386863635,1.17260886097663,1.22119133382821,1.4948716669601,1.33686480542442,1.41692907904929,1.06101613766998,1.54661933307892,1.08078145857705,1.13474289679666,1.09912373758644,1.31720874646163,1.27863704609921,1.06288287417939,1.22429709680458,0.827639803478522,1.31339732439709,1.30559313375364,1.19992349306656,1.42629458988972,1.51960412827673,0.804260478274765,0.855262213566911,1.06578953594465,1.31297068957906,1.04077692828595,1.37500970253821,1.3224222320164,1.25913172594378,1.35441273885026,1.11249950915758,1.21011709659674,1.36615615777642,1.40459223562538,1.23471908988277,1.36428009964643,1.4566488759709,0.911430663219809,0.802650819057508,1.07905625401953,1.43941202561844,1.3784886655384]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Name<\/th>\n      <th>Fold_change<\/th>\n      <th>PValue_t<\/th>\n      <th>Padj_t<\/th>\n      <th>PValue_wilcox<\/th>\n      <th>Padj_wilcox<\/th>\n      <th>VIP<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"searchHighlight":true,"buttons":["csv","copy"],"dom":"Bt","scrollX":true,"fixedColumns":{"leftColumns":1},"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-<div id="differential-metabolites-volcano" class="section level3 hasAnchor" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> Differential metabolites’ volcano<a href="example-rountine-analyses.html#differential-metabolites-volcano" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>the volcano plot of metabolites using the function “pVolcano” in the package “MNet”</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="example-rountine-analyses.html#cb37-1" aria-hidden="true" tabindex="-1"></a>p_volcano <span class="ot">&lt;-</span> <span class="fu">pVolcano</span>(diff_result,<span class="at">foldchange=</span><span class="fl">1.5</span>)</span>
-<span id="cb37-2"><a href="example-rountine-analyses.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co">#p_volcano</span></span>
-<span id="cb37-3"><a href="example-rountine-analyses.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/3.volcano.pdf&quot;</span>,p_volcano,<span class="at">height =</span> <span class="dv">3</span>,<span class="at">width =</span> <span class="dv">4</span>)</span>
-<span id="cb37-4"><a href="example-rountine-analyses.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/3.volcano.png&quot;</span>,p_volcano,<span class="at">height =</span> <span class="dv">3</span>,<span class="at">width =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="result/3.volcano.png" width="50%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="differential-metabolites-heatmap" class="section level3 hasAnchor" number="3.2.4">
-<h3><span class="header-section-number">3.2.4</span> Differential metabolites’ heatmap<a href="example-rountine-analyses.html#differential-metabolites-heatmap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>the heatmap plot of differentital metabolites using the function “pHeatmap” in R package “MNet”</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="example-rountine-analyses.html#cb38-1" aria-hidden="true" tabindex="-1"></a>meta_dat_diff <span class="ot">&lt;-</span> meta_dat[<span class="fu">rownames</span>(meta_dat) <span class="sc">%in%</span> diff_result_filter<span class="sc">$</span>Name,]</span>
-<span id="cb38-2"><a href="example-rountine-analyses.html#cb38-2" aria-hidden="true" tabindex="-1"></a>p_heatmap <span class="ot">&lt;-</span> <span class="fu">pHeatmap</span>(meta_dat_diff,group,<span class="at">fontsize_row=</span><span class="dv">5</span>,<span class="at">fontsize_col=</span><span class="dv">4</span>,<span class="at">clustering_method=</span><span class="st">&quot;ward.D&quot;</span>,<span class="at">clustering_distance_cols=</span><span class="st">&quot;correlation&quot;</span>)</span>
-<span id="cb38-3"><a href="example-rountine-analyses.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/3.heatmap.pdf&quot;</span>,p_heatmap,<span class="at">width=</span><span class="dv">10</span>,<span class="at">height=</span><span class="dv">8</span>)</span>
-<span id="cb38-4"><a href="example-rountine-analyses.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/3.heatmap.png&quot;</span>,p_heatmap,<span class="at">width=</span><span class="dv">10</span>,<span class="at">height=</span><span class="dv">8</span>)</span></code></pre></div>
-<p><img src="result/3.heatmap.png" width="480" style="display: block; margin: auto;" /></p>
-</div>
-<div id="differential-metabolites-zscore" class="section level3 hasAnchor" number="3.2.5">
-<h3><span class="header-section-number">3.2.5</span> Differential metabolites’ zscore<a href="example-rountine-analyses.html#differential-metabolites-zscore" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>the zscore plot of differentital metabolites using the function “pZscore” in R package “MNet”</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="example-rountine-analyses.html#cb39-1" aria-hidden="true" tabindex="-1"></a>p_zscore <span class="ot">&lt;-</span> <span class="fu">pZscore</span>(meta_dat_diff,group)</span>
-<span id="cb39-2"><a href="example-rountine-analyses.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co">#p_zscore</span></span>
-<span id="cb39-3"><a href="example-rountine-analyses.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/3.z_score.pdf&quot;</span>,p_zscore,<span class="at">width=</span><span class="dv">6</span>,<span class="at">height=</span><span class="dv">8</span>)</span>
-<span id="cb39-4"><a href="example-rountine-analyses.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/3.z_score.png&quot;</span>,p_zscore,<span class="at">width=</span><span class="dv">6</span>,<span class="at">height=</span><span class="dv">8</span>)</span></code></pre></div>
-<p><img src="result/3.z_score.png" width="288" style="display: block; margin: auto;" /></p>
+<div id="using-the-function-dm-in-r-packages-mnet" class="section level4 hasAnchor" number="4.2.2.2">
+<h4><span class="header-section-number">4.2.2.2</span> Using the function DM in R packages “MNet”<a href="example-rountine-analyses.html#using-the-function-dm-in-r-packages-mnet" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="example-rountine-analyses.html#cb64-1" tabindex="-1"></a>diff_result <span class="ot">&lt;-</span> <span class="fu">DM</span>(<span class="dv">2</span><span class="sc">**</span>meta_dat,group)</span>
+<span id="cb64-2"><a href="example-rountine-analyses.html#cb64-2" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
+<span id="cb64-3"><a href="example-rountine-analyses.html#cb64-3" tabindex="-1"></a><span class="fu">write.table</span>(diff_result,<span class="st">&quot;result/routine/05.DM_result.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">row.names=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb64-4"><a href="example-rountine-analyses.html#cb64-4" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="example-rountine-analyses.html#cb64-5" tabindex="-1"></a><span class="do">## filter the differential metabolites by default fold change &gt;1.5 or &lt; 1/1.5 ,Padj_wilcox &lt; 0.05 and VIP&gt;1</span></span>
+<span id="cb64-6"><a href="example-rountine-analyses.html#cb64-6" tabindex="-1"></a></span>
+<span id="cb64-7"><a href="example-rountine-analyses.html#cb64-7" tabindex="-1"></a>diff_result_filter <span class="ot">&lt;-</span> diff_result <span class="sc">%&gt;%</span></span>
+<span id="cb64-8"><a href="example-rountine-analyses.html#cb64-8" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(Fold_change <span class="sc">&gt;</span><span class="fl">1.3</span> <span class="sc">|</span> Fold_change <span class="sc">&lt;</span> <span class="dv">1</span><span class="sc">/</span><span class="fl">1.3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb64-9"><a href="example-rountine-analyses.html#cb64-9" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(Padj_wilcox<span class="sc">&lt;</span><span class="fl">0.1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb64-10"><a href="example-rountine-analyses.html#cb64-10" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(VIP<span class="sc">&gt;</span><span class="fl">0.8</span>)</span>
+<span id="cb64-11"><a href="example-rountine-analyses.html#cb64-11" tabindex="-1"></a></span>
+<span id="cb64-12"><a href="example-rountine-analyses.html#cb64-12" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">write.table</span>(diff_result,<span class="st">&quot;result/routine/05.all_TumorvsNormal.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">row.names=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb64-13"><a href="example-rountine-analyses.html#cb64-13" tabindex="-1"></a>utils<span class="sc">::</span><span class="fu">write.table</span>(diff_result_filter,<span class="st">&quot;result/routine/05.diff_TumorvsNormal.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">row.names=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-85c64fee6fe1090db5cb" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-85c64fee6fe1090db5cb">{"x":{"filter":"none","vertical":false,"extensions":["Buttons","FixedColumns"],"caption":"<caption><\/caption>","data":[["C05581","C03264","C15025","C00408","C06178 ","C02220","C00673","C05100","C00906","C00429","C05660","C00170","C03242","C14825","C18170","C06104","C00008","C06192","C00788","C00267","C00020","C00219 ","C00062","C00180","C05378","C00120","C02862","C00112","C00307","C00570","C00114","C00588","C00158","C16513","C00055","C05673","C05674","C00010","C05851","C00300","C00791","C00380","C05512","C00352","C05385","C00197","C00111","C00013","C06429","C01346","C00365","C00122","C00092","C00035","C00096","C00051","C00093","C00719","C00144 ","C00242","C00800","C00519","C00262","C05938 ","C00186","C00041","C00152","C02679","C02291","C00097","C01419","C02045","C02985","C00025","C00064","C00407","C00073","C00079","C00148","C00065","C00188","C00078","C00082","C00047","C00149","C00137","C03406","C03413","C04376","C03793","C01042","C00624","C06241","C00004","C00438","C00153","C01210","C00077","C00295","C11924","C00601","C13482","C03017","C00022","C00255","C00117","C00021","C00019","C00447","C05382","C00670","C00042","C00245","C00178","C00015","C00190","C00029","C00167","C00043","C00105","C00106","C02642","C00299","C00183","C00385","C01762"],[2.48631839238226,2.304005774566,1.46467579802537,0.614964162405949,2.51686705086809,2.21123706452096,0.63021751124954,0.661558300535094,0.350367115879834,4.99088106052689,2.58937189725933,3.23281027975576,4.14049825912593,0.598793974292574,2.47900066142451,0.738024431786298,1.86349763989882,3.06918013346292,11.013848951213,0.196514382866163,3.57442701952156,2.53782822734473,2.15590620962759,1.76959903874836,5.19258144608434,2.77343924488442,1.66035640664083,6.69016736824088,6.51790546523683,2.90719308889869,1.45246879322704,2.68927265542644,1.6417545635424,2.6106658965414,3.033920499666,5.21255468695384,16.1959722947998,14.4663714280916,1.77102001229042,2.2870974304643,0.6425524828834011,3.0279366403746,5.86287011136585,2.35213561816567,2.87960703724555,1.32555102027233,1.92167199083947,3.54253870414146,2.74364769038994,1.85233597525178,22.9114479393641,2.06590711077325,2.39181127272667,3.10788520630675,2.35315804698226,4.83830794114509,2.06645760399887,1.8883045403011,5.26542883656305,4.8162351715171,4.79811048113751,11.9799368823249,2.4567230456229,2.40676193668448,2.10636739819134,1.90884297280777,1.5431829385731,0.62053734492728,7.87184941101503,18.7259124700588,5.27859920663285,0.163168483809991,5.98451798659028,2.40452819567402,0.661599624592659,2.05285136374555,3.24635921400744,2.06641713790879,2.46247746887988,1.50976997571402,1.5614795303557,1.82853289754569,1.76544041120288,2.50401404729674,2.12613277523535,1.68930625805861,6.29858529428899,7.85081999348771,295.42956607714,2.85258234948113,2.27206023532534,3.46822778551513,5.67266386002302,3.17182674395102,17.0900753829989,3.35285344088387,2.9525363626916,2.4207114609965,2.64785797873375,0.5060345401559589,1.77809055464533,6.4052810726507,3.41509931344346,0.322463666078452,4.35597037222657,1.94413616794046,1.74233963349298,1.76022664492965,12.1477813284062,2.06767439489243,2.68446404534272,2.46083655896334,1.89863382742818,3.76703693477704,4.93379688739334,2.40349567146701,5.68684446943776,6.54110595703429,2.6321779152628,4.38598063998838,5.76346835793142,1.54259384147231,1.52437026850032,1.47247479171021,6.05261032354597,10.4427280802585],[0.000793027695660582,6.17130342673678e-05,0.0026618466272456,0.00688287495384006,1.54994930508414e-05,0.0403364600043636,0.0211107901972162,0.0144782189693546,0.00216325124349086,0.000165893145843097,0.00262482143201088,0.000107048334062285,0.000109863241584976,0.0264692649514825,7.38009258951853e-07,0.0362186432413932,0.019173560806264,5.95528084070885e-05,0.00522629569850689,1.28149424196614e-08,0.000352307518390316,0.000800857080821871,0.000783495251921138,8.71895050969412e-05,1.09976953541998e-05,0.029374452910671,0.00519484635717062,0.00783001236688419,2.71644075350722e-05,1.4633353399465e-05,0.00191324263856852,0.000198527082473095,0.000334648259904482,0.00311975591353192,0.00029930602026622,1.48635119729787e-05,3.19264281736537e-07,4.42736943777415e-06,8.71818009463848e-05,0.00030332842532284,0.0141193746305679,0.00780945424285449,0.000317254736228277,0.000153424426010742,0.00286853247669358,0.0263309507498654,0.00192765265503946,1.35339571044387e-05,0.00311036484731768,0.0141846285720993,5.10050025409777e-06,9.33791149174844e-05,0.00677360672085872,0.0009083066641113479,0.00111030548359548,0.000115164400979759,0.00234664323837017,9.874676378313051e-06,9.578602348104419e-06,4.64296133453316e-07,0.000123281624843076,0.000227814158172724,0.0139954192170764,3.01063356567288e-05,8.692355364708139e-05,4.80488076340138e-06,0.00160976850298089,0.0220753228629764,7.69440724282719e-06,0.000188658967740982,0.000492457354756208,7.95955384374988e-10,1.25380087371912e-06,3.12385442249738e-05,0.0144934221928115,1.04708061717966e-05,1.19039442981391e-07,1.50319215993141e-05,8.68746927686071e-07,0.000232665760219165,0.000371138530714177,0.00123691436281123,8.755981652502481e-05,1.42842047763724e-05,3.1679763778601e-05,0.00214301907061918,0.000113405049230022,2.04179705285457e-06,0.000103414726440603,2.2602224848422e-06,0.0236594385726423,7.016601359385e-06,0.00273447686494139,0.000612821322829306,0.00577886182664946,5.32555742973105e-05,0.000179858992934133,0.00847377091752919,0.00194449004860896,0.02347177439246,6.63806944028935e-05,0.000260321957819904,0.0005233211107250341,2.68521011610475e-06,2.64642333571574e-07,0.009470716612191919,0.0154950129548002,0.00303683735723265,3.31878059794374e-05,0.00349821566231505,2.54622269605165e-05,6.80263343100465e-05,0.0008049976091391179,0.000475201326188478,0.00227550784633457,0.000733342277448941,0.000124091725514796,5.72147031245598e-05,0.000381086385382385,3.55541570854728e-05,2.15154393692504e-06,0.00161702344420644,0.0302325773538962,0.000689305681975731,7.110548647797201e-05,2.62977405127804e-05],[0.00220368095501834,0.000337878862613839,0.00613625696175564,0.0142202793857639,0.00012122817779051,0.06309774814968309,0.0369861044255228,0.0268988089849638,0.00520606617939009,0.000637378928765583,0.00611527546394024,0.000468871703192808,0.000471765684453132,0.0445905309567283,2.30891468157794e-05,0.057063905538598,0.0343070916048578,0.000334411924132112,0.0111122209511943,1.40323619495292e-06,0.00113463744893352,0.00220368095501834,0.00220368095501834,0.000407991485510222,0.000109477058298625,0.049106909827763,0.0111122209511943,0.0158775250772929,0.000191903395167123,0.00012122817779051,0.00478475641174563,0.0007246238510267979,0.00109385028237435,0.00683226545063491,0.00102198346378003,0.00012122817779051,1.39837755400603e-05,6.92567076337527e-05,0.000407991485510222,0.00102198346378003,0.0267796004938771,0.0158775250772929,0.00105270889748474,0.000599999094577723,0.00647637744738035,0.0445905309567283,0.00478475641174563,0.00012122817779051,0.00683226545063491,0.0267796004938771,6.98130972279633e-05,0.000426042211811023,0.0141278083035053,0.00245579209185661,0.00292960121575194,0.000475867996501269,0.00552596633551685,0.000108127706342528,0.000108127706342528,1.6946808871046e-05,0.000494110688868008,0.000817890174423385,0.0267796004938771,0.000204054949044518,0.000407991485510222,6.98130972279633e-05,0.00411776900326988,0.0383690135475542,9.36152881210642e-05,0.000700276507377544,0.0014978911207168,1.74314229178122e-07,3.05091545938319e-05,0.000204054949044518,0.0268988089849638,0.000109195550077308,8.689879337641519e-06,0.00012122817779051,2.37819471454062e-05,0.000821835507870921,0.00117796142357108,0.00322481244590071,0.000407991485510222,0.00012122817779051,0.000204054949044518,0.00520606617939009,0.000475867996501269,4.12490603483701e-05,0.000462200512050857,4.12490603483701e-05,0.0404798206828802,9.03903351591362e-05,0.00623802534814755,0.00181361986080565,0.0121689494234253,0.000315215426246243,0.000679122749182331,0.0168705075539899,0.00478475641174563,0.0404749495429034,0.000354570050591065,0.000904928710516809,0.0015699633321751,4.52354627251493e-05,1.39837755400603e-05,0.0186854679105408,0.0285160322445483,0.00678640184932603,0.00020766084312848,0.00758523990145541,0.000191903395167123,0.0003547087431881,0.00220368095501834,0.00146576183711657,0.00541669802551381,0.00211318366791208,0.000494110688868008,0.000329737368007332,0.00119225597712489,0.000216287788936626,4.12490603483701e-05,0.00411776900326988,0.0501585942462368,0.00201277259136913,0.000362141896248276,0.000191903395167123],[0.00191579380035116,0.000187386893811375,0.0076265254940325,0.0186755858242513,8.38633196856547e-05,0.0552213126128628,0.00322779371143604,0.0312165231019544,0.0107850794779948,0.00040347840095978,0.0076265254940325,0.000116191296749769,0.000298204155622213,0.0255253061622988,2.55617057863478e-05,0.009622300029262169,0.0282476241238437,6.01708521777704e-05,0.0167809419329088,7.24090251012461e-06,0.000837314083783782,0.00284135485596982,0.00249515802804364,0.000468287392929783,8.38633196856547e-05,0.0255253061622988,0.020754794855197,0.020754794855197,1.79609441729582e-05,3.61620658607001e-05,0.00532383534154151,0.000219098846008933,0.000219098846008933,0.00677511845280052,0.000837314083783782,2.14429419220809e-05,7.24090251012461e-06,3.26366006183336e-05,0.000468287392929783,0.00146240662345643,0.0604355825589932,0.0107850794779948,0.000628026091322752,0.000298204155622213,0.00532383534154151,0.0186755858242513,0.00218796024346095,4.29152895589756e-05,0.00470912480640639,0.0255253061622988,1.04607051751404e-05,9.878604922921061e-05,0.0255253061622988,0.00127490152059701,0.00146240662345643,0.000136460358355753,0.00110981348409559,7.108899838606181e-05,6.01708521777704e-05,7.24090251012461e-06,0.00025579853886141,0.000297784496539852,0.020754794855197,2.14429419220809e-05,7.108899838606181e-05,6.01708521777704e-05,0.00415938379698703,0.0312165231019544,2.50851393325366e-05,0.000145536661886552,0.000160027590768665,6.01077649189496e-06,2.55617057863478e-05,2.14429419220809e-05,0.0312165231019544,3.61620658607001e-05,4.9821404953275e-06,0.000160027590768665,2.55617057863478e-05,0.000628026091322752,0.00054270611939744,0.00054270611939744,0.00040347840095978,0.000116191296749769,2.55617057863478e-05,0.00366851308785382,6.01708521777704e-05,5.08537366761251e-05,0.000518505893837266,7.108899838606181e-05,0.0417788570110625,8.38633196856547e-05,0.000674373232427955,0.000964689358428327,0.00110467454376716,0.000136460358355753,0.00110981348409559,0.009622300029262169,0.00415938379698703,0.0379638604193718,0.000347126340193783,0.00025579853886141,0.00110981348409559,1.79609441729582e-05,1.04607051751404e-05,0.020754794855197,0.0312165231019544,0.009622300029262169,0.000155196916882112,0.00677511845280052,4.29152895589756e-05,3.61620658607001e-05,0.00323089264268701,0.00110981348409559,0.0085726227240265,0.00040347840095978,0.000468287392929783,0.000136460358355753,0.000298204155622213,0.000298204155622213,3.61620658607001e-05,0.00415938379698703,0.0417788570110625,0.000837314083783782,0.000468287392929783,0.000187386893811375],[0.00493598637972828,0.000854952703014396,0.0165367235959715,0.0358767832939565,0.000510168528087733,0.08763382218997801,0.007861838763871721,0.052995492707969,0.0218697444970451,0.00142518983564825,0.0165367235959715,0.000652458820210239,0.00112597776002181,0.0454474963377516,0.000329294915718245,0.0198800349661171,0.0498889490574336,0.000439247220897724,0.0328127346723842,0.000317151529943458,0.00244495712464864,0.00707109901656125,0.00628091503610986,0.00155386271290337,0.000510168528087733,0.0454474963377516,0.0385194921465097,0.0385194921465097,0.000329294915718245,0.000359976928340606,0.0120197931937896,0.000959652945519126,0.000959652945519126,0.0149873832440739,0.00244495712464864,0.000329294915718245,0.000317151529943458,0.000359976928340606,0.00155386271290337,0.00381270298258285,0.09191244847513549,0.0218697444970451,0.00193715090140398,0.00112597776002181,0.0120197931937896,0.0358767832939565,0.00557166620137148,0.000391602017225652,0.0108557719221368,0.0454474963377516,0.000327270633336534,0.00058470661570803,0.0454474963377516,0.00340491991476519,0.00381270298258285,0.000711543297140713,0.00300060682736957,0.000471772443834773,0.000439247220897724,0.000317151529943458,0.00105697886812545,0.00112597776002181,0.0385194921465097,0.000329294915718245,0.000471772443834773,0.000439247220897724,0.00969047927170383,0.052995492707969,0.000329294915718245,0.000741221603561741,0.000761870486485599,0.000317151529943458,0.000329294915718245,0.000329294915718245,0.052995492707969,0.000359976928340606,0.000317151529943458,0.000761870486485599,0.000329294915718245,0.00193715090140398,0.001722502031131,0.001722502031131,0.00142518983564825,0.000652458820210239,0.000329294915718245,0.008828619409230619,0.000439247220897724,0.000439247220897724,0.00169481777239345,0.000471772443834773,0.0687937570332532,0.000510168528087733,0.00205121858196836,0.00277982854599742,0.00300060682736957,0.000711543297140713,0.00300060682736957,0.0198800349661171,0.00969047927170383,0.06395450332186479,0.00128848590682099,0.00105697886812545,0.00300060682736957,0.000329294915718245,0.000327270633336534,0.0385194921465097,0.052995492707969,0.0198800349661171,0.000761870486485599,0.0149873832440739,0.000391602017225652,0.000359976928340606,0.007861838763871721,0.00300060682736957,0.0182272269569107,0.00142518983564825,0.00155386271290337,0.000711543297140713,0.00112597776002181,0.00112597776002181,0.000359976928340606,0.00969047927170383,0.0687937570332532,0.00244495712464864,0.00155386271290337,0.000854952703014396],[1.1231315094598,1.33025802580907,0.994829643534255,1.02882416805253,1.41376120114816,0.982719837581328,0.932189185578399,0.950706833807294,1.11857533009947,1.45962823995552,1.03837377772535,1.28778715380509,1.44773920497805,0.854613386531956,1.47663675272669,0.85923941178372,0.829566213465973,1.35928993318101,1.0290044927045,1.53927760875473,1.26370170365662,1.28839152444035,1.06046132492944,1.34278848343364,1.34244325702234,0.801227972147307,0.926307990921398,0.9799608535097351,1.42678590514055,1.43564401748072,1.18241556413397,1.31198701557938,1.22398842574093,1.22521444804637,1.23325790198576,1.43690513596409,1.64395001955149,1.39761145212752,1.34098126497323,1.32616183598183,1.0450422778615,0.916715420167159,1.16777860885697,1.3006630033324,1.02165483039871,0.82765222555427,1.02199291064539,1.46240454025374,1.31710109211463,0.940181993716932,1.53197307752509,1.30113557528414,0.884415592573622,1.18904352153664,1.16916977475374,1.25198065166854,1.06329769836996,1.5642861097962,1.48026299672606,1.59307110312828,1.3071163910576,1.17883014934422,0.843882218399523,1.3818863137149,1.31234027390642,1.44172321456847,0.9121223930971279,0.875170352777885,1.28065155880883,1.11843368059731,1.18331138330747,1.63278413219381,1.4868333767693,1.37997670693486,0.950506115954043,1.39397004989528,1.57733537037309,1.43648156092605,1.47118043620987,1.04134606982881,1.22469250099372,1.20936143434556,1.3402024580548,1.40787451129233,1.34776386863635,1.17260886097663,1.22119133382821,1.4948716669601,1.33686480542442,1.41692907904929,1.06101613766998,1.54661933307892,1.08078145857705,1.13474289679666,1.09912373758644,1.31720874646163,1.27863704609921,1.06288287417939,1.22429709680458,0.827639803478522,1.31339732439709,1.30559313375364,1.19992349306656,1.42629458988972,1.51960412827673,0.804260478274765,0.855262213566911,1.06578953594465,1.31297068957906,1.04077692828595,1.37500970253821,1.3224222320164,1.25913172594378,1.35441273885026,1.11249950915758,1.21011709659674,1.36615615777642,1.40459223562538,1.23471908988277,1.36428009964643,1.4566488759709,0.911430663219809,0.802650819057508,1.07905625401953,1.43941202561844,1.3784886655384]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Name<\/th>\n      <th>Fold_change<\/th>\n      <th>PValue_t<\/th>\n      <th>Padj_t<\/th>\n      <th>PValue_wilcox<\/th>\n      <th>Padj_wilcox<\/th>\n      <th>VIP<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"searchHighlight":true,"buttons":["csv","copy"],"dom":"Bt","scrollX":true,"fixedColumns":{"leftColumns":1},"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<div id="pathway-analysis" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> Pathway analysis<a href="example-rountine-analyses.html#pathway-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="pathview-only-metabolite" class="section level3 hasAnchor" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> pathview only metabolite<a href="example-rountine-analyses.html#pathview-only-metabolite" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="example-rountine-analyses.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pathview)</span>
-<span id="cb40-2"><a href="example-rountine-analyses.html#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="example-rountine-analyses.html#cb40-3" aria-hidden="true" tabindex="-1"></a>kegg_id <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;C02494&quot;</span>,<span class="st">&quot;C03665&quot;</span>,<span class="st">&quot;C01546&quot;</span>,<span class="st">&quot;C05984&quot;</span>,<span class="st">&quot;C14088&quot;</span>,<span class="st">&quot;C00587&quot;</span>)</span>
-<span id="cb40-4"><a href="example-rountine-analyses.html#cb40-4" aria-hidden="true" tabindex="-1"></a>value <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.3824620</span>,<span class="fl">0.1823628</span>,<span class="sc">-</span><span class="fl">1.1681486</span>,<span class="fl">0.5164899</span>,<span class="fl">1.6449798</span>,<span class="sc">-</span><span class="fl">0.7340652</span>)</span>
-<span id="cb40-5"><a href="example-rountine-analyses.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(value) <span class="ot">&lt;-</span> kegg_id</span>
-<span id="cb40-6"><a href="example-rountine-analyses.html#cb40-6" aria-hidden="true" tabindex="-1"></a>cpd.data <span class="ot">&lt;-</span> value</span>
-<span id="cb40-7"><a href="example-rountine-analyses.html#cb40-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-8"><a href="example-rountine-analyses.html#cb40-8" aria-hidden="true" tabindex="-1"></a>gene_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;LDHA&quot;</span>,<span class="st">&quot;BCKDHB&quot;</span>,<span class="st">&quot;PCCA&quot;</span>,<span class="st">&quot;ACSS1&quot;</span>)</span>
-<span id="cb40-9"><a href="example-rountine-analyses.html#cb40-9" aria-hidden="true" tabindex="-1"></a>gene_value <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">0.5</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb40-10"><a href="example-rountine-analyses.html#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gene_value) <span class="ot">&lt;-</span> gene_name</span>
-<span id="cb40-11"><a href="example-rountine-analyses.html#cb40-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-12"><a href="example-rountine-analyses.html#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="fu">pPathview</span>(cpd.data,<span class="at">outdir=</span><span class="st">&quot;result&quot;</span>)</span></code></pre></div>
-<p><img src="result/hsa00640.pathview.metabolite.png" width="622" style="display: block; margin: auto;" /></p>
+<div id="differential-metabolites-volcano" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Differential metabolites’ volcano<a href="example-rountine-analyses.html#differential-metabolites-volcano" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The volcano plot of metabolites using the function “pVolcano” in the package “MNet”.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="example-rountine-analyses.html#cb65-1" tabindex="-1"></a>p_volcano <span class="ot">&lt;-</span> <span class="fu">pVolcano</span>(diff_result,<span class="at">foldchange=</span><span class="fl">1.5</span>)</span>
+<span id="cb65-2"><a href="example-rountine-analyses.html#cb65-2" tabindex="-1"></a><span class="co">#p_volcano</span></span>
+<span id="cb65-3"><a href="example-rountine-analyses.html#cb65-3" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/06.volcano.pdf&quot;</span>,p_volcano,<span class="at">height =</span> <span class="dv">3</span>,<span class="at">width =</span> <span class="dv">4</span>)</span>
+<span id="cb65-4"><a href="example-rountine-analyses.html#cb65-4" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/06.volcano.png&quot;</span>,p_volcano,<span class="at">height =</span> <span class="dv">3</span>,<span class="at">width =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="result/routine/06.volcano.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="pathview-metabolite-and-gene" class="section level3 hasAnchor" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> pathview metabolite and gene<a href="example-rountine-analyses.html#pathview-metabolite-and-gene" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="example-rountine-analyses.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pPathview</span>(<span class="at">cpd.data=</span>cpd.data,<span class="at">gene.data=</span>gene_value,<span class="at">outdir=</span><span class="st">&quot;result&quot;</span>)</span></code></pre></div>
-<p><img src="result/hsa00640.pathview.gene.metabolite.png" width="622" style="display: block; margin: auto;" /></p>
+<div id="differential-metabolites-heatmap" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Differential metabolites’ heatmap<a href="example-rountine-analyses.html#differential-metabolites-heatmap" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The heatmap plot of differentital metabolites using the function “pHeatmap” in R package “MNet”.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="example-rountine-analyses.html#cb66-1" tabindex="-1"></a>meta_dat_diff <span class="ot">&lt;-</span> meta_dat[<span class="fu">rownames</span>(meta_dat) <span class="sc">%in%</span> diff_result_filter<span class="sc">$</span>Name,]</span>
+<span id="cb66-2"><a href="example-rountine-analyses.html#cb66-2" tabindex="-1"></a>p_heatmap <span class="ot">&lt;-</span> <span class="fu">pHeatmap</span>(meta_dat_diff,group,<span class="at">fontsize_row=</span><span class="dv">5</span>,<span class="at">fontsize_col=</span><span class="dv">4</span>,<span class="at">clustering_method=</span><span class="st">&quot;ward.D&quot;</span>,<span class="at">clustering_distance_cols=</span><span class="st">&quot;correlation&quot;</span>)</span>
+<span id="cb66-3"><a href="example-rountine-analyses.html#cb66-3" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/07.heatmap.pdf&quot;</span>,p_heatmap,<span class="at">width=</span><span class="dv">10</span>,<span class="at">height=</span><span class="dv">8</span>)</span>
+<span id="cb66-4"><a href="example-rountine-analyses.html#cb66-4" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/07.heatmap.png&quot;</span>,p_heatmap,<span class="at">width=</span><span class="dv">10</span>,<span class="at">height=</span><span class="dv">8</span>)</span></code></pre></div>
+<p><img src="result/routine/07.heatmap.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="differential-metabolites-zscore" class="section level3 hasAnchor" number="4.2.5">
+<h3><span class="header-section-number">4.2.5</span> Differential metabolites’ zscore<a href="example-rountine-analyses.html#differential-metabolites-zscore" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The zscore plot of differentital metabolites using the function “pZscore” in R package “MNet”.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="example-rountine-analyses.html#cb67-1" tabindex="-1"></a>p_zscore <span class="ot">&lt;-</span> <span class="fu">pZscore</span>(meta_dat_diff,group)</span>
+<span id="cb67-2"><a href="example-rountine-analyses.html#cb67-2" tabindex="-1"></a><span class="co">#p_zscore</span></span>
+<span id="cb67-3"><a href="example-rountine-analyses.html#cb67-3" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/08.z_score.pdf&quot;</span>,p_zscore,<span class="at">width=</span><span class="dv">6</span>,<span class="at">height=</span><span class="dv">8</span>)</span>
+<span id="cb67-4"><a href="example-rountine-analyses.html#cb67-4" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/08.z_score.png&quot;</span>,p_zscore,<span class="at">width=</span><span class="dv">6</span>,<span class="at">height=</span><span class="dv">8</span>)</span></code></pre></div>
+<p><img src="result/routine/08.z_score.png" width="288" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="clinical-analysis" class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> Clinical analysis<a href="example-rountine-analyses.html#clinical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="time-series-of-clinical" class="section level3 hasAnchor" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> Time series of clinical<a href="example-rountine-analyses.html#time-series-of-clinical" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>the column contains the time, group, clinical index(such as ALT), low and high</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="example-rountine-analyses.html#cb42-1" aria-hidden="true" tabindex="-1"></a>clinical_index[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span>
-<span id="cb42-2"><a href="example-rountine-analyses.html#cb42-2" aria-hidden="true" tabindex="-1"></a>time_series_ALT <span class="ot">&lt;-</span> <span class="fu">pCliTS</span>(clinical_index,<span class="st">&quot;ALT&quot;</span>)</span>
-<span id="cb42-3"><a href="example-rountine-analyses.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/clinical_time_series.pdf&quot;</span>,time_series_ALT,<span class="at">height =</span> <span class="dv">4</span>,<span class="at">width =</span> <span class="dv">5</span>)</span>
-<span id="cb42-4"><a href="example-rountine-analyses.html#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/clinical_time_series.png&quot;</span>,time_series_ALT,<span class="at">height =</span> <span class="dv">4</span>,<span class="at">width =</span> <span class="dv">5</span>)</span></code></pre></div>
-<p><img src="result/clinical_time_series.png" width="50%" style="display: block; margin: auto;" /></p>
+<div id="pathway-analysis" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Pathway analysis<a href="example-rountine-analyses.html#pathway-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pathview-only-metabolite" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Pathview only metabolite<a href="example-rountine-analyses.html#pathview-only-metabolite" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="example-rountine-analyses.html#cb68-1" tabindex="-1"></a><span class="fu">library</span>(pathview)</span>
+<span id="cb68-2"><a href="example-rountine-analyses.html#cb68-2" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="example-rountine-analyses.html#cb68-3" tabindex="-1"></a>kegg_id <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;C02494&quot;</span>,<span class="st">&quot;C03665&quot;</span>,<span class="st">&quot;C01546&quot;</span>,<span class="st">&quot;C05984&quot;</span>,<span class="st">&quot;C14088&quot;</span>,<span class="st">&quot;C00587&quot;</span>)</span>
+<span id="cb68-4"><a href="example-rountine-analyses.html#cb68-4" tabindex="-1"></a>value <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.3824620</span>,<span class="fl">0.1823628</span>,<span class="sc">-</span><span class="fl">1.1681486</span>,<span class="fl">0.5164899</span>,<span class="fl">1.6449798</span>,<span class="sc">-</span><span class="fl">0.7340652</span>)</span>
+<span id="cb68-5"><a href="example-rountine-analyses.html#cb68-5" tabindex="-1"></a><span class="fu">names</span>(value) <span class="ot">&lt;-</span> kegg_id</span>
+<span id="cb68-6"><a href="example-rountine-analyses.html#cb68-6" tabindex="-1"></a>cpd.data <span class="ot">&lt;-</span> value</span>
+<span id="cb68-7"><a href="example-rountine-analyses.html#cb68-7" tabindex="-1"></a></span>
+<span id="cb68-8"><a href="example-rountine-analyses.html#cb68-8" tabindex="-1"></a>gene_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;LDHA&quot;</span>,<span class="st">&quot;BCKDHB&quot;</span>,<span class="st">&quot;PCCA&quot;</span>,<span class="st">&quot;ACSS1&quot;</span>)</span>
+<span id="cb68-9"><a href="example-rountine-analyses.html#cb68-9" tabindex="-1"></a>gene_value <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">0.5</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb68-10"><a href="example-rountine-analyses.html#cb68-10" tabindex="-1"></a><span class="fu">names</span>(gene_value) <span class="ot">&lt;-</span> gene_name</span>
+<span id="cb68-11"><a href="example-rountine-analyses.html#cb68-11" tabindex="-1"></a></span>
+<span id="cb68-12"><a href="example-rountine-analyses.html#cb68-12" tabindex="-1"></a><span class="fu">pPathview</span>(cpd.data,<span class="at">outdir=</span><span class="st">&quot;result/routine/path_meta&quot;</span>)</span></code></pre></div>
+<p><img src="result/routine/path_meta/hsa00640.pathview.metabolite.png" width="622" style="display: block; margin: auto;" /></p>
 </div>
-<div id="survival-analysis" class="section level3 hasAnchor" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> Survival analysis<a href="example-rountine-analyses.html#survival-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="example-rountine-analyses.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
-<span id="cb43-2"><a href="example-rountine-analyses.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(aml)[<span class="dv">3</span>] <span class="ot">=</span><span class="st">&quot;group&quot;</span></span>
-<span id="cb43-3"><a href="example-rountine-analyses.html#cb43-3" aria-hidden="true" tabindex="-1"></a>p<span class="ot">=</span><span class="fu">survCli</span>(aml)</span>
-<span id="cb43-4"><a href="example-rountine-analyses.html#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;result/survival.pdf&quot;</span>,<span class="at">height =</span> <span class="dv">6</span>,<span class="at">width =</span> <span class="dv">6</span>, <span class="at">onefile =</span> F)</span>
-<span id="cb43-5"><a href="example-rountine-analyses.html#cb43-5" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb43-6"><a href="example-rountine-analyses.html#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
-<span id="cb43-7"><a href="example-rountine-analyses.html#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-8"><a href="example-rountine-analyses.html#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;result/survival.png&quot;</span>,<span class="at">height =</span> <span class="dv">600</span>,<span class="at">width =</span> <span class="dv">600</span>)</span>
-<span id="cb43-9"><a href="example-rountine-analyses.html#cb43-9" aria-hidden="true" tabindex="-1"></a>p</span>
-<span id="cb43-10"><a href="example-rountine-analyses.html#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
-<p><img src="result/survival.png" width="50%" style="display: block; margin: auto;" /></p>
+<div id="pathview-metabolite-and-gene" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Pathview metabolite and gene<a href="example-rountine-analyses.html#pathview-metabolite-and-gene" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="example-rountine-analyses.html#cb69-1" tabindex="-1"></a><span class="fu">pPathview</span>(<span class="at">cpd.data=</span>cpd.data,<span class="at">gene.data=</span>gene_value,<span class="at">outdir=</span><span class="st">&quot;result/routine/path_meta-gene&quot;</span>)</span></code></pre></div>
+<p><img src="result/routine/path_meta-gene/hsa00640.pathview.gene.metabolite.png" width="622" style="display: block; margin: auto;" /></p>
 </div>
-<div id="metabolites-survival-plot" class="section level3 hasAnchor" number="3.4.3">
-<h3><span class="header-section-number">3.4.3</span> Metabolites’ survival plot<a href="example-rountine-analyses.html#metabolites-survival-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="example-rountine-analyses.html#cb44-1" aria-hidden="true" tabindex="-1"></a>metabolites <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;C03819&quot;</span>,<span class="st">&quot;C02918&quot;</span>,<span class="st">&quot;C03916&quot;</span>)</span>
-<span id="cb44-2"><a href="example-rountine-analyses.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">survMet</span>(dat_surv,metabolites,<span class="at">cluster_method=</span><span class="st">&quot;mean&quot;</span>,<span class="at">out_dir=</span><span class="st">&quot;result/survival/&quot;</span>)</span></code></pre></div>
-<p><img src="result/survival/C02918.survival.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="cox-analysis" class="section level3 hasAnchor" number="3.4.4">
-<h3><span class="header-section-number">3.4.4</span> Cox analysis<a href="example-rountine-analyses.html#cox-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="example-rountine-analyses.html#cb45-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">MetCox</span>(dat_surv)</span>
-<span id="cb45-2"><a href="example-rountine-analyses.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(result,<span class="st">&quot;result/clinical_cox.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names =</span> F)</span></code></pre></div>
+<div id="clinical-analysis" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Clinical analysis<a href="example-rountine-analyses.html#clinical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="time-series-of-clinical" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Time series of clinical<a href="example-rountine-analyses.html#time-series-of-clinical" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The column contains the time, group, clinical index(such as ALT), low and high.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="example-rountine-analyses.html#cb70-1" tabindex="-1"></a>clinical_index[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span>
+<span id="cb70-2"><a href="example-rountine-analyses.html#cb70-2" tabindex="-1"></a>time_series_ALT <span class="ot">&lt;-</span> <span class="fu">pCliTS</span>(clinical_index,<span class="st">&quot;ALT&quot;</span>)</span>
+<span id="cb70-3"><a href="example-rountine-analyses.html#cb70-3" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/09.clinical_time_series.pdf&quot;</span>,time_series_ALT,<span class="at">height =</span> <span class="dv">4</span>,<span class="at">width =</span> <span class="dv">5</span>)</span>
+<span id="cb70-4"><a href="example-rountine-analyses.html#cb70-4" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;result/routine/09.clinical_time_series.png&quot;</span>,time_series_ALT,<span class="at">height =</span> <span class="dv">4</span>,<span class="at">width =</span> <span class="dv">5</span>)</span></code></pre></div>
+<p><img src="result/routine/09.clinical_time_series.png" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="survival-analysis" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Survival analysis<a href="example-rountine-analyses.html#survival-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="example-rountine-analyses.html#cb71-1" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
+<span id="cb71-2"><a href="example-rountine-analyses.html#cb71-2" tabindex="-1"></a><span class="fu">names</span>(aml)[<span class="dv">3</span>] <span class="ot">=</span><span class="st">&quot;group&quot;</span></span>
+<span id="cb71-3"><a href="example-rountine-analyses.html#cb71-3" tabindex="-1"></a>p<span class="ot">=</span><span class="fu">survCli</span>(aml)</span>
+<span id="cb71-4"><a href="example-rountine-analyses.html#cb71-4" tabindex="-1"></a><span class="fu">pdf</span>(<span class="st">&quot;result/routine/10.survival.pdf&quot;</span>,<span class="at">height =</span> <span class="dv">6</span>,<span class="at">width =</span> <span class="dv">6</span>, <span class="at">onefile =</span> F)</span>
+<span id="cb71-5"><a href="example-rountine-analyses.html#cb71-5" tabindex="-1"></a>p</span>
+<span id="cb71-6"><a href="example-rountine-analyses.html#cb71-6" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
+<span id="cb71-7"><a href="example-rountine-analyses.html#cb71-7" tabindex="-1"></a></span>
+<span id="cb71-8"><a href="example-rountine-analyses.html#cb71-8" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;result/routine/10.survival.png&quot;</span>,<span class="at">height =</span> <span class="dv">600</span>,<span class="at">width =</span> <span class="dv">600</span>)</span>
+<span id="cb71-9"><a href="example-rountine-analyses.html#cb71-9" tabindex="-1"></a>p</span>
+<span id="cb71-10"><a href="example-rountine-analyses.html#cb71-10" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<p><img src="result/routine/10.survival.png" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="metabolites-survival-plot" class="section level3 hasAnchor" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Metabolites’ survival plot<a href="example-rountine-analyses.html#metabolites-survival-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="example-rountine-analyses.html#cb72-1" tabindex="-1"></a>metabolites <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;C03819&quot;</span>,<span class="st">&quot;C02918&quot;</span>,<span class="st">&quot;C03916&quot;</span>)</span>
+<span id="cb72-2"><a href="example-rountine-analyses.html#cb72-2" tabindex="-1"></a><span class="fu">survMet</span>(dat_surv,metabolites,<span class="at">cluster_method=</span><span class="st">&quot;mean&quot;</span>,<span class="at">out_dir=</span><span class="st">&quot;result/routine/survival/&quot;</span>)</span></code></pre></div>
+<p><img src="result/routine/survival/C02918.survival.png" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="cox-analysis" class="section level3 hasAnchor" number="4.4.4">
+<h3><span class="header-section-number">4.4.4</span> Cox analysis<a href="example-rountine-analyses.html#cox-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="example-rountine-analyses.html#cb73-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">MetCox</span>(dat_surv)</span>
+<span id="cb73-2"><a href="example-rountine-analyses.html#cb73-2" tabindex="-1"></a><span class="fu">write.table</span>(result,<span class="st">&quot;result/routine/11.clinical_cox.txt&quot;</span>,<span class="at">quote=</span>F,<span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,<span class="at">row.names =</span> F)</span></code></pre></div>
+
 </div>
 </div>
 </div>
@@ -472,7 +565,7 @@ The main objective of RefMet is to provide a standardized reference nomenclature
         </div>
       </div>
 <a href="example-unique-analyses.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="session-information.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="shiny.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -503,7 +596,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-example_routine.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-example_routine.Rmd",
 "text": "Edit"
 },
 "history": {
