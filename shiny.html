@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Session information | MNet</title>
-  <meta name="description" content="Chapter 8 Session information | MNet" />
+  <title>Chapter 5 Shiny | MNet</title>
+  <meta name="description" content="Chapter 5 Shiny | MNet" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Session information | MNet" />
+  <meta property="og:title" content="Chapter 5 Shiny | MNet" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Session information | MNet" />
+  <meta name="twitter:title" content="Chapter 5 Shiny | MNet" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="figure4.html"/>
-
+<link rel="prev" href="example-rountine-analyses.html"/>
+<link rel="next" href="figure1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -315,61 +315,149 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="session-information" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">Chapter 8</span> Session information<a href="session-information.html#session-information" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="session-information.html#cb104-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.3.1 (2023-06-16)
-## Platform: x86_64-apple-darwin20 (64-bit)
-## Running under: macOS Ventura 13.6.2
-## 
-## Matrix products: default
-## BLAS:   /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRblas.0.dylib 
-## LAPACK: /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRlapack.dylib;  LAPACK version 3.11.0
-## 
-## locale:
-## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
-## 
-## time zone: Asia/Shanghai
-## tzcode source: internal
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## other attached packages:
-## [1] RColorBrewer_1.1-3 ggplot2_3.4.4      stringr_1.5.1      MNet_0.1.0        
-## [5] dplyr_1.1.4       
-## 
-## loaded via a namespace (and not attached):
-##  [1] sass_0.4.8          utf8_1.2.4          generics_0.1.3     
-##  [4] class_7.3-22        stringi_1.8.3       lattice_0.22-5     
-##  [7] digest_0.6.34       magrittr_2.0.3      evaluate_0.23      
-## [10] grid_4.3.1          bookdown_0.37       fastmap_1.1.1      
-## [13] Matrix_1.6-4        jsonlite_1.8.8      e1071_1.7-14       
-## [16] limma_3.58.1        mgcv_1.9-0          fansi_1.0.6        
-## [19] crosstalk_1.2.1     scales_1.3.0        permute_0.9-7      
-## [22] jquerylib_0.1.4     cli_3.6.2           rlang_1.1.3        
-## [25] Biobase_2.62.0      ellipsis_0.3.2      munsell_0.5.0      
-## [28] splines_4.3.1       withr_3.0.0         cachem_1.0.8       
-## [31] yaml_2.3.8          vegan_2.6-4         tools_4.3.1        
-## [34] parallel_4.3.1      colorspace_2.1-0    DT_0.30            
-## [37] BiocGenerics_0.48.1 png_0.1-8           vctrs_0.6.5        
-## [40] R6_2.5.1            proxy_0.4-27        lifecycle_1.0.4    
-## [43] htmlwidgets_1.6.4   MASS_7.3-60         cluster_2.1.6      
-## [46] pkgconfig_2.0.3     pillar_1.9.0        bslib_0.6.1        
-## [49] gtable_0.3.4        data.table_1.14.10  glue_1.7.0         
-## [52] statmod_1.5.0       xfun_0.41           tibble_3.2.1       
-## [55] tidyselect_1.2.0    highr_0.10          rstudioapi_0.15.0  
-## [58] knitr_1.45          htmltools_0.5.7     nlme_3.1-164       
-## [61] igraph_1.6.0        rmarkdown_2.25      compiler_4.3.1</code></pre>
+<div id="shiny" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Shiny<a href="shiny.html#shiny" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="tencent-log" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Tencent log<a href="shiny.html#tencent-log" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="shiny.html#cb74-1" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-2"><a href="shiny.html#cb74-2" tabindex="-1"></a><span class="co"># Step1 Install R</span></span>
+<span id="cb74-3"><a href="shiny.html#cb74-3" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-4"><a href="shiny.html#cb74-4" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install r<span class="sc">-</span>base<span class="sc">-</span>core</span>
+<span id="cb74-5"><a href="shiny.html#cb74-5" tabindex="-1"></a></span>
+<span id="cb74-6"><a href="shiny.html#cb74-6" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-7"><a href="shiny.html#cb74-7" tabindex="-1"></a><span class="co"># Step2 Install packages</span></span>
+<span id="cb74-8"><a href="shiny.html#cb74-8" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-9"><a href="shiny.html#cb74-9" tabindex="-1"></a><span class="do">## Use R to install packages</span></span>
+<span id="cb74-10"><a href="shiny.html#cb74-10" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb74-11"><a href="shiny.html#cb74-11" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;shiny&quot;</span>)</span>
+<span id="cb74-12"><a href="shiny.html#cb74-12" tabindex="-1"></a></span>
+<span id="cb74-13"><a href="shiny.html#cb74-13" tabindex="-1"></a><span class="do">## Install shiny-sever</span></span>
+<span id="cb74-14"><a href="shiny.html#cb74-14" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install gdebi<span class="sc">-</span>core</span>
+<span id="cb74-15"><a href="shiny.html#cb74-15" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>download3.rstudio.org<span class="sc">/</span>ubuntu<span class="fl">-14.04</span><span class="sc">/</span>x86_64<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="dv">-1</span>.<span class="dv">5</span>.<span class="fl">14.948</span><span class="sc">-</span>amd64.deb</span>
+<span id="cb74-16"><a href="shiny.html#cb74-16" tabindex="-1"></a>sudo gdebi shiny<span class="sc">-</span>server<span class="dv">-1</span>.<span class="dv">5</span>.<span class="fl">14.948</span><span class="sc">-</span>amd64.deb</span>
+<span id="cb74-17"><a href="shiny.html#cb74-17" tabindex="-1"></a></span>
+<span id="cb74-18"><a href="shiny.html#cb74-18" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-19"><a href="shiny.html#cb74-19" tabindex="-1"></a><span class="co"># Step3 Set shiny sever</span></span>
+<span id="cb74-20"><a href="shiny.html#cb74-20" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-21"><a href="shiny.html#cb74-21" tabindex="-1"></a><span class="co"># check the condition of shiny sever</span></span>
+<span id="cb74-22"><a href="shiny.html#cb74-22" tabindex="-1"></a>sudo systemctl status shiny<span class="sc">-</span>server.service</span>
+<span id="cb74-23"><a href="shiny.html#cb74-23" tabindex="-1"></a></span>
+<span id="cb74-24"><a href="shiny.html#cb74-24" tabindex="-1"></a><span class="co"># After the end, the shiny user will appear, set the shiny user password</span></span>
+<span id="cb74-25"><a href="shiny.html#cb74-25" tabindex="-1"></a><span class="do">## Firstly, switch to root mode</span></span>
+<span id="cb74-26"><a href="shiny.html#cb74-26" tabindex="-1"></a>sudo <span class="sc">-</span>i</span>
+<span id="cb74-27"><a href="shiny.html#cb74-27" tabindex="-1"></a><span class="do">## Then, set the password</span></span>
+<span id="cb74-28"><a href="shiny.html#cb74-28" tabindex="-1"></a>sudo passwd shiny</span>
+<span id="cb74-29"><a href="shiny.html#cb74-29" tabindex="-1"></a></span>
+<span id="cb74-30"><a href="shiny.html#cb74-30" tabindex="-1"></a><span class="do">## Third, add groups</span></span>
+<span id="cb74-31"><a href="shiny.html#cb74-31" tabindex="-1"></a>sudo groupadd shiny<span class="sc">-</span>apps</span>
+<span id="cb74-32"><a href="shiny.html#cb74-32" tabindex="-1"></a>sudo usermod <span class="sc">-</span>aG shiny<span class="sc">-</span>apps shiny</span>
+<span id="cb74-33"><a href="shiny.html#cb74-33" tabindex="-1"></a>sudo usermod <span class="sc">-</span>aG shiny<span class="sc">-</span>apps ubuntu</span>
+<span id="cb74-34"><a href="shiny.html#cb74-34" tabindex="-1"></a></span>
+<span id="cb74-35"><a href="shiny.html#cb74-35" tabindex="-1"></a><span class="do">## Fourth, change the owner of the specified file to the specified user or group</span></span>
+<span id="cb74-36"><a href="shiny.html#cb74-36" tabindex="-1"></a>sudo chown <span class="sc">-</span>R shiny<span class="sc">:</span>shiny<span class="sc">-</span>apps <span class="sc">/</span>srv<span class="sc">/</span>shiny<span class="sc">-</span>server</span>
+<span id="cb74-37"><a href="shiny.html#cb74-37" tabindex="-1"></a>sudo chmod g<span class="sc">+</span>w <span class="sc">/</span>srv<span class="sc">/</span>shiny<span class="sc">-</span>server</span>
+<span id="cb74-38"><a href="shiny.html#cb74-38" tabindex="-1"></a>sudo chmod g<span class="sc">+</span>s <span class="sc">/</span>srv<span class="sc">/</span>shiny<span class="sc">-</span>server</span>
+<span id="cb74-39"><a href="shiny.html#cb74-39" tabindex="-1"></a></span>
+<span id="cb74-40"><a href="shiny.html#cb74-40" tabindex="-1"></a><span class="do">## Fifth, go to shiny user</span></span>
+<span id="cb74-41"><a href="shiny.html#cb74-41" tabindex="-1"></a>su <span class="sc">-</span> shiny</span>
+<span id="cb74-42"><a href="shiny.html#cb74-42" tabindex="-1"></a></span>
+<span id="cb74-43"><a href="shiny.html#cb74-43" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-44"><a href="shiny.html#cb74-44" tabindex="-1"></a><span class="co"># Step4 Configure .Rprofile</span></span>
+<span id="cb74-45"><a href="shiny.html#cb74-45" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-46"><a href="shiny.html#cb74-46" tabindex="-1"></a>vi .Rrofile</span>
+<span id="cb74-47"><a href="shiny.html#cb74-47" tabindex="-1"></a></span>
+<span id="cb74-48"><a href="shiny.html#cb74-48" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-49"><a href="shiny.html#cb74-49" tabindex="-1"></a><span class="co"># Step5 Configure .Renviron</span></span>
+<span id="cb74-50"><a href="shiny.html#cb74-50" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-51"><a href="shiny.html#cb74-51" tabindex="-1"></a>vi .Renviron</span>
+<span id="cb74-52"><a href="shiny.html#cb74-52" tabindex="-1"></a>R_LIBS<span class="ot">=</span><span class="er">/</span>home<span class="sc">/</span>shiny<span class="sc">/</span>R_Library</span>
+<span id="cb74-53"><a href="shiny.html#cb74-53" tabindex="-1"></a></span>
+<span id="cb74-54"><a href="shiny.html#cb74-54" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-55"><a href="shiny.html#cb74-55" tabindex="-1"></a><span class="co"># Step6 Install R packages</span></span>
+<span id="cb74-56"><a href="shiny.html#cb74-56" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-57"><a href="shiny.html#cb74-57" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
+<span id="cb74-58"><a href="shiny.html#cb74-58" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;remotes&quot;</span>)</span>
+<span id="cb74-59"><a href="shiny.html#cb74-59" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;shiny&quot;</span>)</span>
+<span id="cb74-60"><a href="shiny.html#cb74-60" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb74-61"><a href="shiny.html#cb74-61" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
+<span id="cb74-62"><a href="shiny.html#cb74-62" tabindex="-1"></a></span>
+<span id="cb74-63"><a href="shiny.html#cb74-63" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb74-64"><a href="shiny.html#cb74-64" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb74-65"><a href="shiny.html#cb74-65" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb74-66"><a href="shiny.html#cb74-66" tabindex="-1"></a></span>
+<span id="cb74-67"><a href="shiny.html#cb74-67" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;Github-Yilei/ggcor&quot;</span>)</span>
+<span id="cb74-68"><a href="shiny.html#cb74-68" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;hfang-bristol/XGR&quot;</span>)</span>
+<span id="cb74-69"><a href="shiny.html#cb74-69" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;tuantuangui/MNet&quot;</span>)</span>
+<span id="cb74-70"><a href="shiny.html#cb74-70" tabindex="-1"></a></span>
+<span id="cb74-71"><a href="shiny.html#cb74-71" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-72"><a href="shiny.html#cb74-72" tabindex="-1"></a><span class="co"># Step7 Shiny sets port 3838</span></span>
+<span id="cb74-73"><a href="shiny.html#cb74-73" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-74"><a href="shiny.html#cb74-74" tabindex="-1"></a></span>
+<span id="cb74-75"><a href="shiny.html#cb74-75" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-76"><a href="shiny.html#cb74-76" tabindex="-1"></a><span class="co"># Step8 cp the shiny project folders to /srv/shiny-server/</span></span>
+<span id="cb74-77"><a href="shiny.html#cb74-77" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-78"><a href="shiny.html#cb74-78" tabindex="-1"></a>cp <span class="sc">-</span>r MNet<span class="sc">/</span> <span class="er">/</span>srv<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span></span>
+<span id="cb74-79"><a href="shiny.html#cb74-79" tabindex="-1"></a>sudo chown R shiny<span class="sc">:</span>shiny MNet<span class="sc">/</span></span>
+<span id="cb74-80"><a href="shiny.html#cb74-80" tabindex="-1"></a>  </span>
+<span id="cb74-81"><a href="shiny.html#cb74-81" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-82"><a href="shiny.html#cb74-82" tabindex="-1"></a><span class="co"># Step9 Restart shiny server</span></span>
+<span id="cb74-83"><a href="shiny.html#cb74-83" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb74-84"><a href="shiny.html#cb74-84" tabindex="-1"></a>sudo systemctl restart shiny<span class="sc">-</span>server.service</span>
+<span id="cb74-85"><a href="shiny.html#cb74-85" tabindex="-1"></a></span>
+<span id="cb74-86"><a href="shiny.html#cb74-86" tabindex="-1"></a><span class="do">## If an error occurs, check the log file</span></span>
+<span id="cb74-87"><a href="shiny.html#cb74-87" tabindex="-1"></a><span class="sc">/</span>var<span class="sc">/</span>log<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span></span>
+<span id="cb74-88"><a href="shiny.html#cb74-88" tabindex="-1"></a></span>
+<span id="cb74-89"><a href="shiny.html#cb74-89" tabindex="-1"></a><span class="do">##If successful it displays the following contents</span></span>
+<span id="cb74-90"><a href="shiny.html#cb74-90" tabindex="-1"></a>http<span class="sc">:</span><span class="er">/</span><span class="dv">124</span>.<span class="dv">221</span>.<span class="fl">255.21</span><span class="sc">:</span><span class="dv">3838</span><span class="sc">/</span>MNet</span>
+<span id="cb74-91"><a href="shiny.html#cb74-91" tabindex="-1"></a></span>
+<span id="cb74-92"><a href="shiny.html#cb74-92" tabindex="-1"></a>www.mnet.vip</span></code></pre></div>
+</div>
+<div id="shiny-app-log" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Shiny app log<a href="shiny.html#shiny-app-log" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>您可以将开发好的Shiny APP部署在自己的服务器上，或是将其部署在公共的平台（即shinyapps.io）上。这里仅分享后者。对于如何将Shiny APP部署到自己的服务器中，将在未来进行补充。
+部署至shinyapps.io平台操作步骤:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="shiny.html#cb75-1" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb75-2"><a href="shiny.html#cb75-2" tabindex="-1"></a><span class="co"># Step1 在shinyapps.io官网上注册账号。您会被要求填写用户名</span></span>
+<span id="cb75-3"><a href="shiny.html#cb75-3" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb75-4"><a href="shiny.html#cb75-4" tabindex="-1"></a></span>
+<span id="cb75-5"><a href="shiny.html#cb75-5" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb75-6"><a href="shiny.html#cb75-6" tabindex="-1"></a><span class="co"># Step2 重新打开shinyapps.io官网，单击右上角Dashboard按钮（图1）。进入Dashboard界面（图2）后，单击左侧边栏Acccount &gt; Tokens。您将在右侧主面板中看到Token和Secret信息。单击“Show”按钮，弹出对话框。</span></span>
+<span id="cb75-7"><a href="shiny.html#cb75-7" tabindex="-1"></a><span class="co">#-----------------------------------------------------------------------------</span></span>
+<span id="cb75-8"><a href="shiny.html#cb75-8" tabindex="-1"></a></span>
+<span id="cb75-9"><a href="shiny.html#cb75-9" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb75-10"><a href="shiny.html#cb75-10" tabindex="-1"></a><span class="co"># Step3 不要关闭该网页。现假设您的APP名称是&quot;myapp&quot;。在本地的文件浏览器中新建一个文件夹，名为&quot;myapp&quot;。确保该文件夹中有“app.R”文件，并且&quot;app.R&quot;文件的末尾要有shinyApp函数（或能返回与shinyApp函数相同类型的对象的函数）。</span></span>
+<span id="cb75-11"><a href="shiny.html#cb75-11" tabindex="-1"></a><span class="co">#-----------------------------------------------------------------------------</span></span>
+<span id="cb75-12"><a href="shiny.html#cb75-12" tabindex="-1"></a></span>
+<span id="cb75-13"><a href="shiny.html#cb75-13" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb75-14"><a href="shiny.html#cb75-14" tabindex="-1"></a><span class="co"># Step4 用RStudio打开文件&quot;app.R&quot;。在命令行窗口中输入runApp()。这一步称为本地测试。若您的Shiny APP成功运行，方可进行下一步。</span></span>
+<span id="cb75-15"><a href="shiny.html#cb75-15" tabindex="-1"></a><span class="co">#-----------------------------------------------------------------------------</span></span>
+<span id="cb75-16"><a href="shiny.html#cb75-16" tabindex="-1"></a></span>
+<span id="cb75-17"><a href="shiny.html#cb75-17" tabindex="-1"></a><span class="co">#-------------------------------------------------------------------------------</span></span>
+<span id="cb75-18"><a href="shiny.html#cb75-18" tabindex="-1"></a><span class="co"># Step5 运行以下代码。若报错提示您未安装某些包，则采用install.package安装相应的包即可。代码运行完成后，会自动弹出一个网页，网页内容即是您的Shiny APP，表明部署完成。</span></span>
+<span id="cb75-19"><a href="shiny.html#cb75-19" tabindex="-1"></a><span class="co">#-----------------------------------------------------------------------------</span></span>
+<span id="cb75-20"><a href="shiny.html#cb75-20" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(rsconnect)) <span class="fu">install.packages</span>(<span class="st">&quot;rsconnect&quot;</span>)</span>
+<span id="cb75-21"><a href="shiny.html#cb75-21" tabindex="-1"></a>rsconnect<span class="sc">::</span><span class="fu">setAccountInfo</span>(<span class="at">name=</span><span class="st">&#39;Your Account&#39;</span>,</span>
+<span id="cb75-22"><a href="shiny.html#cb75-22" tabindex="-1"></a>                          <span class="at">token=</span><span class="st">&#39;Your Token&#39;</span>,</span>
+<span id="cb75-23"><a href="shiny.html#cb75-23" tabindex="-1"></a>                          <span class="at">secret=</span><span class="st">&#39;Your Secret&#39;</span>)</span>
+<span id="cb75-24"><a href="shiny.html#cb75-24" tabindex="-1"></a><span class="co">#name, token, secret信息来源于Step2网页中的对话框</span></span>
+<span id="cb75-25"><a href="shiny.html#cb75-25" tabindex="-1"></a><span class="fu">deployApp</span>()</span>
+<span id="cb75-26"><a href="shiny.html#cb75-26" tabindex="-1"></a></span>
+<span id="cb75-27"><a href="shiny.html#cb75-27" tabindex="-1"></a>如果出bug：</span>
+<span id="cb75-28"><a href="shiny.html#cb75-28" tabindex="-1"></a><span class="fu">library</span>(BiocManager)</span>
+<span id="cb75-29"><a href="shiny.html#cb75-29" tabindex="-1"></a>r<span class="ot">=</span>BiocManager<span class="sc">::</span><span class="fu">repositories</span>()</span>
+<span id="cb75-30"><a href="shiny.html#cb75-30" tabindex="-1"></a><span class="co">#getOption(&quot;repos&quot;)[[&quot;CRAN&quot;]] = &quot;http://cran.r-project.org&quot;</span></span>
+<span id="cb75-31"><a href="shiny.html#cb75-31" tabindex="-1"></a>r[<span class="dv">6</span>] <span class="ot">&lt;-</span> <span class="st">&quot;http://cran.r-project.org&quot;</span></span>
+<span id="cb75-32"><a href="shiny.html#cb75-32" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span>r)</span></code></pre></div>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="figure4.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="example-rountine-analyses.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="figure1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -400,7 +488,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/07-session_information.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-shiny.Rmd",
 "text": "Edit"
 },
 "history": {
