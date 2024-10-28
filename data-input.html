@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>MNet Manual</title>
-  <meta name="description" content="MNet Manual" />
+  <title>2 Data input | MNet Manual</title>
+  <meta name="description" content="2 Data input | MNet Manual" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="MNet Manual" />
+  <meta property="og:title" content="2 Data input | MNet Manual" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="MNet Manual" />
+  <meta name="twitter:title" content="2 Data input | MNet Manual" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="index.html"/>
 
-<link rel="next" href="input-and-output.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -140,21 +140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> OVERVIEW</a></li>
-<li class="chapter" data-level="2" data-path="input-and-output.html"><a href="input-and-output.html"><i class="fa fa-check"></i><b>2</b> Input and output</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="input-and-output.html"><a href="input-and-output.html#data-input"><i class="fa fa-check"></i><b>2.1</b> Data input</a></li>
-<li class="chapter" data-level="2.2" data-path="input-and-output.html"><a href="input-and-output.html#result-output"><i class="fa fa-check"></i><b>2.2</b> Result output</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="metabolic-network.html"><a href="metabolic-network.html"><i class="fa fa-check"></i><b>3</b> Metabolic Network</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="metabolic-network.html"><a href="metabolic-network.html#meta-gene-network"><i class="fa fa-check"></i><b>3.1</b> Meta-Gene Network</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="extended-pathway-analyses.html"><a href="extended-pathway-analyses.html"><i class="fa fa-check"></i><b>4</b> Extended Pathway Analyses</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="extended-pathway-analyses.html"><a href="extended-pathway-analyses.html#extended-pathway-enrichment-analysis-epea"><i class="fa fa-check"></i><b>4.1</b> Extended pathway enrichment analysis (ePEA)</a></li>
-<li class="chapter" data-level="4.2" data-path="extended-pathway-analyses.html"><a href="extended-pathway-analyses.html#extended-differential-abundance-eda-score"><i class="fa fa-check"></i><b>4.2</b> Extended differential abundance (EDA) score</a></li>
-<li class="chapter" data-level="4.3" data-path="extended-pathway-analyses.html"><a href="extended-pathway-analyses.html#extended-data-set-enrichment-analysis-esea"><i class="fa fa-check"></i><b>4.3</b> Extended data set enrichment analysis (ESEA)</a></li>
-</ul></li>
+<li class="chapter" data-level="2" data-path="data-input.html"><a href="data-input.html"><i class="fa fa-check"></i><b>2</b> Data input</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -175,58 +161,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">MNet Manual</h1>
-<p class="date"><em>2024-10-28</em></p>
-</div>
-<div id="overview" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> OVERVIEW<a href="index.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><img src="figure/overview.png" width="993" style="display: block; margin: auto;" /></p>
-<p>The surge in metabolomics and transcriptomic data has necessitated the development of innovative network analysis tools for the integrated analysis of multi-omics data. However, current tools often focus on individual pathways, extracting the subnetwork for the interested genes and metabolites or extracting the correlation subnetwork, neglecting the valuable information embedded in gene-metabolite or metabolite-metabolite knowledge networks across all metabolic pathways. In response to this gap, we introduce <strong>an integrated analytical tool MNet, an R package for mining metabolomics coupled with clinical and transcriptomic data</strong>.</p>
-<p>MNet introduces three key feature to enhance the analytical capabilities：</p>
+<div id="data-input" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Data input<a href="data-input.html#data-input" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The sample data comprises an integrated analysis of metabolomic and transcriptomic profiles in triple-negative breast cancer.</p>
 <ul>
 <li>
-<strong>Knowledgebase - dbMNet</strong>: dbKEGG for extended pathway analysis and dbNet for metabolism-related subnetwork analysis<br />
-
+<strong>Metabolite Data</strong>: Enter data containing only metabolites.
+<img src="figure/Meta.png" width="245" style="display: block; margin: auto auto auto 0;" />
 <li>
-<strong>Algorithm for extended pathway analysis</strong>: identify dysregulated metabolic pathways via considering both metabolites and genes<br />
-
-<ul>
+<strong>GeneExp Data</strong>: Enter data containing only genes expression.
+<img src="figure/Gene.png" width="249" style="display: block; margin: auto auto auto 0;" />
 <li>
-Extended pathway enrichment analysis (EPEA)
-<li>
-Extended differential abundance analysis (EDA)
-<li>
-Extended data sets enrichment analysis (ESEA)
+<strong>Group Data</strong>: Enter data containing both metabolites and genes expression.
+<img src="figure/Group.png" width="249" style="display: block; margin: auto auto auto 0;" />
 </ul>
-<li>
-<strong>Algorithm for metabolism-related subnetwork analysis</strong>: Maximising the potential of our well-established dnet algorithm in integrative analysis of metabolomic and transcriptomic data to provide a systems-level understanding of metabolic interconnections<br />
-
-</ul>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left"><strong>MNet Installation</strong></td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(BiocManager)){</span>
-<span id="cb1-2"><a href="index.html#cb1-2" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
-<span id="cb1-3"><a href="index.html#cb1-3" tabindex="-1"></a>}</span>
-<span id="cb1-4"><a href="index.html#cb1-4" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="index.html#cb1-5" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(remotes)) {</span>
-<span id="cb1-6"><a href="index.html#cb1-6" tabindex="-1"></a>  BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;remotes&quot;</span>, <span class="at">dependencies=</span>T)</span>
-<span id="cb1-7"><a href="index.html#cb1-7" tabindex="-1"></a>}</span>
-<span id="cb1-8"><a href="index.html#cb1-8" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="index.html#cb1-9" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(devtools)) {</span>
-<span id="cb1-10"><a href="index.html#cb1-10" tabindex="-1"></a>  BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;devtools&quot;</span>, <span class="at">dependencies=</span>T)</span>
-<span id="cb1-11"><a href="index.html#cb1-11" tabindex="-1"></a>}</span>
-<span id="cb1-12"><a href="index.html#cb1-12" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="index.html#cb1-13" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;hfang-bristol/dnet&quot;</span>, <span class="at">dependencies=</span>T)</span>
-<span id="cb1-14"><a href="index.html#cb1-14" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;tuantuangui/MNet&quot;</span>, <span class="at">dependencies=</span>T)</span>
-<span id="cb1-15"><a href="index.html#cb1-15" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="index.html#cb1-16" tabindex="-1"></a><span class="do">## Check the package ‘MNet’ successfully installed</span></span>
-<span id="cb1-17"><a href="index.html#cb1-17" tabindex="-1"></a><span class="fu">library</span>(<span class="at">help=</span>MNet)</span></code></pre></div>
 
 </div>
             </section>
@@ -234,8 +182,8 @@ Extended data sets enrichment analysis (ESEA)
           </div>
         </div>
       </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="input-and-output.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -266,7 +214,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-SampleData.Rmd",
 "text": "Edit"
 },
 "history": {

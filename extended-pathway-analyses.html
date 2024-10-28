@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>MNet Manual</title>
-  <meta name="description" content="MNet Manual" />
+  <title>4 Extended Pathway Analyses | MNet Manual</title>
+  <meta name="description" content="4 Extended Pathway Analyses | MNet Manual" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="MNet Manual" />
+  <meta property="og:title" content="4 Extended Pathway Analyses | MNet Manual" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="MNet Manual" />
+  <meta name="twitter:title" content="4 Extended Pathway Analyses | MNet Manual" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="metabolic-network.html"/>
 
-<link rel="next" href="input-and-output.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -175,67 +175,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">MNet Manual</h1>
-<p class="date"><em>2024-10-28</em></p>
+<div id="extended-pathway-analyses" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Extended Pathway Analyses<a href="extended-pathway-analyses.html#extended-pathway-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="extended-pathway-enrichment-analysis-epea" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Extended pathway enrichment analysis (ePEA)<a href="extended-pathway-analyses.html#extended-pathway-enrichment-analysis-epea" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Procedure</strong></p>
+<ul>
+<li>
+<p>Step 1: Enter <strong>Metabolite Data</strong>, <strong>GeneExp Data</strong> and <strong>Group Data</strong>, respectively.</p>
+<li>
+<p>Step 2: Select <strong>Log(FoldChange), Padjust Cutoff and Pathway Pcutoff</strong>, respectively.</p>
+<ul>
+<li>
+<p><strong>Fold change</strong>: Identifies key metabolites with significant expression shifts between conditions, revealing potential metabolic alterations and pathway involvement in biological processes.</p>
+<li>
+<p><strong>Padjust Cutoff</strong>: Helps filter significant results by controlling for false positives, ensuring that only statistically robust pathways are identified for further investigation.</p>
+<li>
+<p><strong>Pathway Pcutoff</strong>: Sets a significance threshold, helping to identify pathways with meaningful changes while reducing the likelihood of false-positive findings.</p>
+</ul>
+<li>
+<p>Step 3: Select <strong>Figure Format</strong> and adjust <strong>figure width, height and DPI</strong>.</p>
+<li>
+<p>Step 4: click <strong>Figure Download</strong> to export analysis result.</p>
+</ul>
+<hr />
+<p><strong>Results</strong></p>
+<p><img src="figure/EPEA.png" width="818" style="display: block; margin: auto;" /></p>
 </div>
-<div id="overview" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">1</span> OVERVIEW<a href="index.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><img src="figure/overview.png" width="993" style="display: block; margin: auto;" /></p>
-<p>The surge in metabolomics and transcriptomic data has necessitated the development of innovative network analysis tools for the integrated analysis of multi-omics data. However, current tools often focus on individual pathways, extracting the subnetwork for the interested genes and metabolites or extracting the correlation subnetwork, neglecting the valuable information embedded in gene-metabolite or metabolite-metabolite knowledge networks across all metabolic pathways. In response to this gap, we introduce <strong>an integrated analytical tool MNet, an R package for mining metabolomics coupled with clinical and transcriptomic data</strong>.</p>
-<p>MNet introduces three key feature to enhance the analytical capabilities：</p>
+<div id="extended-differential-abundance-eda-score" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Extended differential abundance (EDA) score<a href="extended-pathway-analyses.html#extended-differential-abundance-eda-score" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Procedure</strong></p>
 <ul>
 <li>
-<strong>Knowledgebase - dbMNet</strong>: dbKEGG for extended pathway analysis and dbNet for metabolism-related subnetwork analysis<br />
-
+<p>Step 1: Enter <strong>Metabolite Data</strong>, <strong>GeneExp Data</strong> and <strong>Group Data</strong>, respectively.</p>
 <li>
-<strong>Algorithm for extended pathway analysis</strong>: identify dysregulated metabolic pathways via considering both metabolites and genes<br />
-
+<p>Step 2: Select <strong>Log(FoldChange), Padjust Cutoff and Pathway Pcutoff</strong>, respectively.</p>
 <ul>
 <li>
-Extended pathway enrichment analysis (EPEA)
+<p><strong>Fold change</strong>: Identifies key metabolites with significant expression shifts between conditions, revealing potential metabolic alterations and pathway involvement in biological processes.</p>
 <li>
-Extended differential abundance analysis (EDA)
+<p><strong>Padjust Cutoff</strong>: Helps filter significant results by controlling for false positives, ensuring that only statistically robust pathways are identified for further investigation.</p>
 <li>
-Extended data sets enrichment analysis (ESEA)
+<p><strong>Pathway Pcutoff</strong>: Sets a significance threshold, helping to identify pathways with meaningful changes while reducing the likelihood of false-positive findings.</p>
 </ul>
 <li>
-<strong>Algorithm for metabolism-related subnetwork analysis</strong>: Maximising the potential of our well-established dnet algorithm in integrative analysis of metabolomic and transcriptomic data to provide a systems-level understanding of metabolic interconnections<br />
-
+<p>Step 3: Select <strong>Figure Format</strong> and adjust <strong>figure width, height and DPI</strong>.</p>
+<li>
+<p>Step 4: click <strong>Figure Download</strong> to export analysis result.</p>
 </ul>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left"><strong>MNet Installation</strong></td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(BiocManager)){</span>
-<span id="cb1-2"><a href="index.html#cb1-2" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;BiocManager&quot;</span>)</span>
-<span id="cb1-3"><a href="index.html#cb1-3" tabindex="-1"></a>}</span>
-<span id="cb1-4"><a href="index.html#cb1-4" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="index.html#cb1-5" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(remotes)) {</span>
-<span id="cb1-6"><a href="index.html#cb1-6" tabindex="-1"></a>  BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;remotes&quot;</span>, <span class="at">dependencies=</span>T)</span>
-<span id="cb1-7"><a href="index.html#cb1-7" tabindex="-1"></a>}</span>
-<span id="cb1-8"><a href="index.html#cb1-8" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="index.html#cb1-9" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(devtools)) {</span>
-<span id="cb1-10"><a href="index.html#cb1-10" tabindex="-1"></a>  BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;devtools&quot;</span>, <span class="at">dependencies=</span>T)</span>
-<span id="cb1-11"><a href="index.html#cb1-11" tabindex="-1"></a>}</span>
-<span id="cb1-12"><a href="index.html#cb1-12" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="index.html#cb1-13" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;hfang-bristol/dnet&quot;</span>, <span class="at">dependencies=</span>T)</span>
-<span id="cb1-14"><a href="index.html#cb1-14" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">&quot;tuantuangui/MNet&quot;</span>, <span class="at">dependencies=</span>T)</span>
-<span id="cb1-15"><a href="index.html#cb1-15" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="index.html#cb1-16" tabindex="-1"></a><span class="do">## Check the package ‘MNet’ successfully installed</span></span>
-<span id="cb1-17"><a href="index.html#cb1-17" tabindex="-1"></a><span class="fu">library</span>(<span class="at">help=</span>MNet)</span></code></pre></div>
+<hr />
+<p><strong>Results</strong></p>
+<p><img src="figure/EDA.png" width="820" style="display: block; margin: auto;" /></p>
+</div>
+<div id="extended-data-set-enrichment-analysis-esea" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Extended data set enrichment analysis (ESEA)<a href="extended-pathway-analyses.html#extended-data-set-enrichment-analysis-esea" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Procedure</strong></p>
+<ul>
+<li>
+<p>Step 1: Enter <strong>Metabolite Data</strong>, <strong>GeneExp Data</strong> and <strong>Group Data</strong>, respectively.</p>
+<li>
+<p>Step 2: Select <strong>Log(FoldChange), Padjust Cutoff and Pathway Pcutoff</strong>, respectively.</p>
+<ul>
+<li>
+<p><strong>Fold change</strong>: Identifies key metabolites with significant expression shifts between conditions, revealing potential metabolic alterations and pathway involvement in biological processes.</p>
+<li>
+<p><strong>Padjust Cutoff</strong>: Helps filter significant results by controlling for false positives, ensuring that only statistically robust pathways are identified for further investigation.</p>
+<li>
+<p><strong>Pathway Pcutoff</strong>: Sets a significance threshold, helping to identify pathways with meaningful changes while reducing the likelihood of false-positive findings.</p>
+</ul>
+<li>
+<p>Step 3: Select <strong>Figure Format</strong> and adjust <strong>figure width, height and DPI</strong>.</p>
+<li>
+<p>Step 4: click <strong>Figure Download</strong> to export analysis result.</p>
+</ul>
+<hr />
+<p><strong>Results</strong></p>
+<p><img src="figure/ESEA.png" width="826" style="display: block; margin: auto;" /></p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="metabolic-network.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="input-and-output.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -266,7 +291,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-EPA.Rmd",
 "text": "Edit"
 },
 "history": {
